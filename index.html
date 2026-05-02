@@ -287,7 +287,7 @@ details[open] .ss-chev{ transform:rotate(90deg); }
       <button class="ss-btn-rausch" data-cta>Demander un devis gratuit</button>
     </div>
     <div class="flex md:hidden items-center gap-2">
-      <a href="tel:0800300300" aria-label="Appeler" class="w-11 h-11 inline-flex items-center justify-center rounded-full transition-colors" style="background:#0e7490; color:#fff;">
+      <a href="tel:0800300300" aria-label="Appeler" class="inline-flex items-center justify-center rounded-full transition-colors shrink-0" style="background:#0e7490; color:#fff; width:44px; height:44px;">
         <i data-lucide="phone" class="w-[20px] h-[20px]"></i>
       </a>
       <button id="mobBtn" aria-label="Ouvrir le menu" class="w-12 h-12 inline-flex items-center justify-center rounded-full hover:bg-[#f7f7f7]">
@@ -312,8 +312,6 @@ details[open] .ss-chev{ transform:rotate(90deg); }
 <main>
 <!-- ====== HERO ====== -->
 <section id="main" aria-label="Bien vieillir chez soi" class="relative w-full text-white" style="background:#18100f; min-height:540px;">
-  <div class="absolute pointer-events-none rounded-full hidden lg:block" style="right:-80px; top:50%; transform:translateY(-50%); width:560px; height:560px; background:radial-gradient(circle, rgba(14,116,144,0.36) 0%, rgba(14,116,144,0.14) 38%, rgba(14,116,144,0.04) 62%, transparent 74%); filter:blur(6px); z-index:1;"></div>
-  <div class="absolute pointer-events-none hidden lg:block" style="right:0; top:10%; bottom:10%; width:55%; background:radial-gradient(ellipse at 80% 50%, rgba(14,116,144,0.09) 0%, rgba(14,116,144,0.04) 40%, transparent 70%); filter:blur(20px); z-index:2;"></div>
 
   <div class="relative max-w-[1280px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-2" id="heroGrid" style="z-index:3; min-height:540px;">
     <div class="flex flex-col justify-center pt-14 lg:pt-20 pb-20 lg:pb-24">
@@ -353,21 +351,21 @@ details[open] .ss-chev{ transform:rotate(90deg); }
     <div class="relative hidden lg:block overflow-hidden" style="margin-right:-56px; margin-left:-24px;">
       <img src="images/hero.jpg" alt="Un couple de seniors heureux dans leur salon lumineux" fetchpriority="high" class="absolute bottom-0 right-0 object-cover object-top" style="height:88%; width:100%; z-index:2; mask-image:linear-gradient(to right, transparent 0%, black 20%, black 78%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 12%, black 85%, transparent 100%); -webkit-mask-image:linear-gradient(to right, transparent 0%, black 20%, black 78%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 12%, black 85%, transparent 100%); mask-composite:intersect; -webkit-mask-composite:source-in;" />
       <!-- Stat cards -->
-      <div class="absolute z-[4]" style="top:8%; right:6%;">
+      <div class="absolute z-[4]" style="top:8%; right:3%;">
         <div style="background:rgba(255,255,255,0.09); backdrop-filter:blur(14px) saturate(120%); border:1px solid rgba(255,255,255,0.18); border-radius:14px; padding:16px 20px; box-shadow:0 4px 20px rgba(0,0,0,0.35); min-width:180px;">
           <div class="flex items-center gap-2 mb-1"><span class="w-2 h-2 rounded-full" style="background:#0e7490;"></span><span class="text-[10px] font-bold uppercase tracking-widest text-white/60">Nos partenaires</span></div>
           <div class="text-[30px] font-bold text-white leading-none">1 200+</div>
           <div class="text-[13px] text-white/65 mt-1">Professionnels vérifiés</div>
         </div>
       </div>
-      <div class="absolute z-[4]" style="top:40%; right:2%;">
+      <div class="absolute z-[4]" style="top:40%; right:-1%;">
         <div style="background:rgba(255,255,255,0.09); backdrop-filter:blur(14px) saturate(120%); border:1px solid rgba(255,255,255,0.18); border-radius:14px; padding:16px 20px; box-shadow:0 4px 20px rgba(0,0,0,0.35); min-width:180px;">
           <div class="flex items-center gap-2 mb-1"><span class="w-2 h-2 rounded-full" style="background:#0e7490;"></span><span class="text-[10px] font-bold uppercase tracking-widest text-white/60">Établissements</span></div>
           <div class="text-[30px] font-bold text-white leading-none">8 200+</div>
           <div class="text-[13px] text-white/65 mt-1">EHPAD référencés en France</div>
         </div>
       </div>
-      <div class="absolute z-[4]" style="bottom:18%; right:12%;">
+      <div class="absolute z-[4]" style="bottom:18%; right:9%;">
         <div style="background:rgba(255,255,255,0.09); backdrop-filter:blur(14px) saturate(120%); border:1px solid rgba(255,255,255,0.18); border-radius:14px; padding:16px 20px; box-shadow:0 4px 20px rgba(0,0,0,0.35); min-width:180px;">
           <div class="flex items-center gap-2 mb-1"><span class="w-2 h-2 rounded-full" style="background:#0e7490;"></span><span class="text-[10px] font-bold uppercase tracking-widest text-white/60">Satisfaction</span></div>
           <div class="text-[30px] font-bold text-white leading-none">97%</div>
