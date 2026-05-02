@@ -15,4 +15,5 @@ jobs:
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: 076c062e34b0f369641aa57362aa953b
           command: pages deploy . --project-name=sante-senior --branch=main
