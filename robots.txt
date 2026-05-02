@@ -1,0 +1,162 @@
+# Date : 2 Mai 2026
+# ------------------------------------------------------------------
+# 1. RÈGLES GÉNÉRALES
+# ------------------------------------------------------------------
+User-agent: *
+Allow: /
+Allow: /llms.txt
+
+# ------------------------------------------------------------------
+# 2. MOTEURS DE RECHERCHE CLASSIQUES
+# ------------------------------------------------------------------
+User-agent: Googlebot
+Allow: /
+
+User-agent: bingbot
+Allow: /
+
+# ------------------------------------------------------------------
+# 3. MOTEURS IA "RECHERCHE"
+# ------------------------------------------------------------------
+
+# OpenAI (ChatGPT Search / Navigation)
+# CORRECTION CRITIQUE : OAI-SearchBot = indexation ChatGPT Search
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# Anthropic (Claude Navigation temps réel)
+User-agent: Claude-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+# Perplexity AI (Moteur de réponse)
+User-agent: PerplexityBot
+Allow: /
+
+# Cohere (Command-R+ Search Agent - B2B)
+User-agent: cohere-ai
+Allow: /
+
+# Apple (Siri / Spotlight)
+User-agent: Applebot
+Allow: /
+
+# You.com
+User-agent: YouBot
+Allow: /
+
+# Google Gemini Agent (Navigation autonome pour utilisateurs)
+User-agent: GoogleOther
+Allow: /
+
+# Mistral AI (Le Chat - France/Europe RGPD-compliant)
+User-agent: MistralAI-User
+Allow: /
+
+User-agent: MistralBot
+Allow: /
+
+# Kagi Search (Moteur premium privacy-focused)
+User-agent: Kagibot
+Allow: /
+
+# ------------------------------------------------------------------
+# 4. BOTS D'ENTRAÎNEMENT (Protection IP = NON)
+# ------------------------------------------------------------------
+
+# OpenAI Training
+User-agent: GPTBot
+Disallow: /
+
+# Anthropic Training (tous user-agents historiques)
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: Claude-Web
+Disallow: /
+
+# Google Gemini Training (N'impacte pas SEO Google Search)
+User-agent: Google-Extended
+Disallow: /
+
+# Apple Intelligence Training
+User-agent: Applebot-Extended
+Disallow: /
+
+# Meta (Facebook/Llama) Training
+User-agent: FacebookBot
+Disallow: /
+
+User-agent: meta-externalagent
+Disallow: /
+
+User-agent: Meta-ExternalAgent
+Disallow: /
+
+User-agent: Meta-ExternalFetcher
+Disallow: /
+
+# Cohere Training (DISTINCT de cohere-ai search agent)
+User-agent: cohere-training-data-crawler
+Disallow: /
+
+# ------------------------------------------------------------------
+# 5. BOTS AGRESSIFS / CONTROVERSÉS
+# ------------------------------------------------------------------
+
+# Common Crawl (Utilisé pour training sans citation)
+User-agent: CCBot
+Disallow: /
+
+# ByteDance (TikTok) - Très agressif
+User-agent: Bytespider
+Disallow: /
+
+User-agent: TikTokSpider
+Disallow: /
+
+# Amazon
+User-agent: Amazonbot
+Disallow: /
+
+# Scrapers de données divers
+User-agent: Diffbot
+Disallow: /
+
+User-agent: ImagesiftBot
+Disallow: /
+
+User-agent: Omgilibot
+Disallow: /
+
+User-agent: PetalBot
+Disallow: /
+
+# AI Training Scrapers
+User-agent: AI2Bot
+Disallow: /
+
+User-agent: AI2Bot-Dolma
+Disallow: /
+
+# Image dataset scraper (LAION-5B, training vision models)
+User-agent: img2dataset
+Disallow: /
+
+# Generic scrapers (efficacité limitée, scrapers pros changent user-agent)
+User-agent: Scrapy
+Disallow: /
+
+# ------------------------------------------------------------------
+# 6. SITEMAPS & LLMs
+# ------------------------------------------------------------------
+Sitemap: https://sante-senior.pages.dev/sitemap.xml
+# llms.txt: https://sante-senior.pages.dev/llms.txt
