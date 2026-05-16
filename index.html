@@ -279,7 +279,7 @@ details[open] .ss-chev{ transform:rotate(90deg); }
 }
 .ss-avatar-initial.ss-on-dark{ box-shadow:0 0 0 2px rgba(255,255,255,0.20), 0 0 0 4px rgba(14,116,144,0.30); }
 
-/* ── Hero text column: centered on mobile (full-width dark zone), edge-aligned to container on desktop ── */
+/* ── Hero text column: centered on mobile (full-width dark zone), comfortable left padding on desktop ── */
 .ss-hero-text{
   padding-left:24px; padding-right:24px;
   align-items:center; text-align:center;
@@ -290,7 +290,8 @@ details[open] .ss-chev{ transform:rotate(90deg); }
 @media (min-width:1024px){
   .ss-hero-text{
     align-items:flex-start; text-align:left;
-    padding-left:max(40px, calc((100vw - 1200px) / 2 + 24px));
+    /* Comfortable left margin scaling with viewport — text starts well to the left of center */
+    padding-left:clamp(48px, 6vw, 120px);
     padding-right:24px;
   }
   .ss-hero-text > *{ align-self:flex-start; }
@@ -384,7 +385,7 @@ details[open] .ss-chev{ transform:rotate(90deg); }
 <!-- ====== HERO (full-width section, content respects container 1200px) ====== -->
 <section id="main" aria-label="Bien vieillir chez soi" class="relative w-full text-white overflow-hidden" style="background:#18100f; min-height:540px;">
 
-  <div class="relative grid grid-cols-1 lg:grid-cols-[1fr_1.2fr]" id="heroGrid" style="z-index:3; min-height:540px;">
+  <div class="relative grid grid-cols-1 lg:grid-cols-[1.05fr_1fr]" id="heroGrid" style="z-index:3; min-height:540px;">
     <div class="ss-hero-text flex flex-col justify-center pt-14 lg:pt-20 pb-20 lg:pb-24">
       <div class="flex items-center gap-2 mb-4">
         <span class="inline-block w-2 h-2 rounded-full" style="background:#0e7490;"></span>
@@ -714,19 +715,24 @@ details[open] .ss-chev{ transform:rotate(90deg); }
   </div>
 </section>
 
-<!-- ====== QUI SOMMES-NOUS ? ====== -->
+<!-- ====== QUI SOMMES-NOUS ? (full-width cinematic image on top) ====== -->
 <section id="qui-sommes-nous" class="bg-white section">
-  <div class="container grid lg:grid-cols-[1fr_1.1fr] gap-10 lg:gap-16 items-center">
-    <div class="rounded-[20px] overflow-hidden order-first lg:order-first" style="aspect-ratio:4/5; max-height:560px;">
-      <img src="images/pourquoi-conseiller.jpg" alt="Une conseillère Santé Senior à l'écoute d'une famille française dans son intérieur." class="w-full h-full object-cover" loading="lazy" />
+  <div class="container">
+    <div class="rounded-[24px] overflow-hidden mb-10 lg:mb-14" style="aspect-ratio:21/9; max-height:480px;">
+      <img src="images/qui-sommes-nous.jpg" alt="Une conseillère Santé Senior partage un thé avec un couple de seniors français dans leur cuisine lumineuse." class="w-full h-full object-cover" loading="lazy" />
     </div>
-    <div>
-      <span class="ss-tag" style="color:#0e7490;">Qui sommes-nous</span>
-      <h2 class="ss-h2 mt-3 mb-5" style="text-wrap:balance;">Le portail des familles françaises pour <span class="ss-script" style="font-size:1.35em;color:#0e7490;line-height:1.2;">bien vieillir</span></h2>
-      <p class="ss-body mb-5">Santé Senior est né d'un constat simple : organiser le bien-vieillir d'un parent reste un parcours du combattant en France. Dix sites pour comparer un EHPAD, vingt-cinq démarches pour obtenir l'APA, des conseils contradictoires sur Internet.</p>
-      <p class="ss-body mb-8">Nous avons rassemblé en un seul endroit toutes les solutions habitat, santé, aides et services, validées par notre comité de médecins. Un conseiller humain, joignable au numéro vert, vous accompagne du premier appel à l'installation chez vous.</p>
-
-      <div class="grid grid-cols-2 gap-5 mb-8">
+    <div class="grid lg:grid-cols-[1.1fr_1fr] gap-10 lg:gap-16">
+      <div>
+        <span class="ss-tag" style="color:#0e7490;">Qui sommes-nous</span>
+        <h2 class="ss-h2 mt-3 mb-5" style="text-wrap:balance;">Le portail des familles françaises pour <span class="ss-script" style="font-size:1.35em;color:#0e7490;line-height:1.2;">bien vieillir</span></h2>
+        <p class="ss-body mb-5">Santé Senior est né d'un constat simple : organiser le bien-vieillir d'un parent reste un parcours du combattant en France. Dix sites pour comparer un EHPAD, vingt-cinq démarches pour obtenir l'APA, des conseils contradictoires sur Internet.</p>
+        <p class="ss-body mb-8">Nous avons rassemblé en un seul endroit toutes les solutions habitat, santé, aides et services, validées par notre comité de médecins. Un conseiller humain, joignable au numéro vert, vous accompagne du premier appel à l'installation chez vous.</p>
+        <div class="flex flex-wrap gap-4 items-center">
+          <button class="ss-btn-rausch" data-cta><i data-lucide="compass" class="w-5 h-5"></i>Démarrer le diagnostic</button>
+          <a href="#equipe" class="ss-link text-[15px] font-semibold" style="color:#0e7490;">Découvrir notre comité →</a>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 self-center">
         <div>
           <div class="flex items-center gap-3 mb-2">
             <div class="w-10 h-10 rounded-[10px] inline-flex items-center justify-center shrink-0" style="background:rgba(14,116,144,0.10); color:#0e7490;"><i data-lucide="stethoscope" class="w-5 h-5"></i></div>
@@ -755,11 +761,6 @@ details[open] .ss-chev{ transform:rotate(90deg); }
           </div>
           <p class="text-[14px] leading-[1.5]" style="color:var(--muted);">Hébergement français certifié santé. Aucune cession sans votre accord.</p>
         </div>
-      </div>
-
-      <div class="flex flex-wrap gap-4 items-center">
-        <button class="ss-btn-rausch" data-cta><i data-lucide="compass" class="w-5 h-5"></i>Démarrer le diagnostic</button>
-        <a href="#equipe" class="ss-link text-[15px] font-semibold" style="color:#0e7490;">Découvrir notre comité →</a>
       </div>
     </div>
   </div>
