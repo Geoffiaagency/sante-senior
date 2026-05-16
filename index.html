@@ -125,13 +125,17 @@ details[open] .ss-chev{ transform:rotate(90deg); }
 .mega-guide-thumb img{ width:100%; height:100%; object-fit:cover; display:block; }
 .mega-guide-title{ font-size:14px; font-weight:500; color:#222; line-height:1.4; }
 
-/* Solution tiles — image-bg with hover lift + chip arrow scale */
-.ss-sol-tile{ box-shadow:0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.06); transition:box-shadow 250ms, transform 250ms; }
+/* Solution tiles — vertical image-bg with hover lift + chip arrow scale (GreenKub-inspired) */
+.ss-sol-tile{
+  aspect-ratio:3/4;
+  box-shadow:0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.06);
+  transition:box-shadow 250ms, transform 250ms;
+}
 .ss-sol-tile:hover{ box-shadow:0 4px 12px rgba(14,116,144,0.12), 0 12px 32px rgba(14,116,144,0.20); transform:translateY(-2px); }
 .ss-sol-tile:hover img{ transform:scale(1.08) !important; }
 .ss-sol-tile:hover > div:nth-child(3) > div:first-child{ transform:rotate(-12deg) scale(1.08); background:var(--rausch) !important; color:#fff !important; }
 @media (max-width:743px){
-  .ss-sol-tile{ border-radius:20px !important; }
+  .ss-sol-tile{ aspect-ratio:4/5; border-radius:20px !important; }
   .ss-sol-tile .lucide-arrow-up-right{ width:14px !important; height:14px !important; }
   .ss-sol-tile > div:nth-child(3){ padding:14px !important; }
   .ss-sol-tile > div:nth-child(3) > div:first-child{ width:32px !important; height:32px !important; }
@@ -275,6 +279,25 @@ details[open] .ss-chev{ transform:rotate(90deg); }
 }
 .ss-avatar-initial.ss-on-dark{ box-shadow:0 0 0 2px rgba(255,255,255,0.20), 0 0 0 4px rgba(14,116,144,0.30); }
 
+/* ── Hero text column: centered on mobile (full-width dark zone), edge-aligned to container on desktop ── */
+.ss-hero-text{
+  padding-left:24px; padding-right:24px;
+  align-items:center; text-align:center;
+}
+.ss-hero-text > *{ align-self:center; }
+.ss-hero-text button, .ss-hero-text .ss-btn-rausch{ align-self:center !important; }
+.ss-hero-text h1, .ss-hero-text p{ margin-left:auto; margin-right:auto; }
+@media (min-width:1024px){
+  .ss-hero-text{
+    align-items:flex-start; text-align:left;
+    padding-left:max(40px, calc((100vw - 1200px) / 2 + 24px));
+    padding-right:24px;
+  }
+  .ss-hero-text > *{ align-self:flex-start; }
+  .ss-hero-text button, .ss-hero-text .ss-btn-rausch{ align-self:flex-start !important; }
+  .ss-hero-text h1, .ss-hero-text p{ margin-left:0; margin-right:0; }
+}
+
 /* ── Hero stat cards (glassmorphism — design choice, kept for hero only) ── */
 .ss-stat-card{
   background:rgba(255,255,255,0.09);
@@ -362,7 +385,7 @@ details[open] .ss-chev{ transform:rotate(90deg); }
 <section id="main" aria-label="Bien vieillir chez soi" class="relative w-full text-white overflow-hidden" style="background:#18100f; min-height:540px;">
 
   <div class="relative grid grid-cols-1 lg:grid-cols-[1fr_1.2fr]" id="heroGrid" style="z-index:3; min-height:540px;">
-    <div class="flex flex-col justify-center pt-14 lg:pt-20 pb-20 lg:pb-24" style="padding-left:max(40px, calc((100% - 1200px) / 2 + 24px)); padding-right:24px;">
+    <div class="ss-hero-text flex flex-col justify-center pt-14 lg:pt-20 pb-20 lg:pb-24">
       <div class="flex items-center gap-2 mb-4">
         <span class="inline-block w-2 h-2 rounded-full" style="background:#0e7490;"></span>
         <span class="text-[13px] font-semibold uppercase" style="letter-spacing:0.06em; color:rgba(255,255,255,0.80);">Validé par notre comité de gériatres</span>
@@ -388,10 +411,10 @@ details[open] .ss-chev{ transform:rotate(90deg); }
       </div>
 
       <div class="mt-6 flex items-center gap-3">
-        <div class="flex" aria-hidden="true">
-          <span class="ss-avatar-initial ss-on-dark" style="width:48px; height:48px; border-radius:9999px; font-size:16px; z-index:3;">MA</span>
-          <span class="ss-avatar-initial ss-on-dark" style="width:48px; height:48px; border-radius:9999px; font-size:16px; margin-left:-8px; z-index:2; background:linear-gradient(135deg, #4ecde6 0%, var(--rausch) 100%);">JP</span>
-          <span class="ss-avatar-initial ss-on-dark" style="width:48px; height:48px; border-radius:9999px; font-size:16px; margin-left:-8px; z-index:1; background:linear-gradient(135deg, var(--rausch-active) 0%, #4ecde6 100%);">SO</span>
+        <div class="flex shrink-0" aria-hidden="true">
+          <img src="images/family-1.jpg" alt="" loading="lazy" class="w-12 h-12 rounded-full border-2 border-white object-cover" style="z-index:3;" />
+          <img src="images/family-2.jpg" alt="" loading="lazy" class="w-12 h-12 rounded-full border-2 border-white object-cover" style="margin-left:-8px; z-index:2;" />
+          <img src="images/family-3.jpg" alt="" loading="lazy" class="w-12 h-12 rounded-full border-2 border-white object-cover" style="margin-left:-8px; z-index:1;" />
         </div>
         <div class="text-[14px]" style="color:rgba(255,255,255,0.70);">Plus de 12 000 familles accompagnées en France</div>
       </div>
@@ -474,8 +497,8 @@ details[open] .ss-chev{ transform:rotate(90deg); }
   </div>
 </section>
 
-<!-- ====== 4 SOLUTION TILES (image-bg + title overlay — GreenKub-inspired, soft-skill aligned) ====== -->
-<section class="bg-white" style="padding:56px 0 64px;">
+<!-- ====== 4 SOLUTION TILES (vertical image-bg + title overlay — GreenKub-inspired) ====== -->
+<section class="bg-white" style="padding:32px 0 56px;">
   <div class="container">
     <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5" id="solTiles"></div>
   </div>
@@ -505,8 +528,7 @@ details[open] .ss-chev{ transform:rotate(90deg); }
       </div>
       <a href="#" class="ss-link text-[15px] font-semibold" style="color:#0e7490;">Voir tous les services →</a>
     </div>
-    <div id="svcFeature" class="mb-6"></div>
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6" id="svcGrid"></div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6" id="svcGrid"></div>
   </div>
 </section>
 
@@ -670,7 +692,7 @@ details[open] .ss-chev{ transform:rotate(90deg); }
     <div class="flex flex-wrap items-end justify-between gap-6 mb-10">
       <div class="max-w-[680px]">
         <span class="ss-tag" style="color:#0e7490;">Notre rédaction</span>
-        <h2 class="ss-h2 mt-3 mb-3"><span class="ss-script" style="font-size:1.35em;color:#0e7490;line-height:1.2;">Nos derniers guides</span><br>signés par nos médecins</h2>
+        <h2 class="ss-h2 mt-3 mb-3" style="text-wrap:balance;"><span class="ss-script" style="font-size:1.35em;color:#0e7490;line-height:1.2;">Nos derniers guides</span> <span class="block lg:inline">signés par nos médecins</span></h2>
         <p class="ss-body">Mis à jour régulièrement, validés par notre comité.</p>
       </div>
       <a href="#" class="ss-link text-[15px] font-semibold" style="color:#0e7490;">Tous les guides →</a>
@@ -679,38 +701,66 @@ details[open] .ss-chev{ transform:rotate(90deg); }
   </div>
 </section>
 
-<!-- ====== AIDS ====== -->
-<section id="aides" class="ss-cream section">
-  <div class="container">
+<!-- ====== AIDS (dark) ====== -->
+<section id="aides" class="section relative overflow-hidden" style="background:#15110d;">
+  <div aria-hidden="true" style="position:absolute; left:50%; top:50%; transform:translate(-50%, -50%); width:80%; max-width:1000px; height:520px; background:radial-gradient(ellipse at center, rgba(14,116,144,0.22) 0%, rgba(14,116,144,0.06) 42%, transparent 72%); filter:blur(48px); z-index:0; pointer-events:none;"></div>
+  <div class="container relative z-10">
     <div class="max-w-[860px] mb-10">
-      <span class="ss-tag" style="color:#0e7490;">Aides financières</span>
-      <h2 class="ss-h2 mt-3 mb-3"><span class="ss-script" style="font-size:1.35em;color:#0e7490;line-height:1.2;">Toutes les aides</span> auxquelles vous avez droit</h2>
-      <p class="ss-body">On vous explique simplement comment les obtenir, sans jargon.</p>
+      <span class="ss-tag" style="color:#4ecde6;">Aides financières</span>
+      <h2 class="ss-h2 mt-3 mb-3" style="text-wrap:balance; color:#fff;"><span class="ss-script" style="font-size:1.35em;color:#4ecde6;line-height:1.2;">Toutes les aides</span> auxquelles vous avez droit</h2>
+      <p class="ss-body" style="color:rgba(255,255,255,0.72);">On vous explique simplement comment les obtenir, sans jargon.</p>
     </div>
     <div class="grid md:grid-cols-2 gap-6" id="aidsGrid"></div>
   </div>
 </section>
 
-<!-- ====== B2B ====== -->
-<section id="b2b" class="bg-[#222] text-white">
-  <div class="container py-[64px] md:py-[96px] grid lg:grid-cols-[3fr_2fr] gap-10 lg:gap-16 items-center">
-    <div>
-      <span class="text-[11px] font-bold uppercase tracking-[0.5px]" style="color:#4ecde6;">Espace Pros</span>
-      <h2 class="text-[32px] md:text-[44px] font-extrabold leading-[1.1] tracking-tight mt-3 mb-4">Vous êtes un <span class="ss-script" style="color:#4ecde6;font-size:1.35em;line-height:1.0;">professionnel</span> ?</h2>
-      <p class="text-[18px] leading-[1.6] mb-8 max-w-[540px]" style="color:#dddddd;">Recevez des demandes qualifiées de seniors et d'aidants partout en France.</p>
-      <ul class="grid sm:grid-cols-2 gap-3 mb-8 max-w-[520px]">
-        <li class="flex items-center gap-3 text-[16px] text-white"><span class="w-7 h-7 rounded-full inline-flex items-center justify-center" style="background:rgba(14,116,144,0.28);color:#4ecde6;"><i data-lucide="check" class="w-[14px] h-[14px]"></i></span>Leads géolocalisés</li>
-        <li class="flex items-center gap-3 text-[16px] text-white"><span class="w-7 h-7 rounded-full inline-flex items-center justify-center" style="background:rgba(14,116,144,0.28);color:#4ecde6;"><i data-lucide="check" class="w-[14px] h-[14px]"></i></span>Validation médicale</li>
-        <li class="flex items-center gap-3 text-[16px] text-white"><span class="w-7 h-7 rounded-full inline-flex items-center justify-center" style="background:rgba(14,116,144,0.28);color:#4ecde6;"><i data-lucide="check" class="w-[14px] h-[14px]"></i></span>Sans engagement</li>
-        <li class="flex items-center gap-3 text-[16px] text-white"><span class="w-7 h-7 rounded-full inline-flex items-center justify-center" style="background:rgba(14,116,144,0.28);color:#4ecde6;"><i data-lucide="check" class="w-[14px] h-[14px]"></i></span>1 200+ partenaires actifs</li>
-      </ul>
-      <div class="flex flex-wrap gap-4 items-center">
-        <button class="ss-btn-rausch">Devenir partenaire</button>
-        <a href="#" class="text-white underline underline-offset-4 text-[15px] font-semibold">Découvrir l'offre B2B →</a>
-      </div>
+<!-- ====== QUI SOMMES-NOUS ? ====== -->
+<section id="qui-sommes-nous" class="bg-white section">
+  <div class="container grid lg:grid-cols-[1fr_1.1fr] gap-10 lg:gap-16 items-center">
+    <div class="rounded-[20px] overflow-hidden order-first lg:order-first" style="aspect-ratio:4/5; max-height:560px;">
+      <img src="images/pourquoi-conseiller.jpg" alt="Une conseillère Santé Senior à l'écoute d'une famille française dans son intérieur." class="w-full h-full object-cover" loading="lazy" />
     </div>
-    <div class="rounded-[16px] overflow-hidden h-[300px] lg:h-[420px] order-first lg:order-last">
-      <img src="images/b2b-pro.jpg" alt="Une conseillère professionnelle au bureau, accueillante et compétente." class="w-full h-full object-cover" loading="lazy" />
+    <div>
+      <span class="ss-tag" style="color:#0e7490;">Qui sommes-nous</span>
+      <h2 class="ss-h2 mt-3 mb-5" style="text-wrap:balance;">Le portail des familles françaises pour <span class="ss-script" style="font-size:1.35em;color:#0e7490;line-height:1.2;">bien vieillir</span></h2>
+      <p class="ss-body mb-5">Santé Senior est né d'un constat simple : organiser le bien-vieillir d'un parent reste un parcours du combattant en France. Dix sites pour comparer un EHPAD, vingt-cinq démarches pour obtenir l'APA, des conseils contradictoires sur Internet.</p>
+      <p class="ss-body mb-8">Nous avons rassemblé en un seul endroit toutes les solutions habitat, santé, aides et services, validées par notre comité de médecins. Un conseiller humain, joignable au numéro vert, vous accompagne du premier appel à l'installation chez vous.</p>
+
+      <div class="grid grid-cols-2 gap-5 mb-8">
+        <div>
+          <div class="flex items-center gap-3 mb-2">
+            <div class="w-10 h-10 rounded-[10px] inline-flex items-center justify-center shrink-0" style="background:rgba(14,116,144,0.10); color:#0e7490;"><i data-lucide="stethoscope" class="w-5 h-5"></i></div>
+            <div class="text-[15px] font-bold leading-tight" style="color:var(--ink);">Caution médicale</div>
+          </div>
+          <p class="text-[14px] leading-[1.5]" style="color:var(--muted);">Comité pluridisciplinaire de gériatres et spécialistes diplômés.</p>
+        </div>
+        <div>
+          <div class="flex items-center gap-3 mb-2">
+            <div class="w-10 h-10 rounded-[10px] inline-flex items-center justify-center shrink-0" style="background:rgba(14,116,144,0.10); color:#0e7490;"><i data-lucide="hand-heart" class="w-5 h-5"></i></div>
+            <div class="text-[15px] font-bold leading-tight" style="color:var(--ink);">100 % gratuit</div>
+          </div>
+          <p class="text-[14px] leading-[1.5]" style="color:var(--muted);">Notre service est financé par les professionnels partenaires, pas par vous.</p>
+        </div>
+        <div>
+          <div class="flex items-center gap-3 mb-2">
+            <div class="w-10 h-10 rounded-[10px] inline-flex items-center justify-center shrink-0" style="background:rgba(14,116,144,0.10); color:#0e7490;"><i data-lucide="map-pin" class="w-5 h-5"></i></div>
+            <div class="text-[15px] font-bold leading-tight" style="color:var(--ink);">Toute la France</div>
+          </div>
+          <p class="text-[14px] leading-[1.5]" style="color:var(--muted);">1 200+ pros et 8 200+ EHPAD vérifiés, dans chaque département.</p>
+        </div>
+        <div>
+          <div class="flex items-center gap-3 mb-2">
+            <div class="w-10 h-10 rounded-[10px] inline-flex items-center justify-center shrink-0" style="background:rgba(14,116,144,0.10); color:#0e7490;"><i data-lucide="lock" class="w-5 h-5"></i></div>
+            <div class="text-[15px] font-bold leading-tight" style="color:var(--ink);">Données HDS</div>
+          </div>
+          <p class="text-[14px] leading-[1.5]" style="color:var(--muted);">Hébergement français certifié santé. Aucune cession sans votre accord.</p>
+        </div>
+      </div>
+
+      <div class="flex flex-wrap gap-4 items-center">
+        <button class="ss-btn-rausch" data-cta><i data-lucide="compass" class="w-5 h-5"></i>Démarrer le diagnostic</button>
+        <a href="#equipe" class="ss-link text-[15px] font-semibold" style="color:#0e7490;">Découvrir notre comité →</a>
+      </div>
     </div>
   </div>
 </section>
@@ -1037,24 +1087,24 @@ const tickerHTML = arr => [...arr,...arr,...arr].map(t => `<span class="inline-f
 document.getElementById("ticker1").innerHTML = tickerHTML(band1);
 document.getElementById("ticker2").innerHTML = tickerHTML(band2);
 
-/* ============ SOLUTION TILES (4 universes — GreenKub-inspired image tiles) ============ */
+/* ============ SOLUTION TILES (4 verticales — GreenKub-inspired image tiles with white body text) ============ */
 const SOL_TILES = [
-  {label:"Habitat",           sub:"Adapter le logement",       img:"images/silo-habitat.jpg", icon:"home",         href:"#hub-habitat"},
-  {label:"Aide à domicile",   sub:"Auxiliaire, téléassistance",img:"images/silo-aide.jpg",    icon:"hand-heart",   href:"#hub-aide"},
-  {label:"Hébergement",       sub:"EHPAD, résidences",         img:"images/silo-heberg.jpg",  icon:"building-2",   href:"#hub-heberg"},
-  {label:"Aides & démarches", sub:"APA, MaPrimeAdapt'",        img:"images/silo-dem.jpg",     icon:"file-check-2", href:"#hub-dem"},
+  {label:"Douche senior",     sub:"Confort et sécurité au quotidien",       img:"images/sol-douche.jpg",         href:"#hub-habitat"},
+  {label:"Monte-escalier",    sub:"Reprendre les étages en confiance",      img:"images/sol-monte-escalier.jpg", href:"#hub-habitat"},
+  {label:"Aide à domicile",   sub:"Présence humaine, jour après jour",      img:"images/sol-aide-domicile.jpg",  href:"#hub-aide"},
+  {label:"Mutuelle senior",   sub:"Bien couvert, sans payer trop cher",     img:"images/sol-mutuelle.jpg",       href:"#hub-assur"},
 ];
 document.getElementById("solTiles").innerHTML = SOL_TILES.map(t => `
-  <a href="${esc(t.href)}" class="ss-sol-tile group relative block overflow-hidden no-underline" style="aspect-ratio:1/1; border-radius:24px;">
+  <a href="${esc(t.href)}" class="ss-sol-tile group relative block overflow-hidden no-underline" style="border-radius:24px;">
     <img src="${esc(t.img)}" alt="${esc(t.label)}" loading="lazy" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500" style="transform:scale(1.02);" />
-    <div aria-hidden="true" class="absolute inset-0" style="background:linear-gradient(180deg, rgba(24,16,15,0.10) 0%, rgba(24,16,15,0.20) 45%, rgba(24,16,15,0.78) 100%);"></div>
+    <div aria-hidden="true" class="absolute inset-0" style="background:linear-gradient(180deg, rgba(24,16,15,0.05) 0%, rgba(24,16,15,0.25) 50%, rgba(24,16,15,0.88) 100%);"></div>
     <div class="absolute inset-0 p-5 lg:p-6 flex flex-col justify-between">
       <div class="self-end w-10 h-10 rounded-full inline-flex items-center justify-center" style="background:rgba(255,255,255,0.92); color:var(--ink); transition:transform 200ms ease-out;">
         <i data-lucide="arrow-up-right" class="w-[18px] h-[18px]"></i>
       </div>
       <div>
-        <div class="text-white font-extrabold tracking-tight leading-[1.05]" style="font-size:clamp(20px,2.4vw,28px); letter-spacing:-0.4px;">${esc(t.label)}</div>
-        <div class="text-white/80 mt-1.5 text-[13px] lg:text-[14px] font-medium">${esc(t.sub)}</div>
+        <div class="text-white font-extrabold tracking-tight leading-[1.05]" style="font-size:clamp(20px,2.2vw,26px); letter-spacing:-0.4px;">${esc(t.label)}</div>
+        <div class="mt-2 text-[13px] lg:text-[14px] font-medium" style="color:rgba(255,255,255,0.92);">${esc(t.sub)}</div>
       </div>
     </div>
   </a>`).join("");
@@ -1101,26 +1151,9 @@ document.getElementById("siloGrid").innerHTML = SILOS.map(s => `
   }, { passive: true });
 })();
 
-/* ============ SERVICES TOP12 — visual hierarchy (1 featured + 11 standard) ============ */
-{
-  const feature = SERVICES[0];
-  const featDoc = DOCTORS[0];
-  document.getElementById("svcFeature").innerHTML = `<article class="bg-white border border-[#dddddd] rounded-[16px] overflow-hidden ss-card-hover grid md:grid-cols-[1.1fr_1fr]">
-    <div class="aspect-[16/9] md:aspect-auto overflow-hidden bg-[#f7f7f7]"><img src="${esc(feature.img)}" alt="${esc(feature.title)}" loading="lazy" class="w-full h-full object-cover" /></div>
-    <div class="p-7 md:p-10 flex flex-col justify-center">
-      <span class="self-start inline-flex items-center gap-1.5 px-3 h-7 rounded-full text-[11px] font-bold uppercase tracking-wide mb-4" style="background:rgba(14,116,144,0.10); color:#0e7490;"><i data-lucide="flame" class="w-3 h-3"></i>Le plus demandé ce mois-ci</span>
-      <h3 class="text-[26px] md:text-[32px] font-extrabold leading-[1.1] tracking-tight mb-2" style="color:var(--ink);">${esc(feature.title)}</h3>
-      <p class="text-[16px] mb-5" style="color:var(--muted);">${esc(feature.benefit)}</p>
-      <div class="inline-flex items-center gap-2 self-start px-3 h-8 rounded-full bg-[#f7f7f7] text-[13px] font-semibold mb-6" style="color:var(--ink);"><i data-lucide="badge-check" class="w-[14px] h-[14px]" style="color:#008a05;"></i>Validé par ${esc(featDoc.name)}, ${esc(featDoc.spec)}</div>
-      <div class="flex flex-wrap gap-3">
-        <button class="ss-btn-rausch" style="height:52px;" data-cta>Demander un devis gratuit <i data-lucide="arrow-right" class="w-4 h-4"></i></button>
-        <a href="#" class="ss-link text-[15px] font-semibold inline-flex items-center" style="color:#0e7490;">Voir le guide complet →</a>
-      </div>
-    </div>
-  </article>`;
-}
-document.getElementById("svcGrid").innerHTML = SERVICES.slice(1).map((s,i) => {
-  const d = DOCTORS[(i+1) % DOCTORS.length];
+/* ============ SERVICES TOP12 (4×3 grid uniforme) ============ */
+document.getElementById("svcGrid").innerHTML = SERVICES.map((s,i) => {
+  const d = DOCTORS[i % DOCTORS.length];
   return `<article class="bg-white border border-[#dddddd] rounded-[12px] overflow-hidden ss-card-hover flex flex-col">
     <div class="aspect-[4/3] overflow-hidden bg-[#f7f7f7]"><img src="${s.img}" alt="${esc(s.title)}" loading="lazy" class="w-full h-full object-cover" /></div>
     <div class="p-5 flex flex-col flex-1">
@@ -1257,7 +1290,7 @@ const AIDS = [
   {icon:"hammer", name:"MaPrimeAdapt'", full:"Adaptation du logement", big:"Jusqu'à 70 % de vos travaux", desc:"Salle de bain, monte-escalier, domotique : une aide unique pour adapter votre logement.", cta:"Calculer mon aide"},
   {icon:"calculator", name:"Crédit d'impôt", full:"Services à la personne", big:"50 % des dépenses, jusqu'à 12 000 €/an", desc:"Auxiliaire, ménage, jardinage, téléassistance : un crédit immédiat possible.", cta:"Voir les conditions"}
 ];
-document.getElementById("aidsGrid").innerHTML = AIDS.map(a => `<article class="bg-white border border-[#dddddd] rounded-[12px] p-6 md:p-8 ss-card-hover flex flex-col"><div class="w-14 h-14 rounded-[12px] bg-[#f7f7f7] inline-flex items-center justify-center text-[#222] mb-5"><i data-lucide="${a.icon}" class="w-7 h-7"></i></div><h3 class="ss-h3 mb-1">${esc(a.name)} <span class="text-[15px] font-normal text-[#6a6a6a]">· ${esc(a.full)}</span></h3><div class="text-[28px] font-bold text-[#222] mt-3 mb-3 leading-tight">${esc(a.big)}</div><p class="text-[16px] text-[#3f3f3f] leading-[1.5] mb-6">${esc(a.desc)}</p><a href="#" class="ss-link text-[15px] font-semibold mt-auto inline-flex items-center gap-1" style="color:#0e7490;">${esc(a.cta)} <i data-lucide="arrow-right" class="w-4 h-4"></i></a></article>`).join("");
+document.getElementById("aidsGrid").innerHTML = AIDS.map(a => `<article class="rounded-[12px] p-6 md:p-8 flex flex-col" style="background:#1f1a14; border:1px solid rgba(255,255,255,0.08); transition:border-color 150ms, box-shadow 150ms;" onmouseover="this.style.borderColor='rgba(78,205,230,0.40)';this.style.boxShadow='0 0 0 1px rgba(78,205,230,0.20)';" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)';this.style.boxShadow='none';"><div class="w-14 h-14 rounded-[12px] inline-flex items-center justify-center mb-5" style="background:rgba(78,205,230,0.12); color:#4ecde6;"><i data-lucide="${a.icon}" class="w-7 h-7"></i></div><h3 class="ss-h3 mb-1" style="color:#fff;">${esc(a.name)} <span class="text-[15px] font-normal" style="color:rgba(255,255,255,0.55);">· ${esc(a.full)}</span></h3><div class="text-[28px] font-bold mt-3 mb-3 leading-tight" style="color:#4ecde6;">${esc(a.big)}</div><p class="text-[16px] leading-[1.5] mb-6" style="color:rgba(255,255,255,0.72);">${esc(a.desc)}</p><a href="#" class="text-[15px] font-semibold mt-auto inline-flex items-center gap-1 hover:underline underline-offset-4" style="color:#4ecde6;">${esc(a.cta)} <i data-lucide="arrow-right" class="w-4 h-4"></i></a></article>`).join("");
 
 /* ============ LOGO BAR ============ */
 document.getElementById("logoBar").innerHTML = ["Le Monde","Le Figaro","France Info","Notre Temps","Capital","Ordre des médecins","SFGG","France Alzheimer"].map(l => `<span class="text-[18px] font-bold tracking-tight hover:text-[#222] transition-colors">${esc(l)}</span>`).join("");
