@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Santé Senior — Bien vieillir chez soi, tout simplement.</title>
+<title>Santé Senior : Bien vieillir chez soi, tout simplement.</title>
 <meta name="description" content="Le portail français qui réunit habitat, santé, aides et services pour bien vieillir. Validé par notre comité de gériatres. Gratuit · 0 800 300 300." />
 <meta name="robots" content="noindex, nofollow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
 <link rel="canonical" href="https://sante-senior.pages.dev/" />
 <link rel="preload" as="image" href="images/hero.jpg" fetchpriority="high" />
 <meta property="og:locale" content="fr_FR" />
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Santé Senior — Bien vieillir chez soi, tout simplement." />
+<meta property="og:title" content="Santé Senior : Bien vieillir chez soi, tout simplement." />
 <meta property="og:description" content="Le portail français qui réunit habitat, santé, aides et services pour bien vieillir. Validé par notre comité de gériatres. Gratuit · 0 800 300 300." />
 <meta property="og:url" content="https://sante-senior.pages.dev/" />
 <meta property="og:site_name" content="Santé Senior" />
@@ -20,7 +20,7 @@
 <meta property="og:image:type" content="image/jpeg" />
 <meta property="article:modified_time" content="2026-05-01T00:00:00+00:00" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Santé Senior — Bien vieillir chez soi, tout simplement." />
+<meta name="twitter:title" content="Santé Senior : Bien vieillir chez soi, tout simplement." />
 <meta name="twitter:description" content="Le portail français qui réunit habitat, santé, aides et services pour bien vieillir. Validé par notre comité de gériatres." />
 <meta name="twitter:image" content="https://sante-senior.pages.dev/images/hero.jpg" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -33,7 +33,7 @@
   --canvas:#fff; --cream:#fdf6ee; --cream-deep:#f7ead8;
   --surface-soft:#f7f7f7; --surface-strong:#f2f2f2;
   --ink:#222; --night:#18100f; --body:#3f3f3f;
-  --muted:#6a6a6a; --muted-soft:#929292;
+  --muted:#6a6a6a; --muted-soft:#737373;
   --hairline:#ddd; --hairline-soft:#ebebeb;
   --rausch:#0e7490; --rausch-active:#0a5e73; --rausch-tint:#ecfeff; --rausch-disabled:#cceef4;
   --rausch-soft:#cceef4; --rausch-mark:#b3e4ed;
@@ -76,6 +76,7 @@ body{ font-size:18px; line-height:1.6; color:var(--body); padding-bottom:88px; }
 .ss-link:hover{ text-decoration-thickness:2px; }
 .ss-skip-link{ position:absolute; top:-100px; left:8px; background:#222; color:#fff; padding:12px 16px; z-index:100; border-radius:8px; }
 .ss-skip-link:focus{ top:8px; }
+.sr-only{ position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
 
 input[type=range].ss-range{ -webkit-appearance:none; appearance:none; height:6px; background:#ebebeb; border-radius:9999px; outline:none; }
 input[type=range].ss-range::-webkit-slider-thumb{ -webkit-appearance:none; width:24px; height:24px; background:#222; border-radius:9999px; cursor:pointer; border:3px solid #fff; box-shadow:0 0 0 1px #222; }
@@ -206,7 +207,6 @@ details[open] .ss-chev{ transform:rotate(90deg); }
   );
   background-size: calc(100% + (2 * var(--border-size))) calc(100% + (2 * var(--border-size)));
   background-position: 50% 50%;
-  background-attachment: fixed;
   isolation: isolate;
 }
 .glow-card::before, .glow-card::after{
@@ -214,7 +214,6 @@ details[open] .ss-chev{ transform:rotate(90deg); }
   inset: calc(var(--border-size) * -1);
   border: var(--border-size) solid transparent;
   border-radius: calc(var(--radius) * 1px);
-  background-attachment: fixed;
   background-size: calc(100% + (2 * var(--border-size))) calc(100% + (2 * var(--border-size)));
   background-repeat: no-repeat; background-position: 50% 50%;
   -webkit-mask: linear-gradient(transparent, transparent), linear-gradient(white, white);
@@ -252,6 +251,29 @@ details[open] .ss-chev{ transform:rotate(90deg); }
 #solTiles .glow-card > a { transition: border-color 150ms, box-shadow 150ms; }
 #siloGrid .glow-card:hover > article { border-color: rgba(14,116,144,0.80) !important; box-shadow: 0 0 0 2px rgba(14,116,144,0.50); }
 #solTiles .glow-card:hover > a { border-color: rgba(255,255,255,0.50) !important; box-shadow: 0 0 0 2px rgba(255,255,255,0.20), 0 8px 20px rgba(14,116,144,0.30); }
+
+/* ── Initials avatar (replaces stock photos for portraits — design system aligned) ── */
+.ss-avatar-initial{
+  display:inline-flex; align-items:center; justify-content:center;
+  background:linear-gradient(135deg, var(--rausch) 0%, #4ecde6 100%);
+  color:#fff; font-family:'Inter',sans-serif; font-weight:600;
+  letter-spacing:0.02em; line-height:1; user-select:none;
+  flex-shrink:0;
+}
+.ss-avatar-initial.ss-on-dark{ box-shadow:0 0 0 2px rgba(255,255,255,0.20), 0 0 0 4px rgba(14,116,144,0.30); }
+
+/* ── Testimonials scroll columns (moved here from inline body <style>) ── */
+@keyframes testiScroll { from { transform: translateY(0); } to { transform: translateY(-50%); } }
+.testi-col { display:flex; flex-direction:column; gap:24px; padding-bottom:24px; will-change:transform; }
+.testi-col-1 { animation: testiScroll 22s linear infinite; }
+.testi-col-2 { animation: testiScroll 28s linear infinite; }
+.testi-col-3 { animation: testiScroll 25s linear infinite; }
+.testi-mask {
+  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 18%, #000 82%, transparent);
+          mask-image: linear-gradient(to bottom, transparent, #000 18%, #000 82%, transparent);
+}
+/* prefers-reduced-motion already handled globally line 94 but keeping explicit fallback for testimonials */
+@media (prefers-reduced-motion: reduce) { .testi-col { animation: none !important; } }
 </style>
 </head>
 <body>
@@ -273,7 +295,7 @@ details[open] .ss-chev{ transform:rotate(90deg); }
 <!-- ====== HEADER ====== -->
 <header id="hdr" class="relative border-b border-transparent transition-shadow">
   <div class="container h-[64px] md:h-[80px] flex items-center justify-between gap-4 relative z-10">
-    <a href="#main" class="ss-logo shrink-0" aria-label="Santé Senior — accueil">
+    <a href="#main" class="ss-logo shrink-0" aria-label="Santé Senior, accueil">
       Sant<span class="e-dot">é</span>&nbsp;Senior
     </a>
     <nav aria-label="Navigation principale" class="hidden xl:flex items-center gap-1 relative" id="navWrap">
@@ -313,7 +335,7 @@ details[open] .ss-chev{ transform:rotate(90deg); }
 <!-- ====== HERO ====== -->
 <section id="main" aria-label="Bien vieillir chez soi" class="relative w-full text-white" style="background:#18100f; min-height:540px;">
 
-  <div class="relative max-w-[1280px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-2" id="heroGrid" style="z-index:3; min-height:540px;">
+  <div class="relative max-w-[1200px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-2" id="heroGrid" style="z-index:3; min-height:540px;">
     <div class="flex flex-col justify-center pt-14 lg:pt-20 pb-20 lg:pb-24">
       <div class="flex items-center gap-2 mb-4">
         <span class="inline-block w-2 h-2 rounded-full" style="background:#0e7490;"></span>
@@ -323,7 +345,7 @@ details[open] .ss-chev{ transform:rotate(90deg); }
         Bien vieillir chez soi,<br>tout <span class="ss-script" style="font-size:1.35em;color:#4ecde6;font-style:italic;line-height:inherit;">simplement.</span>
       </h1>
       <p class="mt-5 text-[18px] leading-[1.6]" style="color:rgba(255,255,255,0.72); max-width:480px;">
-        Le portail qui réunit toutes les solutions habitat, santé, aides et services pour vos parents — validé par notre comité de médecins gériatres.
+        Le portail qui réunit toutes les solutions habitat, santé, aides et services pour vos parents, validé par notre comité de médecins gériatres.
       </p>
 
       <button class="ss-btn-rausch mt-8" data-cta style="font-size:17px; height:60px; padding:0 28px; align-self:flex-start;">
@@ -339,37 +361,28 @@ details[open] .ss-chev{ transform:rotate(90deg); }
       </div>
 
       <div class="mt-6 flex items-center gap-3">
-        <div class="flex">
-          <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=96&h=96&auto=format&fit=crop&crop=face" alt="" class="w-12 h-12 rounded-full border-2 border-white object-cover" style="z-index:3;">
-          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=96&h=96&auto=format&fit=crop&crop=face" alt="" class="w-12 h-12 rounded-full border-2 border-white object-cover" style="margin-left:-8px; z-index:2;">
-          <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?w=96&h=96&auto=format&fit=crop&crop=face" alt="" class="w-12 h-12 rounded-full border-2 border-white object-cover" style="margin-left:-8px; z-index:1;">
+        <div class="flex" aria-hidden="true">
+          <span class="ss-avatar-initial ss-on-dark" style="width:48px; height:48px; border-radius:9999px; font-size:16px; z-index:3;">MA</span>
+          <span class="ss-avatar-initial ss-on-dark" style="width:48px; height:48px; border-radius:9999px; font-size:16px; margin-left:-8px; z-index:2; background:linear-gradient(135deg, #4ecde6 0%, var(--rausch) 100%);">JP</span>
+          <span class="ss-avatar-initial ss-on-dark" style="width:48px; height:48px; border-radius:9999px; font-size:16px; margin-left:-8px; z-index:1; background:linear-gradient(135deg, var(--rausch-active) 0%, #4ecde6 100%);">SO</span>
         </div>
-        <div class="text-[14px]" style="color:rgba(255,255,255,0.70);">Plus de 12 000 familles accompagnées</div>
+        <div class="text-[14px]" style="color:rgba(255,255,255,0.70);">Plus de 12 000 familles accompagnées en France</div>
       </div>
     </div>
 
     <div class="relative hidden lg:block overflow-hidden" style="margin-right:-56px; margin-left:-24px;">
-      <img src="images/hero.jpg" alt="Un couple de seniors heureux dans leur salon lumineux" fetchpriority="high" class="absolute bottom-0 right-0 object-cover object-top" style="height:88%; width:100%; z-index:2; mask-image:linear-gradient(to right, transparent 0%, black 20%, black 78%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 12%, black 85%, transparent 100%); -webkit-mask-image:linear-gradient(to right, transparent 0%, black 20%, black 78%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 12%, black 85%, transparent 100%); mask-composite:intersect; -webkit-mask-composite:source-in;" />
-      <!-- Stat cards -->
-      <div class="absolute z-[4]" style="top:8%; right:3%;">
-        <div style="background:rgba(255,255,255,0.09); backdrop-filter:blur(14px) saturate(120%); border:1px solid rgba(255,255,255,0.18); border-radius:14px; padding:16px 20px; box-shadow:0 4px 20px rgba(0,0,0,0.35); min-width:180px;">
-          <div class="flex items-center gap-2 mb-1"><span class="w-2 h-2 rounded-full" style="background:#0e7490;"></span><span class="text-[10px] font-bold uppercase tracking-widest text-white/60">Nos partenaires</span></div>
-          <div class="text-[30px] font-bold text-white leading-none">1 200+</div>
-          <div class="text-[13px] text-white/65 mt-1">Professionnels vérifiés</div>
-        </div>
-      </div>
-      <div class="absolute z-[4]" style="top:40%; right:-1%;">
-        <div style="background:rgba(255,255,255,0.09); backdrop-filter:blur(14px) saturate(120%); border:1px solid rgba(255,255,255,0.18); border-radius:14px; padding:16px 20px; box-shadow:0 4px 20px rgba(0,0,0,0.35); min-width:180px;">
-          <div class="flex items-center gap-2 mb-1"><span class="w-2 h-2 rounded-full" style="background:#0e7490;"></span><span class="text-[10px] font-bold uppercase tracking-widest text-white/60">Établissements</span></div>
-          <div class="text-[30px] font-bold text-white leading-none">8 200+</div>
-          <div class="text-[13px] text-white/65 mt-1">EHPAD référencés en France</div>
-        </div>
-      </div>
-      <div class="absolute z-[4]" style="bottom:18%; right:9%;">
-        <div style="background:rgba(255,255,255,0.09); backdrop-filter:blur(14px) saturate(120%); border:1px solid rgba(255,255,255,0.18); border-radius:14px; padding:16px 20px; box-shadow:0 4px 20px rgba(0,0,0,0.35); min-width:180px;">
-          <div class="flex items-center gap-2 mb-1"><span class="w-2 h-2 rounded-full" style="background:#0e7490;"></span><span class="text-[10px] font-bold uppercase tracking-widest text-white/60">Satisfaction</span></div>
-          <div class="text-[30px] font-bold text-white leading-none">97%</div>
-          <div class="text-[13px] text-white/65 mt-1">Familles satisfaites de nos conseils</div>
+      <img src="images/hero.jpg" alt="Un couple de seniors souriants dans leur salon lumineux" fetchpriority="high" class="absolute bottom-0 right-0 object-cover object-top" style="height:88%; width:100%; z-index:2; mask-image:linear-gradient(to right, transparent 0%, black 20%, black 78%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 12%, black 85%, transparent 100%); -webkit-mask-image:linear-gradient(to right, transparent 0%, black 20%, black 78%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 12%, black 85%, transparent 100%); mask-composite:intersect; -webkit-mask-composite:source-in;" />
+      <!-- Single narrative trust card (replaces 3 hero-metric stat cards — impeccable absolute ban) -->
+      <div class="absolute z-[4]" style="bottom:18%; right:6%; max-width:300px;">
+        <div style="background:rgba(24,16,15,0.62); backdrop-filter:blur(6px); border:1px solid rgba(255,255,255,0.14); border-radius:16px; padding:20px 22px; box-shadow:0 8px 24px rgba(0,0,0,0.30);">
+          <div class="flex items-center gap-2.5 mb-3">
+            <span class="ss-avatar-initial" style="width:36px; height:36px; border-radius:9999px; font-size:13px;">AD</span>
+            <div>
+              <div class="text-[13px] font-semibold text-white leading-tight">Dr Anne Dupont</div>
+              <div class="text-[11px]" style="color:rgba(255,255,255,0.62);">Gériatre, HEGP Paris</div>
+            </div>
+          </div>
+          <p class="text-[14px] leading-[1.45] text-white">« Chaque page santé est revue par un médecin de notre comité. Sur des sujets aussi sensibles, on n'improvise pas. »</p>
         </div>
       </div>
     </div>
@@ -409,7 +422,7 @@ details[open] .ss-chev{ transform:rotate(90deg); }
       <img src="images/orientation-teaser.jpg" alt="Une fille adulte consulte des documents avec sa mère âgée à une table en bois." class="w-full h-full object-cover" loading="lazy" />
     </div>
     <div>
-      <span class="ss-tag" style="color:#0e7490;">— Orientation guidée —</span>
+      <span class="ss-tag" style="color:#0e7490;">Orientation guidée</span>
       <h2 class="ss-h2 mt-3 mb-4">Vous ne savez pas<br><span class="ss-script" style="font-size:1.35em;color:#0e7490;line-height:1.2;">par où commencer</span> ?</h2>
       <p class="ss-body mb-8 max-w-[480px]">Répondez à 4 questions, on vous guide vers les bonnes solutions, en 30 secondes. Sans inscription.</p>
       <div class="flex flex-wrap gap-4 items-center">
@@ -437,7 +450,7 @@ details[open] .ss-chev{ transform:rotate(90deg); }
   <div aria-hidden="true" style="position:absolute; left:50%; top:50%; transform:translate(-50%, -50%); width:80%; max-width:1000px; height:520px; background:radial-gradient(ellipse at center, rgba(14,116,144,0.22) 0%, rgba(14,116,144,0.06) 42%, transparent 72%); filter:blur(48px); z-index:0; pointer-events:none;"></div>
   <div class="container relative z-10">
     <div class="text-center max-w-[760px] mx-auto mb-12">
-      <span class="ss-tag" style="color:#4ecde6;">— Nos univers —</span>
+      <span class="ss-tag" style="color:#4ecde6;">Nos univers</span>
       <h2 class="mt-3 mb-3 text-white font-extrabold tracking-tight" style="font-size:clamp(32px,3.4vw,44px); line-height:1.1; letter-spacing:-0.5px;">Tout ce dont vous avez besoin,<br><span class="ss-script" style="font-size:1.35em;color:#4ecde6;line-height:1.2;">organisé par thème</span></h2>
       <p class="text-[16px] md:text-[18px] leading-[1.6]" style="color:rgba(255,255,255,0.65);">9 univers · 100+ solutions · 12 000 pros vérifiés.</p>
     </div>
@@ -450,13 +463,14 @@ details[open] .ss-chev{ transform:rotate(90deg); }
   <div class="container">
     <div class="mb-10 flex flex-wrap items-end justify-between gap-4">
       <div class="max-w-[680px]">
-        <span class="ss-tag" style="color:#0e7490;">— Top demandé —</span>
+        <span class="ss-tag" style="color:#0e7490;">Top demandé</span>
         <h2 class="ss-h2 mt-3 mb-3"><span class="ss-script" style="font-size:1.35em;color:#0e7490;line-height:1.2;">Les 12 services</span><br>les plus demandés ce mois-ci</h2>
         <p class="ss-body">Par les familles qui consultent Santé Senior en avril 2026.</p>
       </div>
       <a href="#" class="ss-link text-[15px] font-semibold" style="color:#0e7490;">Voir tous les services →</a>
     </div>
-    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6" id="svcGrid"></div>
+    <div id="svcFeature" class="mb-6"></div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6" id="svcGrid"></div>
   </div>
 </section>
 
@@ -468,12 +482,12 @@ details[open] .ss-chev{ transform:rotate(90deg); }
   <div class="container relative z-10 py-[72px] md:py-[112px]">
     <!-- Heading -->
     <div class="flex flex-col items-center text-center max-w-[680px] mx-auto">
-      <span class="ss-tag" style="color:#4ecde6;">— Pourquoi nous choisir —</span>
+      <span class="ss-tag" style="color:#4ecde6;">Pourquoi nous choisir</span>
       <h2 class="mt-5 text-white font-bold tracking-tight" style="font-size:clamp(28px,4.4vw,44px); line-height:1.1; letter-spacing:-0.6px;">
         Le seul portail senior<br /><span class="ss-script italic" style="color:#4ecde6; font-style:italic;">validé par des médecins</span>.
       </h2>
       <p class="text-[16px] mt-5" style="color:rgba(255,255,255,0.65); max-width:540px;">
-        Pas un comparateur de plus. Une équipe humaine, une caution médicale, et un conseiller dédié — du premier appel à l'installation chez vous.
+        Pas un comparateur de plus. Une équipe humaine, une caution médicale, et un conseiller dédié, du premier appel à l'installation chez vous.
       </p>
     </div>
 
@@ -483,11 +497,11 @@ details[open] .ss-chev{ transform:rotate(90deg); }
       <div class="space-y-12 lg:text-right">
         <div class="lg:pr-6 lg:border-r-2" style="border-color:#0e7490;">
           <h3 class="text-[18px] md:text-[20px] font-bold text-white tracking-tight">Validé par des gériatres, pas par un algorithme</h3>
-          <p class="mt-2 text-[14px] leading-[1.55]" style="color:rgba(255,255,255,0.62);">Chaque page santé est revue par notre comité — gériatres, neurologues, cardiologues. Sur des sujets YMYL, on n'improvise pas.</p>
+          <p class="mt-2 text-[14px] leading-[1.55]" style="color:rgba(255,255,255,0.62);">Chaque page santé est revue par notre comité : gériatres, neurologues, cardiologues. Sur des sujets de santé sensibles, on n'improvise pas.</p>
         </div>
         <div class="lg:pr-6 lg:border-r-2" style="border-color:#0e7490;">
           <h3 class="text-[18px] md:text-[20px] font-bold text-white tracking-tight">200 solutions, 9 univers, 1 guichet</h3>
-          <p class="mt-2 text-[14px] leading-[1.55]" style="color:rgba(255,255,255,0.62);">Du monte-escalier à la fin de vie, en passant par la MDPH ou le viager — l'intégralité du parcours senior, sans saute-mouton entre dix sites.</p>
+          <p class="mt-2 text-[14px] leading-[1.55]" style="color:rgba(255,255,255,0.62);">Du monte-escalier à la fin de vie, en passant par la MDPH ou le viager : l'intégralité du parcours senior, sans saute-mouton entre dix sites.</p>
         </div>
       </div>
 
@@ -508,11 +522,11 @@ details[open] .ss-chev{ transform:rotate(90deg); }
       <div class="space-y-12 lg:text-left">
         <div class="lg:pl-6 lg:border-l-2" style="border-color:#0e7490;">
           <h3 class="text-[18px] md:text-[20px] font-bold text-white tracking-tight">Les aidants enfin pris en compte</h3>
-          <p class="mt-2 text-[14px] leading-[1.55]" style="color:rgba(255,255,255,0.62);">Congé proche aidant, soutien psy, solutions de répit — on accompagne aussi les filles, fils, conjoints qui portent. Sujet ignoré par les autres comparateurs.</p>
+          <p class="mt-2 text-[14px] leading-[1.55]" style="color:rgba(255,255,255,0.62);">Congé proche aidant, soutien psy, solutions de répit : on accompagne aussi les filles, fils, conjoints qui portent. Sujet ignoré par les autres comparateurs.</p>
         </div>
         <div class="lg:pl-6 lg:border-l-2" style="border-color:#0e7490;">
           <h3 class="text-[18px] md:text-[20px] font-bold text-white tracking-tight">Un humain, pas un chatbot</h3>
-          <p class="mt-2 text-[14px] leading-[1.55]" style="color:rgba(255,255,255,0.62);">Numéro vert gratuit, 8h–19h, du lundi au samedi. Conseillers formés en gérontologie — pas en script. On vous rappelle dans l'heure.</p>
+          <p class="mt-2 text-[14px] leading-[1.55]" style="color:rgba(255,255,255,0.62);">Numéro vert gratuit, 8h–19h, du lundi au samedi. Conseillers formés en gérontologie, pas en script. On vous rappelle dans l'heure.</p>
         </div>
       </div>
     </div>
@@ -520,7 +534,7 @@ details[open] .ss-chev{ transform:rotate(90deg); }
     <!-- 3-step process -->
     <div class="mt-20 lg:mt-28">
       <div class="text-center mb-12">
-        <span class="ss-tag" style="color:#4ecde6;">— Comment ça se passe —</span>
+        <span class="ss-tag" style="color:#4ecde6;">Comment ça se passe</span>
         <h3 class="mt-3 text-white font-bold tracking-tight" style="font-size:clamp(22px,2.8vw,30px); letter-spacing:-0.4px;">Trois étapes pour reprendre la main, en moins d'une semaine.</h3>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="whyStepsGrid"></div>
@@ -545,9 +559,9 @@ details[open] .ss-chev{ transform:rotate(90deg); }
 <section id="ehpad" class="section">
   <div class="container">
     <div class="max-w-[860px] mb-10">
-      <span class="ss-tag" style="color:#0e7490;">— Comparateur EHPAD —</span>
+      <span class="ss-tag" style="color:#0e7490;">Comparateur EHPAD</span>
       <h2 class="ss-h2 mt-3 mb-3">Comparez les <span class="ss-mark">EHPAD près de chez vous,</span> en 2 minutes</h2>
-      <p class="ss-body">Tarifs réels, places disponibles, niveau de médicalisation, GIR accepté — sans engagement.</p>
+      <p class="ss-body">Tarifs réels, places disponibles, niveau de médicalisation, GIR accepté, sans engagement.</p>
     </div>
     <div class="bg-white border border-[#dddddd] rounded-[16px] overflow-hidden" id="ehpadWizard" tabindex="0">
       <div class="border-b border-[#ebebeb] overflow-x-auto ss-no-scrollbar">
@@ -573,10 +587,10 @@ details[open] .ss-chev{ transform:rotate(90deg); }
           <div class="text-[16px] text-[#222]">Merci, un conseiller vous rappelle sous 24 h.</div>
         </div>
         <form id="leadForm" class="grid md:grid-cols-2 gap-4">
-          <input required placeholder="Nom" class="h-14 px-4 rounded-[8px] border border-[#dddddd] focus:border-[#222] text-[16px] bg-white" />
-          <input required placeholder="Prénom" class="h-14 px-4 rounded-[8px] border border-[#dddddd] focus:border-[#222] text-[16px] bg-white" />
-          <input required type="tel" placeholder="Téléphone" class="h-14 px-4 rounded-[8px] border border-[#dddddd] focus:border-[#222] text-[16px] bg-white" />
-          <input required type="email" placeholder="Email" class="h-14 px-4 rounded-[8px] border border-[#dddddd] focus:border-[#222] text-[16px] bg-white" />
+          <input required aria-label="Nom" autocomplete="family-name" placeholder="Nom" class="h-14 px-4 rounded-[8px] border border-[#dddddd] focus:border-[#222] text-[16px] bg-white" />
+          <input required aria-label="Prénom" autocomplete="given-name" placeholder="Prénom" class="h-14 px-4 rounded-[8px] border border-[#dddddd] focus:border-[#222] text-[16px] bg-white" />
+          <input required aria-label="Téléphone" autocomplete="tel" type="tel" placeholder="Téléphone" class="h-14 px-4 rounded-[8px] border border-[#dddddd] focus:border-[#222] text-[16px] bg-white" />
+          <input required aria-label="Adresse e-mail" autocomplete="email" type="email" placeholder="Email" class="h-14 px-4 rounded-[8px] border border-[#dddddd] focus:border-[#222] text-[16px] bg-white" />
           <label class="md:col-span-2 flex items-start gap-3 text-[14px] text-[#3f3f3f]">
             <input type="checkbox" id="leadRgpd" class="mt-1 w-5 h-5" />
             <span>J'accepte que mes données soient utilisées pour me recontacter. Données traitées par Santé Senior, hébergées en France (HDS). <a href="#" class="ss-link">Voir mes droits RGPD</a>.</span>
@@ -589,19 +603,7 @@ details[open] .ss-chev{ transform:rotate(90deg); }
   </div>
 </section>
 
-<!-- ====== TESTIMONIALS (3-column infinite scroll) ====== -->
-<style>
-  @keyframes testiScroll { from { transform: translateY(0); } to { transform: translateY(-50%); } }
-  .testi-col { display:flex; flex-direction:column; gap:24px; padding-bottom:24px; will-change:transform; }
-  .testi-col-1 { animation: testiScroll 22s linear infinite; }
-  .testi-col-2 { animation: testiScroll 28s linear infinite; }
-  .testi-col-3 { animation: testiScroll 25s linear infinite; }
-  .testi-mask {
-    -webkit-mask-image: linear-gradient(to bottom, transparent, #000 18%, #000 82%, transparent);
-            mask-image: linear-gradient(to bottom, transparent, #000 18%, #000 82%, transparent);
-  }
-  @media (prefers-reduced-motion: reduce) { .testi-col { animation: none !important; } }
-</style>
+<!-- ====== TESTIMONIALS (3-column infinite scroll) — CSS moved to head <style> ====== -->
 <section id="avis" class="section relative overflow-hidden" style="background:#15110d;">
   <div aria-hidden="true" style="position:absolute; left:50%; top:38%; transform:translate(-50%, 0); width:90%; max-width:1100px; height:560px; background:radial-gradient(ellipse at center, rgba(14,116,144,0.32) 0%, rgba(14,116,144,0.10) 38%, transparent 70%); filter:blur(50px); z-index:0;"></div>
   <div class="container relative z-10">
@@ -631,7 +633,7 @@ details[open] .ss-chev{ transform:rotate(90deg); }
   <div class="container">
     <div class="flex flex-wrap items-end justify-between gap-6 mb-10">
       <div class="max-w-[680px]">
-        <span class="ss-tag" style="color:#0e7490;">— Notre rédaction —</span>
+        <span class="ss-tag" style="color:#0e7490;">Notre rédaction</span>
         <h2 class="ss-h2 mt-3 mb-3"><span class="ss-script" style="font-size:1.35em;color:#0e7490;line-height:1.2;">Nos derniers guides</span><br>signés par nos médecins</h2>
         <p class="ss-body">Mis à jour régulièrement, validés par notre comité.</p>
       </div>
@@ -645,7 +647,7 @@ details[open] .ss-chev{ transform:rotate(90deg); }
 <section id="aides" class="ss-cream section">
   <div class="container">
     <div class="max-w-[860px] mb-10">
-      <span class="ss-tag" style="color:#0e7490;">— Aides financières —</span>
+      <span class="ss-tag" style="color:#0e7490;">Aides financières</span>
       <h2 class="ss-h2 mt-3 mb-3"><span class="ss-script" style="font-size:1.35em;color:#0e7490;line-height:1.2;">Toutes les aides</span> auxquelles vous avez droit</h2>
       <p class="ss-body">On vous explique simplement comment les obtenir, sans jargon.</p>
     </div>
@@ -657,7 +659,7 @@ details[open] .ss-chev{ transform:rotate(90deg); }
 <section id="b2b" class="bg-[#222] text-white">
   <div class="container py-[64px] md:py-[96px] grid lg:grid-cols-[3fr_2fr] gap-10 lg:gap-16 items-center">
     <div>
-      <span class="text-[11px] font-bold uppercase tracking-[0.5px]" style="color:#4ecde6;">— Espace Pros —</span>
+      <span class="text-[11px] font-bold uppercase tracking-[0.5px]" style="color:#4ecde6;">Espace Pros</span>
       <h2 class="text-[32px] md:text-[44px] font-extrabold leading-[1.1] tracking-tight mt-3 mb-4">Vous êtes un <span class="ss-script" style="color:#4ecde6;font-size:1.35em;line-height:1.0;">professionnel</span> ?</h2>
       <p class="text-[18px] leading-[1.6] mb-8 max-w-[540px]" style="color:#dddddd;">Recevez des demandes qualifiées de seniors et d'aidants partout en France.</p>
       <ul class="grid sm:grid-cols-2 gap-3 mb-8 max-w-[520px]">
@@ -690,13 +692,14 @@ details[open] .ss-chev{ transform:rotate(90deg); }
   <div class="container grid lg:grid-cols-2 gap-10 lg:gap-16">
     <div class="rounded-[16px] p-8" style="background:#fdf6ee; border:1px solid #f1e2cc;">
       <h3 class="ss-h3 mb-3">Recevez nos guides chaque semaine</h3>
-      <p class="text-[16px] text-[#3f3f3f] mb-6">Conseils, aides, témoignages — directement dans votre boîte mail.</p>
+      <p class="text-[16px] text-[#3f3f3f] mb-6">Conseils, aides, témoignages, directement dans votre boîte mail.</p>
       <div id="nlOk" style="display:none;" class="flex items-center gap-3 p-4 rounded-[12px] bg-white border" style2="border-color:rgba(0,138,5,0.3);">
         <i data-lucide="check-circle-2" class="w-[22px] h-[22px]" style="color:#008a05;"></i>
         <div class="text-[15px] text-[#222]">Merci ! Votre première newsletter arrive sous 7 jours.</div>
       </div>
       <form id="nlForm" class="flex flex-col sm:flex-row gap-3">
-        <input type="email" required placeholder="vous@exemple.fr" class="flex-1 h-14 px-4 rounded-[8px] border border-[#dddddd] focus:border-[#222] text-[16px] bg-white" />
+        <label for="nlEmail" class="sr-only">Adresse e-mail</label>
+        <input id="nlEmail" type="email" required aria-label="Votre adresse e-mail" autocomplete="email" placeholder="vous@exemple.fr" class="flex-1 h-14 px-4 rounded-[8px] border border-[#dddddd] focus:border-[#222] text-[16px] bg-white" />
         <button class="ss-btn-rausch">M'inscrire</button>
       </form>
       <p class="text-[13px] text-[#6a6a6a] mt-4">Vous pouvez vous désinscrire à tout moment. <a href="#" class="ss-link">Voir notre politique de confidentialité</a>.</p>
@@ -734,7 +737,7 @@ details[open] .ss-chev{ transform:rotate(90deg); }
       <div class="flex gap-2 mt-6" id="footSocialMob"></div>
     </div>
     <div class="mt-12 pt-6 border-t text-[13px]" style="border-color:rgba(255,255,255,0.10); color:#929292;">
-      © 2026 Santé Senior · SIRET 902 345 678 · Hébergement HDS — Claranet · Numéro vert <a href="tel:0800300300" class="text-white hover:underline">0 800 300 300</a> (gratuit, 8h–19h)
+      © 2026 Santé Senior · SIRET 902 345 678 · Hébergement HDS Claranet · Numéro vert <a href="tel:0800300300" class="text-white hover:underline">0 800 300 300</a> (gratuit, 8h–19h)
     </div>
   </div>
 </footer>
@@ -819,14 +822,37 @@ const SILO_SUBS = {
   dem:["Tutelle","Curatelle","MDPH","CMI","CESU","Habilitation familiale","Procuration"],
   bien:["Préparer la retraite","Activité physique adaptée","Nutrition","Stimulation cognitive","Silver economy","Sommeil","Vaccinations"]
 };
+// NOTE: TODO replace `initials` with custom-generated portraits (Nano Banana Pro) once produced.
+// Stock photos (Unsplash) banned in YMYL medical context (PITFALLS §7, design.md §11).
 const DOCTORS = [
-  {name:"Dr Anne Dupont", spec:"Gériatre", img:"https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=200&auto=format&fit=crop&q=80"},
-  {name:"Dr Paul Mercier", spec:"Neurologue", img:"https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=200&auto=format&fit=crop&q=80"},
-  {name:"Dr Hélène Moreau", spec:"Gériatre", img:"https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=200&auto=format&fit=crop&q=80"},
-  {name:"Dr Sophie Bernard", spec:"Gériatre", img:"https://images.unsplash.com/photo-1551884170-09fb70a3a2ed?w=200&auto=format&fit=crop&q=80"},
-  {name:"Dr Marc Lefèvre", spec:"Cardiologue", img:"https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=200&auto=format&fit=crop&q=80"},
-  {name:"Dr Camille Roussel", spec:"Gériatre", img:"https://images.unsplash.com/photo-1638202993928-7267aad84c31?w=200&auto=format&fit=crop&q=80"}
+  {name:"Dr Anne Dupont", spec:"Gériatre", initials:"AD"},
+  {name:"Dr Paul Mercier", spec:"Neurologue", initials:"PM"},
+  {name:"Dr Hélène Moreau", spec:"Gériatre", initials:"HM"},
+  {name:"Dr Sophie Bernard", spec:"Gériatre", initials:"SB"},
+  {name:"Dr Marc Lefèvre", spec:"Cardiologue", initials:"ML"},
+  {name:"Dr Camille Roussel", spec:"Gériatre", initials:"CR"}
 ];
+// Helper: deterministic gradient seed from name so each portrait has a stable subtle variation
+const avatarGradient = name => {
+  const hash = [...name].reduce((a,c) => a + c.charCodeAt(0), 0);
+  const variants = [
+    "linear-gradient(135deg, var(--rausch) 0%, #4ecde6 100%)",
+    "linear-gradient(135deg, #4ecde6 0%, var(--rausch) 100%)",
+    "linear-gradient(135deg, var(--rausch-active) 0%, #4ecde6 100%)",
+    "linear-gradient(135deg, var(--rausch) 0%, var(--rausch-active) 100%)"
+  ];
+  return variants[hash % variants.length];
+};
+const initialsFrom = name => name.replace(/^(Dr|Mme|M\.|Mr)\s+/i,'').split(/[\s\-]+/).slice(0,2).map(w => w[0]||'').join('').toUpperCase();
+const avatarHTML = (entity, size, options = {}) => {
+  const init = entity.initials || initialsFrom(entity.name || '?');
+  const px = size || 40;
+  const fontSize = Math.round(px * 0.38);
+  const classes = ['ss-avatar-initial'];
+  if (options.onDark) classes.push('ss-on-dark');
+  if (options.round !== false) classes.push('rounded-full');
+  return `<span class="${classes.join(' ')}" style="width:${px}px;height:${px}px;font-size:${fontSize}px;background:${avatarGradient(entity.name||init)};" aria-hidden="true">${esc(init)}</span>`;
+};
 const SERVICES = [
   {title:"Monte-escalier", benefit:"Devis 48h · à partir de 2 900 €", img:"images/svc-escalier.jpg"},
   {title:"Douche PMR", benefit:"Devis gratuit · MaPrimeAdapt' éligible", img:"images/svc-sdb.jpg"},
@@ -841,13 +867,7 @@ const SERVICES = [
   {title:"Lit médicalisé", benefit:"Location ou achat", img:"images/svc-chambre.jpg"},
   {title:"Aide aux aidants", benefit:"Soutien gratuit", img:"images/svc-aidants.jpg"}
 ];
-const TESTIMONIALS = [
-  {name:"Marie", age:58, city:"Lyon", relation:"pour son père de 84 ans", img:"https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&auto=format&fit=crop&q=80", quote:"On a trouvé une auxiliaire pour mon père en 4 jours. Elle vient 3 fois par semaine, il a repris du poil de la bête. Le conseiller au téléphone a été très à l'écoute."},
-  {name:"Jean-Pierre", age:71, city:"Bordeaux", relation:"pour lui-même", img:"https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&auto=format&fit=crop&q=80", quote:"J'ai installé un monte-escalier grâce à leur comparateur. Trois devis en 48 heures, des prix transparents. L'aide MaPrimeAdapt' a couvert plus de la moitié du coût."},
-  {name:"Sophie", age:54, city:"Nantes", relation:"pour sa mère de 82 ans", img:"https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&auto=format&fit=crop&q=80", quote:"Le diagnostic en 4 questions m'a évité des semaines de recherche. On nous a orientés vers une résidence services adaptée. Maman s'y est tout de suite sentie bien."},
-  {name:"Paulette", age:79, city:"Strasbourg", relation:"pour elle-même", img:"https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&auto=format&fit=crop&q=80", quote:"À 79 ans je ne suis pas une experte d'Internet, mais le site est très clair, gros caractères, peu de mots compliqués. J'ai pu comparer trois mutuelles sans aide."},
-  {name:"Thomas", age:62, city:"Toulouse", relation:"pour ses parents", img:"https://images.unsplash.com/photo-1545167622-3a6ac756afa4?w=200&auto=format&fit=crop&q=80", quote:"Mon père est en EHPAD depuis 6 mois grâce au comparateur. Tarifs réels, places disponibles, niveau de médicalisation : tout y était. On a gagné un mois de démarches."}
-];
+// (Legacy TESTIMONIALS array removed — see TESTI below, which is the rendered source of truth.)
 const GUIDES = [
   {cat:"Aides financières", icon:"banknote", title:"Comment financer l'aménagement de la salle de bain de vos parents ?", doc:DOCTORS[0], date:"12 avril 2026", read:8, img:"images/guide-sdb.jpg"},
   {cat:"Maladies", icon:"heart-pulse", title:"Alzheimer : reconnaître les premiers signes et bien réagir", doc:DOCTORS[1], date:"05 avril 2026", read:11, img:"images/guide-alzheimer.jpg"},
@@ -857,15 +877,13 @@ const GUIDES = [
   {cat:"Préparation", icon:"sunrise", title:"Préparer la retraite à 60 ans : le guide pratique en 12 étapes", doc:DOCTORS[5], date:"08 mars 2026", read:12, img:"images/guide-retraite.jpg"}
 ];
 const SUGGESTIONS = ["Monte-escalier","EHPAD à Lyon","Aide à domicile","Mutuelle senior","APA","Téléassistance","Douche PMR","Lit médicalisé","Auxiliaire de vie","Résidence services","MaPrimeAdapt'","Comparer mutuelles"];
-const PROS = [
-  {name:"Dr Hélène Moreau", spec:"Gériatre", addr:"14 rue de la Paix, 75002 Paris", dist:"4,2 km", rating:4.8, img:"https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=200&auto=format&fit=crop&q=80"},
-  {name:"Cabinet Soins+", spec:"Service mandataire", addr:"22 cours Lafayette, 69006 Lyon", dist:"6,8 km", rating:4.7, img:"https://images.unsplash.com/photo-1576765608866-5b51046452be?w=200&auto=format&fit=crop&q=80"},
-  {name:"Ergo'Mobil", spec:"Ergothérapeute", addr:"8 boulevard Michelet, 13008 Marseille", dist:"3,1 km", rating:4.9, img:"https://images.unsplash.com/photo-1551884170-09fb70a3a2ed?w=200&auto=format&fit=crop&q=80"}
-];
+// PROS array no longer rendered in V1 (kept lean — initials helper would be used if reintroduced).
+// EHPAD_RESULTS — illustrative cards. Real photos (replacing the generic placeholders below)
+// will be sourced from the actual partner network at launch. Stock photos forbidden (PITFALLS §7).
 const EHPAD_RESULTS = [
-  {name:"Résidence Les Tilleuls", addr:"Villeurbanne (69100)", dist:"4 km", rating:4.6, price:"≈ 2 480 €/mois", tags:["Médecin coordonnateur","Infirmières 24/24","Unité Alzheimer"], img:"https://images.unsplash.com/photo-1582719508461-905c673771fd?w=800&auto=format&fit=crop&q=80"},
-  {name:"EHPAD Saint-Michel", addr:"Caluire-et-Cuire (69300)", dist:"7 km", rating:4.5, price:"≈ 2 720 €/mois", tags:["Jardin thérapeutique","Animations quotidiennes","Hébergement temporaire"], img:"https://images.unsplash.com/photo-1568992687947-868a62a9f521?w=800&auto=format&fit=crop&q=80"},
-  {name:"Maison Beaulieu", addr:"Lyon 7e (69007)", dist:"9 km", rating:4.7, price:"≈ 2 950 €/mois", tags:["Chambre individuelle","Cuisine sur place","Soins palliatifs"], img:"https://images.unsplash.com/photo-1505691938895-1758d7feb511?w=800&auto=format&fit=crop&q=80"}
+  {name:"Résidence Les Tilleuls", addr:"Villeurbanne (69100)", dist:"4 km", rating:4.6, price:"≈ 2 480 €/mois", tags:["Médecin coordonnateur","Infirmières 24/24","Unité Alzheimer"], icon:"building-2", accent:"var(--rausch)"},
+  {name:"EHPAD Saint-Michel", addr:"Caluire-et-Cuire (69300)", dist:"7 km", rating:4.5, price:"≈ 2 720 €/mois", tags:["Jardin thérapeutique","Animations quotidiennes","Hébergement temporaire"], icon:"trees", accent:"#0a8e6e"},
+  {name:"Maison Beaulieu", addr:"Lyon 7e (69007)", dist:"9 km", rating:4.7, price:"≈ 2 950 €/mois", tags:["Chambre individuelle","Cuisine sur place","Soins palliatifs"], icon:"home", accent:"#7e4ca8"}
 ];
 const esc = s => s.replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 
@@ -1046,14 +1064,31 @@ document.getElementById("siloGrid").innerHTML = SILOS.map(s => `
   }, { passive: true });
 })();
 
-/* ============ SERVICES TOP12 ============ */
-document.getElementById("svcGrid").innerHTML = SERVICES.map((s,i) => {
-  const d = DOCTORS[i % DOCTORS.length];
+/* ============ SERVICES TOP12 — visual hierarchy (1 featured + 11 standard) ============ */
+{
+  const feature = SERVICES[0];
+  const featDoc = DOCTORS[0];
+  document.getElementById("svcFeature").innerHTML = `<article class="bg-white border border-[#dddddd] rounded-[16px] overflow-hidden ss-card-hover grid md:grid-cols-[1.1fr_1fr]">
+    <div class="aspect-[16/9] md:aspect-auto overflow-hidden bg-[#f7f7f7]"><img src="${esc(feature.img)}" alt="${esc(feature.title)}" loading="lazy" class="w-full h-full object-cover" /></div>
+    <div class="p-7 md:p-10 flex flex-col justify-center">
+      <span class="self-start inline-flex items-center gap-1.5 px-3 h-7 rounded-full text-[11px] font-bold uppercase tracking-wide mb-4" style="background:rgba(14,116,144,0.10); color:#0e7490;"><i data-lucide="flame" class="w-3 h-3"></i>Le plus demandé ce mois-ci</span>
+      <h3 class="text-[26px] md:text-[32px] font-extrabold leading-[1.1] tracking-tight mb-2" style="color:var(--ink);">${esc(feature.title)}</h3>
+      <p class="text-[16px] mb-5" style="color:var(--muted);">${esc(feature.benefit)}</p>
+      <div class="inline-flex items-center gap-2 self-start px-3 h-8 rounded-full bg-[#f7f7f7] text-[13px] font-semibold mb-6" style="color:var(--ink);"><i data-lucide="badge-check" class="w-[14px] h-[14px]" style="color:#008a05;"></i>Validé par ${esc(featDoc.name)}, ${esc(featDoc.spec)}</div>
+      <div class="flex flex-wrap gap-3">
+        <button class="ss-btn-rausch" style="height:52px;" data-cta>Demander un devis gratuit <i data-lucide="arrow-right" class="w-4 h-4"></i></button>
+        <a href="#" class="ss-link text-[15px] font-semibold inline-flex items-center" style="color:#0e7490;">Voir le guide complet →</a>
+      </div>
+    </div>
+  </article>`;
+}
+document.getElementById("svcGrid").innerHTML = SERVICES.slice(1).map((s,i) => {
+  const d = DOCTORS[(i+1) % DOCTORS.length];
   return `<article class="bg-white border border-[#dddddd] rounded-[12px] overflow-hidden ss-card-hover flex flex-col">
     <div class="aspect-[4/3] overflow-hidden bg-[#f7f7f7]"><img src="${s.img}" alt="${esc(s.title)}" loading="lazy" class="w-full h-full object-cover" /></div>
     <div class="p-5 flex flex-col flex-1">
       <h4 class="ss-h4 mb-1">${esc(s.title)}</h4>
-      <div class="text-[14px] text-[#6a6a6a] mb-3">${esc(s.benefit)}</div>
+      <div class="text-[14px] mb-3" style="color:var(--muted);">${esc(s.benefit)}</div>
       <div class="inline-flex items-center gap-2 self-start px-3 h-7 rounded-full bg-[#f7f7f7] text-[12px] font-semibold text-[#222] mb-4"><i data-lucide="badge-check" class="w-3 h-3" style="color:#008a05;"></i>Validé par ${esc(d.name)}, ${esc(d.spec)}</div>
       <div class="mt-auto"><button class="ss-btn-rausch w-full" style="height:48px;" data-cta>Demander un devis <i data-lucide="arrow-right" class="w-4 h-4"></i></button></div>
     </div>
@@ -1062,9 +1097,9 @@ document.getElementById("svcGrid").innerHTML = SERVICES.map((s,i) => {
 
 /* ============ POURQUOI — 3 STEP CARDS (dark + glow) ============ */
 const WHY_STEPS = [
-  { n:1, icon:"phone-call", title:"Décrivez la situation", desc:"Un appel au 0 800 300 300 ou 4 questions en ligne — 30 secondes, sans inscription, sans email obligatoire." },
+  { n:1, icon:"phone-call", title:"Décrivez la situation", desc:"Un appel au 0 800 300 300 ou 4 questions en ligne : 30 secondes, sans inscription, sans email obligatoire." },
   { n:2, icon:"file-check-2", title:"Recevez votre plan", desc:"Sous 24 h ouvrées : aides chiffrées (APA, MaPrimeAdapt'…), 3 pros pré-sélectionnés, validé par notre comité médical." },
-  { n:3, icon:"hand-heart", title:"On reste à vos côtés", desc:"Un conseiller dédié vous suit jusqu'à la mise en place — montage du dossier, devis, premier rendez-vous. Gratuit." }
+  { n:3, icon:"hand-heart", title:"On reste à vos côtés", desc:"Un conseiller dédié vous suit jusqu'à la mise en place : montage du dossier, devis, premier rendez-vous. Gratuit." }
 ];
 document.getElementById("whyStepsGrid").innerHTML = WHY_STEPS.map(s => `
   <div class="glow-card" data-glow style="--radius:20;">
@@ -1106,7 +1141,7 @@ const renderEhpadBody = () => {
   } else if (ehpad.step===3) {
     const qs = [["q1","Votre proche peut-il préparer ses repas seul ?"],["q2","Faire sa toilette seul ?"],["q3","Se déplacer seul dans son logement ?"],["q4","Communiquer clairement ?"]];
     const yes = ["q1","q2","q3","q4"].filter(k => ehpad[k]==="yes").length;
-    const gir = yes===4?"GIR 5–6 — Autonome":yes===3?"GIR 4 — Légère perte":yes===2?"GIR 3 — Dépendance modérée":yes===1?"GIR 2 — Dépendance lourde":"GIR 1 — Dépendance totale";
+    const gir = yes===4?"GIR 5–6 : Autonome":yes===3?"GIR 4 : Légère perte":yes===2?"GIR 3 : Dépendance modérée":yes===1?"GIR 2 : Dépendance lourde":"GIR 1 : Dépendance totale";
     const all = ehpad.q1 && ehpad.q2 && ehpad.q3 && ehpad.q4;
     b.innerHTML = `<div class="max-w-[700px]"><p class="text-[15px] text-[#6a6a6a] mb-5">Pour estimer le niveau de dépendance (GIR) à transmettre aux établissements.</p>${qs.map(([k,q]) => `<div class="flex items-center justify-between gap-4 py-4 border-b border-[#ebebeb] last:border-0"><span class="text-[16px] text-[#222] flex-1">${esc(q)}</span><div class="flex gap-2 shrink-0">${["yes","no"].map(v => `<button data-q="${k}" data-v="${v}" class="min-w-[80px] h-11 px-4 rounded-full border text-[14px] font-semibold ${ehpad[k]===v?"border-[#222] bg-[#222] text-white":"border-[#dddddd] bg-white text-[#222] hover:border-[#222]"}">${v==="yes"?"Oui":"Non"}</button>`).join("")}</div></div>`).join("")}${all?`<div class="mt-5 p-4 rounded-[12px] flex items-center gap-3" style="background:#ecfeff; border:1px solid #cceef4;"><i data-lucide="activity" class="w-[22px] h-[22px]" style="color:#0e7490;"></i><div><span class="text-[14px] text-[#6a6a6a]">Estimation : </span><span class="text-[16px] font-semibold text-[#222]">${gir}</span></div></div>`:""}</div>`;
     b.addEventListener("click", e => { const x = e.target.closest("[data-q]"); if (x) { ehpad[x.dataset.q] = x.dataset.v; renderEhpadBody(); renderEhpadTabs(); } }, { once:true });
@@ -1127,7 +1162,7 @@ document.getElementById("ehpadNext").addEventListener("click", () => {
 });
 function showEhpadResults() {
   const wrap = document.getElementById("ehpadResults"); wrap.style.display = "block";
-  document.getElementById("ehpadCards").innerHTML = EHPAD_RESULTS.map(r => `<article class="bg-white border border-[#dddddd] rounded-[12px] overflow-hidden ss-card-hover flex flex-col"><div class="aspect-[16/10] overflow-hidden"><img src="${r.img}" alt="Photo de ${esc(r.name)}" loading="lazy" class="w-full h-full object-cover" /></div><div class="p-5 flex-1 flex flex-col"><div class="flex items-center gap-1.5 text-[13px] text-[#222] mb-1"><i data-lucide="star" class="w-[14px] h-[14px]"></i><span class="font-semibold">${r.rating}</span><span class="text-[#6a6a6a]"> · ${esc(r.dist)}</span></div><h4 class="ss-h3 mb-1">${esc(r.name)}</h4><div class="text-[14px] text-[#6a6a6a] mb-3">${esc(r.addr)}</div><div class="text-[20px] font-bold text-[#222] mb-4">${esc(r.price)}</div><div class="flex flex-wrap gap-2 mb-5">${r.tags.map(t => `<span class="inline-flex items-center gap-1.5 px-3 h-7 rounded-full bg-[#f7f7f7] text-[12px] font-medium text-[#3f3f3f]"><i data-lucide="check" class="w-3 h-3"></i>${esc(t)}</span>`).join("")}</div><div class="mt-auto"><button class="ss-btn-rausch w-full" style="height:48px;" data-cta>Demander une visite gratuite</button></div></div></article>`).join("");
+  document.getElementById("ehpadCards").innerHTML = EHPAD_RESULTS.map(r => `<article class="bg-white border border-[#dddddd] rounded-[12px] overflow-hidden ss-card-hover flex flex-col"><div class="aspect-[16/10] overflow-hidden relative" style="background:linear-gradient(135deg, ${r.accent} 0%, rgba(0,0,0,0.10) 100%);"><div class="absolute inset-0 flex items-center justify-center text-white opacity-40"><i data-lucide="${esc(r.icon)}" style="width:64px;height:64px;"></i></div><div class="absolute left-4 top-4 inline-flex items-center gap-1.5 px-3 h-7 rounded-full text-[11px] font-bold uppercase tracking-wide" style="background:rgba(255,255,255,0.92); color:#222;"><i data-lucide="map-pin" class="w-3 h-3"></i>${esc(r.dist)}</div></div><div class="p-5 flex-1 flex flex-col"><div class="flex items-center gap-1.5 text-[13px] text-[#222] mb-1"><i data-lucide="star" class="w-[14px] h-[14px]" style="color:#0e7490; fill:#0e7490;"></i><span class="font-semibold">${r.rating}</span><span style="color:var(--muted);"> · ${esc(r.addr)}</span></div><h4 class="ss-h3 mb-1">${esc(r.name)}</h4><div class="text-[20px] font-bold text-[#222] mt-1 mb-4">${esc(r.price)}</div><div class="flex flex-wrap gap-2 mb-5">${r.tags.map(t => `<span class="inline-flex items-center gap-1.5 px-3 h-7 rounded-full bg-[#f7f7f7] text-[12px] font-medium text-[#3f3f3f]"><i data-lucide="check" class="w-3 h-3"></i>${esc(t)}</span>`).join("")}</div><div class="mt-auto"><button class="ss-btn-rausch w-full" style="height:48px;" data-cta>Demander une visite gratuite</button></div></div></article>`).join("");
   if (window.lucide) window.lucide.createIcons();
   wrap.scrollIntoView({ behavior:"smooth", block:"start" });
 }
@@ -1135,15 +1170,15 @@ document.getElementById("leadForm").addEventListener("submit", e => { e.preventD
 
 /* ============ TESTIMONIALS (3-column vertical infinite) ============ */
 const TESTI = [
-  { quote:"On a trouvé une auxiliaire pour mon père en quatre jours. Elle vient trois fois par semaine, il a repris du poil de la bête. Le conseiller au téléphone a vraiment pris le temps.", name:"Marie", age:58, city:"Lyon", relation:"pour son père (84 ans)", img:"https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&auto=format&fit=crop&q=80" },
-  { quote:"Trois devis pour le monte-escalier en quarante-huit heures. MaPrimeAdapt' a couvert plus de la moitié, le dossier a été monté pour moi. Tout était limpide, sans jargon.", name:"Jean-Pierre", age:71, city:"Bordeaux", relation:"pour lui-même", img:"https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=200&auto=format&fit=crop&q=80" },
-  { quote:"Le diagnostic en quatre questions m'a évité des semaines de recherche. On nous a orientés vers une résidence services adaptée. Maman s'y est sentie chez elle dès le premier matin.", name:"Sophie", age:54, city:"Nantes", relation:"pour sa mère (82 ans)", img:"https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&auto=format&fit=crop&q=80" },
-  { quote:"À soixante-dix-neuf ans, je ne suis pas une experte d'Internet. Le site est clair, les caractères sont gros, peu de mots compliqués. J'ai pu comparer trois mutuelles toute seule.", name:"Paulette", age:79, city:"Strasbourg", relation:"pour elle-même", img:"https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&auto=format&fit=crop&q=80" },
-  { quote:"Mon père est en EHPAD depuis six mois grâce au comparateur. Tarifs réels, places disponibles, niveau de médicalisation, GIR accepté : tout y était. On a gagné un mois de démarches.", name:"Thomas", age:62, city:"Toulouse", relation:"pour ses parents", img:"https://images.unsplash.com/photo-1545167622-3a6ac756afa4?w=200&auto=format&fit=crop&q=80" },
-  { quote:"Le conseiller m'a rappelée une heure après mon appel, un dimanche soir. C'était urgent, ils l'ont compris. Le lundi matin, une auxiliaire était déjà chez ma mère.", name:"Catherine", age:49, city:"Rennes", relation:"pour sa mère (86 ans)", img:"https://images.unsplash.com/photo-1607746882042-944635dfe10e?w=200&auto=format&fit=crop&q=80" },
-  { quote:"MaPrimeAdapt' tout seul, ça m'aurait pris des mois. Avec eux, mon dossier est passé en cinq semaines. La douche PMR est installée, je n'ai plus peur de glisser.", name:"Roger", age:76, city:"Marseille", relation:"pour lui-même", img:"https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=200&auto=format&fit=crop&q=80" },
-  { quote:"On nous a évité une erreur d'orientation. Maman n'avait pas besoin d'EHPAD, mais d'une résidence services. Six mois plus tard, elle revit, elle a même repris la peinture.", name:"Émilie", age:51, city:"Lille", relation:"pour sa mère (78 ans)", img:"https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&auto=format&fit=crop&q=80" },
-  { quote:"Téléassistance posée en deux jours, mon père l'utilise sans aucune réticence. Le bracelet est discret, ça compte. Il l'a déclenché une fois, ça a tout changé pour nous.", name:"Vincent", age:64, city:"Dijon", relation:"pour son père (89 ans)", img:"https://images.unsplash.com/photo-1551884170-09fb70a3a2ed?w=200&auto=format&fit=crop&q=80" }
+  { quote:"On a trouvé une auxiliaire pour mon père en quatre jours. Elle vient trois fois par semaine, il a repris du poil de la bête. Le conseiller au téléphone a vraiment pris le temps.", name:"Marie", age:58, city:"Lyon", relation:"pour son père (84 ans)" },
+  { quote:"Trois devis pour le monte-escalier en quarante-huit heures. MaPrimeAdapt' a couvert plus de la moitié, le dossier a été monté pour moi. Tout était limpide, sans jargon.", name:"Jean-Pierre", age:71, city:"Bordeaux", relation:"pour lui-même" },
+  { quote:"Le diagnostic en quatre questions m'a évité des semaines de recherche. On nous a orientés vers une résidence services adaptée. Maman s'y est sentie chez elle dès le premier matin.", name:"Sophie", age:54, city:"Nantes", relation:"pour sa mère (82 ans)" },
+  { quote:"À soixante-dix-neuf ans, je ne suis pas une experte d'Internet. Le site est clair, les caractères sont gros, peu de mots compliqués. J'ai pu comparer trois mutuelles toute seule.", name:"Paulette", age:79, city:"Strasbourg", relation:"pour elle-même" },
+  { quote:"Mon père est en EHPAD depuis six mois grâce au comparateur. Tarifs réels, places disponibles, niveau de médicalisation, GIR accepté : tout y était. On a gagné un mois de démarches.", name:"Thomas", age:62, city:"Toulouse", relation:"pour ses parents" },
+  { quote:"Le conseiller m'a rappelée une heure après mon appel, un dimanche soir. C'était urgent, ils l'ont compris. Le lundi matin, une auxiliaire était déjà chez ma mère.", name:"Catherine", age:49, city:"Rennes", relation:"pour sa mère (86 ans)" },
+  { quote:"MaPrimeAdapt' tout seul, ça m'aurait pris des mois. Avec eux, mon dossier est passé en cinq semaines. La douche PMR est installée, je n'ai plus peur de glisser.", name:"Roger", age:76, city:"Marseille", relation:"pour lui-même" },
+  { quote:"On nous a évité une erreur d'orientation. Maman n'avait pas besoin d'EHPAD, mais d'une résidence services. Six mois plus tard, elle revit, elle a même repris la peinture.", name:"Émilie", age:51, city:"Lille", relation:"pour sa mère (78 ans)" },
+  { quote:"Téléassistance posée en deux jours, mon père l'utilise sans aucune réticence. Le bracelet est discret, ça compte. Il l'a déclenché une fois, ça a tout changé pour nous.", name:"Vincent", age:64, city:"Dijon", relation:"pour son père (89 ans)" }
 ];
 
 document.getElementById("avisStars").innerHTML = Array(5).fill('<i data-lucide="star" class="w-[16px] h-[16px]" style="color:#0e7490; fill:#0e7490;"></i>').join("");
@@ -1153,10 +1188,10 @@ const testiCard = t => `
     <div class="flex items-center gap-0.5 mb-4">${Array(5).fill('<i data-lucide="star" class="w-[14px] h-[14px]" style="color:#0e7490; fill:#0e7490;"></i>').join("")}</div>
     <p class="text-[15px] leading-[1.55] text-[#222]">« ${esc(t.quote)} »</p>
     <div class="flex items-center gap-3 mt-6 pt-5 border-t border-[#ebebeb]">
-      <img src="${t.img}" alt="Portrait de ${esc(t.name)}" width="40" height="40" loading="lazy" class="w-10 h-10 rounded-full object-cover shrink-0" />
+      ${avatarHTML(t, 40)}
       <div class="flex flex-col min-w-0">
         <div class="font-semibold tracking-tight leading-5 text-[14px] text-[#222]">${esc(t.name)}, ${t.age} ans</div>
-        <div class="leading-5 tracking-tight text-[13px] text-[#6a6a6a]">${esc(t.city)} · ${esc(t.relation)}</div>
+        <div class="leading-5 tracking-tight text-[13px]" style="color:var(--muted);">${esc(t.city)} · ${esc(t.relation)}</div>
       </div>
     </div>
   </article>`;
@@ -1176,16 +1211,16 @@ document.querySelectorAll(".testi-col").forEach(col => {
 });
 
 /* ============ GUIDES ============ */
-document.getElementById("guideGrid").innerHTML = GUIDES.map(g => `<article class="bg-white border border-[#dddddd] rounded-[12px] overflow-hidden ss-card-hover flex flex-col"><a href="#" class="block aspect-[16/9] overflow-hidden bg-[#f7f7f7]"><img src="${g.img}" alt="${esc(g.title)}" loading="lazy" class="w-full h-full object-cover" /></a><div class="p-6 flex-1 flex flex-col"><span class="self-start inline-flex items-center gap-1.5 px-3 h-7 rounded-full bg-[#f7f7f7] text-[12px] font-semibold text-[#222] mb-3"><i data-lucide="${g.icon}" class="w-3 h-3"></i>${esc(g.cat)}</span><h3 class="ss-h3 mb-3" style="text-wrap:pretty;">${esc(g.title)}</h3><div class="flex items-center gap-2.5 mt-auto pt-4"><div class="w-10 h-10 rounded-full overflow-hidden bg-[#f7f7f7] shrink-0"><img src="${g.doc.img}" alt="${esc(g.doc.name)}" loading="lazy" class="w-full h-full object-cover" /></div><div class="flex-1 min-w-0"><a href="#" class="ss-link text-[14px] font-semibold block">${esc(g.doc.name)}, ${esc(g.doc.spec)}</a><div class="text-[12px] text-[#6a6a6a]">Mis à jour le ${esc(g.date)} · ${g.read} min</div></div></div><a href="#" class="ss-link text-[14px] font-semibold mt-4" style="color:#0e7490;">Lire l'article →</a></div></article>`).join("");
+document.getElementById("guideGrid").innerHTML = GUIDES.map(g => `<article class="bg-white border border-[#dddddd] rounded-[12px] overflow-hidden ss-card-hover flex flex-col"><a href="#" class="block aspect-[16/9] overflow-hidden bg-[#f7f7f7]"><img src="${g.img}" alt="${esc(g.title)}" loading="lazy" class="w-full h-full object-cover" /></a><div class="p-6 flex-1 flex flex-col"><span class="self-start inline-flex items-center gap-1.5 px-3 h-7 rounded-full bg-[#f7f7f7] text-[12px] font-semibold text-[#222] mb-3"><i data-lucide="${g.icon}" class="w-3 h-3"></i>${esc(g.cat)}</span><h3 class="ss-h3 mb-3" style="text-wrap:pretty;">${esc(g.title)}</h3><div class="flex items-center gap-2.5 mt-auto pt-4">${avatarHTML(g.doc, 40)}<div class="flex-1 min-w-0"><a href="#" class="ss-link text-[14px] font-semibold block">${esc(g.doc.name)}, ${esc(g.doc.spec)}</a><div class="text-[12px]" style="color:var(--muted);">Mis à jour le ${esc(g.date)} · ${g.read} min</div></div></div><a href="#" class="ss-link text-[14px] font-semibold mt-4" style="color:#0e7490;">Lire l'article →</a></div></article>`).join("");
 
 /* ============ AIDS ============ */
 const AIDS = [
   {icon:"euro", name:"APA", full:"Allocation personnalisée d'autonomie", big:"Jusqu'à 1 956 €/mois", desc:"Aide versée par le département pour l'aide à domicile ou en EHPAD, selon votre niveau de dépendance.", cta:"Comprendre l'APA"},
   {icon:"banknote", name:"ASPA", full:"Minimum vieillesse", big:"Jusqu'à 1 012 €/mois", desc:"Pour les retraités aux faibles ressources, vivant en France de manière régulière.", cta:"Vérifier mon éligibilité"},
   {icon:"hammer", name:"MaPrimeAdapt'", full:"Adaptation du logement", big:"Jusqu'à 70 % de vos travaux", desc:"Salle de bain, monte-escalier, domotique : une aide unique pour adapter votre logement.", cta:"Calculer mon aide"},
-  {icon:"calculator", name:"Crédit d'impôt", full:"Services à la personne", big:"50 % des dépenses, jusqu'à 12 000 €/an", desc:"Auxiliaire, ménage, jardinage, téléassistance — un crédit immédiat possible.", cta:"Voir les conditions"}
+  {icon:"calculator", name:"Crédit d'impôt", full:"Services à la personne", big:"50 % des dépenses, jusqu'à 12 000 €/an", desc:"Auxiliaire, ménage, jardinage, téléassistance : un crédit immédiat possible.", cta:"Voir les conditions"}
 ];
-document.getElementById("aidsGrid").innerHTML = AIDS.map(a => `<article class="bg-white border border-[#dddddd] rounded-[12px] p-6 md:p-8 ss-card-hover flex flex-col"><div class="w-14 h-14 rounded-[12px] bg-[#f7f7f7] inline-flex items-center justify-center text-[#222] mb-5"><i data-lucide="${a.icon}" class="w-7 h-7"></i></div><h3 class="ss-h3 mb-1">${esc(a.name)} <span class="text-[15px] font-normal text-[#6a6a6a]">— ${esc(a.full)}</span></h3><div class="text-[28px] font-bold text-[#222] mt-3 mb-3 leading-tight">${esc(a.big)}</div><p class="text-[16px] text-[#3f3f3f] leading-[1.5] mb-6">${esc(a.desc)}</p><a href="#" class="ss-link text-[15px] font-semibold mt-auto inline-flex items-center gap-1" style="color:#0e7490;">${esc(a.cta)} <i data-lucide="arrow-right" class="w-4 h-4"></i></a></article>`).join("");
+document.getElementById("aidsGrid").innerHTML = AIDS.map(a => `<article class="bg-white border border-[#dddddd] rounded-[12px] p-6 md:p-8 ss-card-hover flex flex-col"><div class="w-14 h-14 rounded-[12px] bg-[#f7f7f7] inline-flex items-center justify-center text-[#222] mb-5"><i data-lucide="${a.icon}" class="w-7 h-7"></i></div><h3 class="ss-h3 mb-1">${esc(a.name)} <span class="text-[15px] font-normal text-[#6a6a6a]">· ${esc(a.full)}</span></h3><div class="text-[28px] font-bold text-[#222] mt-3 mb-3 leading-tight">${esc(a.big)}</div><p class="text-[16px] text-[#3f3f3f] leading-[1.5] mb-6">${esc(a.desc)}</p><a href="#" class="ss-link text-[15px] font-semibold mt-auto inline-flex items-center gap-1" style="color:#0e7490;">${esc(a.cta)} <i data-lucide="arrow-right" class="w-4 h-4"></i></a></article>`).join("");
 
 /* ============ LOGO BAR ============ */
 document.getElementById("logoBar").innerHTML = ["Le Monde","Le Figaro","France Info","Notre Temps","Capital","Ordre des médecins","SFGG","France Alzheimer"].map(l => `<span class="text-[18px] font-bold tracking-tight hover:text-[#222] transition-colors">${esc(l)}</span>`).join("");
@@ -1332,9 +1367,9 @@ document.addEventListener("click", e => { const b = e.target.closest("[data-cta]
 
   const hd = document.getElementById("teamHeader");
   if(hd) hd.innerHTML = `
-    <span class="ss-tag" style="color:#0e7490;">— Comité médical &amp; équipe —</span>
+    <span class="ss-tag" style="color:#0e7490;">Comité médical &amp; équipe</span>
     <h2 class="ss-h2 mt-3 mb-4">Des <span class="ss-script" style="font-size:1.35em;">médecins et spécialistes de santé</span><br>qui valident chaque conseil</h2>
-    <p class="ss-body max-w-[620px] mx-auto">Notre comité pluridisciplinaire réunit gériatres, cardiologues, gérontologues et ergothérapeutes diplômés. Chaque contenu publié sur Santé Senior est relu et signé par un professionnel de santé identifié — garantissant fiabilité, rigueur médicale et conformité aux recommandations de la HAS.</p>
+    <p class="ss-body max-w-[620px] mx-auto">Notre comité pluridisciplinaire réunit gériatres, cardiologues, gérontologues et ergothérapeutes diplômés. Chaque contenu publié sur Santé Senior est relu et signé par un professionnel de santé identifié, garantissant fiabilité, rigueur médicale et conformité aux recommandations de la HAS.</p>
   `;
 
   const cols = [[TEAM[0],TEAM[1]],[TEAM[2],TEAM[3]],[TEAM[4],TEAM[5]],[TEAM[6],TEAM[7]]];
