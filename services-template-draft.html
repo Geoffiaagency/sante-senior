@@ -43,19 +43,21 @@ a{ color:inherit; }
 @media (max-width:743px){ .ss-h1{ font-size:32px; } .ss-h2{ font-size:24px; } .ss-h3{ font-size:20px; } body{ font-size:17px; } }
 @media (min-width:1128px){ .ss-h2{ font-size:40px; } }
 
-.container{ max-width:1200px; margin-inline:auto; padding-inline:24px; }
-.section{ padding-block:64px; }
-@media (min-width:1128px){ .section{ padding-block:88px; } }
+.container{ max-width:1440px; margin-inline:auto; padding-inline:32px; }
+@media (max-width:743px){ .container{ padding-inline:20px; } }
+.section{ padding-block:80px; }
+@media (min-width:1128px){ .section{ padding-block:112px; } }
 
-/* === BOUTONS === */
-.ss-btn-rausch{ background:var(--rausch); color:#fff; transition:background-color 150ms; display:inline-flex; align-items:center; justify-content:center; gap:8px; border-radius:9999px; padding:0 24px; height:56px; font-size:16px; font-weight:600; border:none; cursor:pointer; text-decoration:none; }
+/* === BOUTONS — tous teal (3 variantes) === */
+.ss-btn-rausch{ background:var(--rausch); color:#fff; transition:background-color 150ms,transform 100ms; display:inline-flex; align-items:center; justify-content:center; gap:8px; border-radius:9999px; padding:0 26px; height:56px; font-size:16px; font-weight:600; border:none; cursor:pointer; text-decoration:none; }
 .ss-btn-rausch:hover{ background:#0a6880; }
-.ss-btn-rausch:active{ background:var(--rausch-active); }
-.ss-btn-outline{ background:#fff; color:var(--ink); border:1.5px solid var(--ink); transition:background-color 150ms; display:inline-flex; align-items:center; justify-content:center; gap:8px; border-radius:9999px; padding:0 24px; height:56px; font-size:16px; font-weight:600; cursor:pointer; text-decoration:none; }
-.ss-btn-outline:hover{ background:var(--surface-strong); }
-.ss-btn-ghost-light{ background:rgba(255,255,255,0.10); color:#fff; border:1.5px solid rgba(255,255,255,0.40); backdrop-filter:blur(6px); display:inline-flex; align-items:center; justify-content:center; gap:8px; border-radius:9999px; padding:0 24px; height:56px; font-size:16px; font-weight:600; cursor:pointer; text-decoration:none; transition:background-color 150ms,border-color 150ms; }
-.ss-btn-ghost-light:hover{ background:rgba(255,255,255,0.18); border-color:rgba(255,255,255,0.70); }
-.ss-link{ color:var(--ink); text-decoration:underline; text-underline-offset:3px; }
+.ss-btn-rausch:active{ background:var(--rausch-active); transform:scale(0.98); }
+.ss-btn-rausch-outline{ background:#fff; color:var(--rausch); border:1.5px solid var(--rausch); transition:background-color 150ms,color 150ms; display:inline-flex; align-items:center; justify-content:center; gap:8px; border-radius:9999px; padding:0 26px; height:56px; font-size:16px; font-weight:600; cursor:pointer; text-decoration:none; }
+.ss-btn-rausch-outline:hover{ background:var(--rausch-tint); }
+.ss-btn-rausch-on-dark{ background:rgba(14,116,144,0.18); color:#fff; border:1.5px solid var(--rausch); backdrop-filter:blur(6px); display:inline-flex; align-items:center; justify-content:center; gap:8px; border-radius:9999px; padding:0 26px; height:56px; font-size:16px; font-weight:600; cursor:pointer; text-decoration:none; transition:background-color 150ms,border-color 150ms; }
+.ss-btn-rausch-on-dark:hover{ background:var(--rausch); border-color:var(--rausch); }
+.ss-link{ color:var(--rausch); text-decoration:underline; text-underline-offset:3px; font-weight:600; }
+.ss-link:hover{ text-decoration-thickness:2px; }
 
 /* === HEADER === */
 .draft-banner{ background:#c13515; color:#fff; padding:8px 16px; font-size:13px; font-weight:600; text-align:center; letter-spacing:0.02em; }
@@ -74,9 +76,8 @@ a{ color:inherit; }
 .hdr-tel .lbl{ font-size:12px; color:var(--muted); }
 @media (min-width:1024px){ .hdr-nav{ display:inline-flex; } .hdr-tel{ display:inline-flex; } }
 
-/* === DRAFT LABELS (à retirer en prod) === */
-.module-label{ background:#fff7d6; border-left:4px solid #d97706; padding:10px 16px; font-size:13px; font-weight:700; color:#92400e; font-family:ui-monospace,SFMono-Regular,Menlo,monospace; letter-spacing:0.04em; text-transform:uppercase; }
-.module-label small{ display:block; font-size:11px; font-weight:500; color:#78350f; text-transform:none; letter-spacing:normal; margin-top:2px; }
+/* === DRAFT LABELS — cachées visuellement, conservées dans le code pour mémo de structure (retirer en prod) === */
+.module-label{ display:none !important; }
 
 /* === IMAGE PLACEHOLDER (Nano Banana Pro à générer) === */
 .ss-img-placeholder{ background:linear-gradient(135deg, var(--cream) 0%, var(--cream-deep) 100%); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px; color:var(--rausch); border-radius:16px; padding:24px; min-height:200px; border:1.5px dashed rgba(14,116,144,0.45); position:relative; overflow:hidden; }
@@ -115,36 +116,46 @@ a{ color:inherit; }
 @media (max-width:743px){
   .hero-l2-inner{ padding:48px 20px 40px; }
   .hero-l2-ctas{ flex-direction:column; }
-  .hero-l2-ctas .ss-btn-rausch, .hero-l2-ctas .ss-btn-outline, .hero-l2-ctas .ss-btn-ghost-light{ width:100%; }
+  .hero-l2-ctas .ss-btn-rausch, .hero-l2-ctas .ss-btn-rausch-on-dark, .hero-l2-ctas .ss-btn-rausch-outline{ width:100%; }
   .hero-l2-author{ flex-direction:column; padding:14px 18px; gap:8px; border-radius:18px; }
   .hero-l2-author-meta{ text-align:center; }
 }
 
-/* === TOC C02 === */
-.toc-wrap{ background:var(--cream); border-bottom:1px solid var(--hairline-soft); }
-.toc-details{ max-width:1100px; margin:0 auto; padding:20px 24px; }
-.toc-details > summary{ list-style:none; cursor:pointer; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:14px 0; }
+/* === TOC C02 (dark, fermé par défaut) === */
+.toc-wrap{ background:var(--night); color:#fff; border-bottom:1px solid rgba(255,255,255,0.06); }
+.toc-details{ max-width:1440px; margin:0 auto; padding:24px 32px; }
+@media (max-width:743px){ .toc-details{ padding:20px; } }
+.toc-details > summary{ list-style:none; cursor:pointer; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:16px 0; }
 .toc-details > summary::-webkit-details-marker{ display:none; }
-.toc-details summary .title{ font-size:16px; font-weight:700; color:var(--ink); display:inline-flex; align-items:center; gap:10px; }
-.toc-details summary .title i{ color:var(--rausch); }
-.toc-details summary .chev{ transition:transform 200ms ease; color:var(--ink); }
-.toc-details[open] summary .chev{ transform:rotate(90deg); }
-.toc-list{ list-style:none; margin:0; padding:8px 0 16px; columns:2; column-gap:32px; }
-.toc-list li{ margin:0; padding:0; break-inside:avoid; }
-.toc-list a{ display:flex; align-items:center; gap:8px; padding:8px 0; font-size:15px; color:var(--ink); text-decoration:none; border-bottom:1px solid rgba(0,0,0,0.06); transition:color 120ms,padding-left 150ms; }
-.toc-list a:hover{ color:var(--rausch); padding-left:6px; }
-.toc-list a .num{ font-size:12px; font-weight:700; color:var(--rausch); min-width:24px; }
+.toc-details summary .title{ font-size:18px; font-weight:700; color:#fff; display:inline-flex; align-items:center; gap:12px; }
+.toc-details summary .title i{ color:#4ecde6; }
+.toc-details summary .chev{ transition:transform 200ms ease; color:#fff; width:36px; height:36px; border-radius:9999px; background:rgba(255,255,255,0.08); display:inline-flex; align-items:center; justify-content:center; }
+.toc-details[open] summary .chev{ transform:rotate(90deg); background:var(--rausch); }
+.toc-list{ list-style:none; margin:0; padding:12px 0 20px; columns:3; column-gap:40px; }
+@media (max-width:1024px){ .toc-list{ columns:2; } }
 @media (max-width:743px){ .toc-list{ columns:1; } }
+.toc-list li{ margin:0; padding:0; break-inside:avoid; }
+.toc-list a{ display:flex; align-items:center; gap:10px; padding:10px 0; font-size:16px; color:rgba(255,255,255,0.85); text-decoration:none; border-bottom:1px solid rgba(255,255,255,0.08); transition:color 120ms,padding-left 150ms; font-weight:500; }
+.toc-list a:hover{ color:#4ecde6; padding-left:6px; }
+.toc-list a .num{ font-size:13px; font-weight:700; color:#4ecde6; min-width:28px; }
 
 /* === MODULES COMMUNS === */
-.mod-tag{ display:inline-block; font-size:11px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:var(--rausch); padding:6px 12px; background:var(--rausch-tint); border-radius:9999px; margin-bottom:16px; }
-.mod-h2{ font-size:clamp(26px,3vw,36px); font-weight:800; line-height:1.12; letter-spacing:-0.5px; color:var(--ink); margin:0 0 16px; text-wrap:balance; }
-.mod-lede{ font-size:18px; line-height:1.6; color:var(--body); max-width:720px; margin:0 0 32px; }
-.mod-prose p{ font-size:18px; line-height:1.7; color:var(--body); margin:0 0 18px; }
+.mod-tag{ display:inline-block; font-size:12px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--rausch); padding:7px 14px; background:var(--rausch-tint); border-radius:9999px; margin-bottom:20px; }
+.mod-h2{ font-size:clamp(28px,3.4vw,44px); font-weight:800; line-height:1.1; letter-spacing:-0.8px; color:var(--ink); margin:0 0 20px; text-wrap:balance; }
+.mod-lede{ font-size:20px; line-height:1.55; color:var(--ink); font-weight:500; max-width:880px; margin:0 0 40px; }
+.mod-prose p{ font-size:20px; line-height:1.55; color:var(--ink); font-weight:500; margin:0 0 22px; }
 .mod-prose p strong{ color:var(--ink); font-weight:700; }
-.mod-prose ul, .mod-prose ol{ font-size:18px; line-height:1.7; color:var(--body); padding-left:24px; margin:0 0 18px; }
-.mod-prose li{ margin-bottom:8px; }
-.mod-prose h3{ font-size:22px; font-weight:700; color:var(--ink); margin:32px 0 12px; }
+.mod-prose ul, .mod-prose ol{ font-size:20px; line-height:1.55; color:var(--ink); font-weight:500; padding-left:24px; margin:0 0 22px; }
+.mod-prose li{ margin-bottom:10px; }
+.mod-prose h3{ font-size:24px; font-weight:700; color:var(--ink); margin:36px 0 14px; }
+
+/* === DARK SECTIONS (remplacement des zones cream — alignement avec home actuelle) === */
+.dark-section{ background:var(--night); color:#fff; }
+.dark-section .mod-h2, .dark-section h2, .dark-section h3, .dark-section h4{ color:#fff; }
+.dark-section .mod-lede, .dark-section .mod-prose p, .dark-section .mod-prose ul, .dark-section .mod-prose ol{ color:rgba(255,255,255,0.88); }
+.dark-section .mod-prose p strong{ color:#fff; }
+.dark-section .mod-tag{ background:rgba(14,116,144,0.20); color:#4ecde6; }
+.dark-section .ss-script{ color:#4ecde6; }
 
 /* === FOOTER === */
 .ftr{ background:var(--night); color:#fff; padding:64px 0 32px; margin-top:80px; }
@@ -163,17 +174,21 @@ a{ color:inherit; }
 .ftr-bottom{ max-width:1200px; margin:48px auto 0; padding:24px 24px 0; border-top:1px solid rgba(255,255,255,0.10); font-size:13px; color:rgba(255,255,255,0.55); }
 .ftr-bottom a{ color:rgba(255,255,255,0.75); }
 
-/* === C03 — DEFINITION CALLOUT === */
-.def-callout{ background:var(--cream); border-left:4px solid var(--rausch); border-radius:12px; padding:24px 28px; margin:32px 0; }
-.def-callout .def-label{ display:inline-block; font-size:11px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--rausch); margin-bottom:8px; }
-.def-callout .def-term{ font-size:22px; font-weight:700; color:var(--ink); margin:0 0 8px; }
-.def-callout p{ margin:0; font-size:17px; line-height:1.6; color:var(--body); }
+/* === C03 — DEFINITION CALLOUT (dark) === */
+.def-callout{ background:var(--night); color:#fff; border-left:4px solid var(--rausch); border-radius:16px; padding:32px 36px; margin:40px 0; }
+.def-callout .def-label{ display:inline-block; font-size:12px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#4ecde6; margin-bottom:10px; }
+.def-callout .def-term{ font-size:26px; font-weight:800; color:#fff; margin:0 0 12px; letter-spacing:-0.3px; }
+.def-callout p{ margin:0; font-size:20px; line-height:1.55; color:rgba(255,255,255,0.88); font-weight:500; }
+.def-callout p strong{ color:#fff; }
+.def-callout p em{ color:rgba(255,255,255,0.75); font-style:italic; }
 
-/* === M02 — IMAGE-TEXTE 50/50 === */
-.split{ display:grid; grid-template-columns:1fr; gap:32px; align-items:center; }
-@media (min-width:900px){ .split{ grid-template-columns:1fr 1fr; gap:64px; } .split.reverse > .split-img{ order:2; } }
-.split-img{ border-radius:20px; overflow:hidden; }
-.split-img .ss-img-placeholder{ min-height:340px; border-radius:20px; }
+/* === M02 — IMAGE-TEXTE 50/50 (hauteur image égalisée à la hauteur du contenu opposé) === */
+.split{ display:grid; grid-template-columns:1fr; gap:32px; align-items:stretch; }
+@media (min-width:900px){ .split{ grid-template-columns:1fr 1fr; gap:72px; align-items:stretch; } .split.reverse > .split-img{ order:2; } }
+.split-img{ border-radius:20px; overflow:hidden; min-height:100%; height:100%; }
+.split-img .ss-img-placeholder{ height:100%; min-height:340px; border-radius:20px; aspect-ratio:auto; }
+@media (min-width:900px){ .split-img .ss-img-placeholder{ min-height:0; } }
+.split > div:not(.split-img){ display:flex; flex-direction:column; justify-content:center; }
 
 /* === M03 — GRID VARIANTES === */
 .variants-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(240px,1fr)); gap:20px; }
@@ -214,7 +229,7 @@ table.price-table{ width:100%; border-collapse:collapse; background:#fff; min-wi
 .aides-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(260px,1fr)); gap:20px; }
 .aide-card{ background:#fff; border:1px solid var(--hairline); border-radius:18px; padding:24px 22px; transition:transform 200ms,box-shadow 200ms,border-color 200ms; }
 .aide-card:hover{ transform:translateY(-3px); box-shadow:0 10px 24px rgba(14,116,144,0.10); border-color:rgba(14,116,144,0.30); }
-.aide-card .a-ic{ width:48px; height:48px; border-radius:14px; background:var(--cream); color:var(--rausch); display:inline-flex; align-items:center; justify-content:center; margin-bottom:14px; }
+.aide-card .a-ic{ width:52px; height:52px; border-radius:14px; background:var(--rausch-tint); color:var(--rausch); display:inline-flex; align-items:center; justify-content:center; margin-bottom:16px; }
 .aide-card .a-tag{ display:inline-block; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:var(--rausch); background:var(--rausch-tint); padding:4px 10px; border-radius:9999px; margin-bottom:8px; }
 .aide-card h3{ font-size:18px; font-weight:700; color:var(--ink); margin:0 0 8px; }
 .aide-card .a-amount{ font-size:14px; font-weight:600; color:var(--ink); margin-bottom:10px; }
@@ -245,14 +260,14 @@ table.brand-table{ width:100%; border-collapse:collapse; background:#fff; min-wi
 .video-wrap:hover .play-btn{ transform:translate(-50%,-50%) scale(1.08); }
 .video-wrap .play-btn i{ color:var(--rausch); margin-left:4px; }
 
-/* === M11 — STATS SOURCES === */
-.stats-block{ background:var(--cream); border-radius:24px; padding:40px 32px; }
-.stats-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(200px,1fr)); gap:24px; margin-bottom:24px; }
+/* === M11 — STATS SOURCES (dark) === */
+.stats-block{ background:var(--night); color:#fff; border-radius:28px; padding:56px 48px; }
+.stats-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(200px,1fr)); gap:32px; margin-bottom:32px; }
 .stat-item{ text-align:center; }
-.stat-item .s-value{ font-size:42px; font-weight:800; color:var(--rausch); line-height:1; letter-spacing:-1px; margin-bottom:8px; }
-.stat-item .s-label{ font-size:14px; color:var(--ink); font-weight:600; line-height:1.4; }
-.stats-sources{ font-size:13px; color:var(--muted); text-align:center; padding-top:20px; border-top:1px solid rgba(0,0,0,0.08); }
-.stats-sources strong{ color:var(--ink); }
+.stat-item .s-value{ font-size:52px; font-weight:800; color:#4ecde6; line-height:1; letter-spacing:-1px; margin-bottom:10px; }
+.stat-item .s-label{ font-size:16px; color:#fff; font-weight:600; line-height:1.45; }
+.stats-sources{ font-size:14px; color:rgba(255,255,255,0.65); text-align:center; padding-top:24px; border-top:1px solid rgba(255,255,255,0.12); font-weight:500; }
+.stats-sources strong{ color:#fff; }
 
 /* === M12 — ENCART SOURCE OFFICIELLE === */
 .source-callout{ background:#fff; border:1px solid var(--rausch-soft); border-left:4px solid var(--rausch); border-radius:14px; padding:24px 28px; display:flex; gap:18px; align-items:flex-start; }
@@ -264,15 +279,22 @@ table.brand-table{ width:100%; border-collapse:collapse; background:#fff; min-wi
 .source-callout cite a{ color:var(--rausch); font-weight:600; text-decoration:none; }
 .source-callout cite a:hover{ text-decoration:underline; }
 
-/* === M13 — LEAD MAGNET PDF === */
-.lead-magnet{ background:linear-gradient(135deg, var(--cream) 0%, var(--cream-deep) 100%); border-radius:24px; padding:40px; display:grid; grid-template-columns:1fr; gap:32px; align-items:center; }
-@media (min-width:900px){ .lead-magnet{ grid-template-columns:auto 1fr auto; gap:40px; } }
-.lead-magnet-cover{ width:160px; aspect-ratio:3/4; border-radius:8px; overflow:hidden; box-shadow:0 12px 30px rgba(14,116,144,0.18); margin:0 auto; transform:rotate(-3deg); }
-.lead-magnet-cover .ss-img-placeholder{ height:100%; min-height:0; border-radius:0; border:none; padding:12px; }
-.lead-magnet h3{ font-size:24px; font-weight:800; color:var(--ink); margin:0 0 8px; line-height:1.2; }
-.lead-magnet p{ font-size:15px; color:var(--body); margin:0 0 16px; max-width:480px; }
-.lead-magnet .ls{ display:flex; flex-wrap:wrap; gap:14px; font-size:13px; color:var(--muted); }
-.lead-magnet .ls span{ display:inline-flex; align-items:center; gap:6px; }
+/* === M13 — LEAD MAGNET PDF (dark, layout 2 colonnes fixé) === */
+.lead-magnet{ background:var(--night); color:#fff; border-radius:28px; padding:56px 48px; display:grid; grid-template-columns:1fr; gap:40px; align-items:center; position:relative; overflow:hidden; }
+.lead-magnet::before{ content:''; position:absolute; top:-30%; right:-15%; width:60%; height:160%; background:radial-gradient(ellipse, rgba(14,116,144,0.30) 0%, transparent 60%); filter:blur(60px); pointer-events:none; }
+@media (min-width:900px){ .lead-magnet{ grid-template-columns:200px 1fr 1fr; gap:56px; } }
+.lead-magnet > *{ position:relative; }
+.lead-magnet-cover{ width:200px; aspect-ratio:3/4; border-radius:10px; overflow:hidden; box-shadow:0 20px 50px rgba(0,0,0,0.40), 0 0 0 1px rgba(255,255,255,0.10); margin:0 auto; transform:rotate(-4deg); }
+.lead-magnet-cover .ss-img-placeholder{ height:100%; min-height:0; border-radius:0; border:none; padding:14px; background:linear-gradient(135deg,#1f1812,#2d1f17); color:#4ecde6; }
+.lead-magnet-cover .ss-img-placeholder .ph-label{ color:#4ecde6; }
+.lead-magnet h3{ font-size:28px; font-weight:800; color:#fff; margin:0 0 12px; line-height:1.15; letter-spacing:-0.5px; }
+.lead-magnet p{ font-size:18px; color:rgba(255,255,255,0.85); margin:0 0 20px; max-width:480px; line-height:1.55; font-weight:500; }
+.lead-magnet .ls{ display:flex; flex-wrap:wrap; gap:18px; font-size:14px; color:rgba(255,255,255,0.70); }
+.lead-magnet .ls span{ display:inline-flex; align-items:center; gap:8px; }
+.lead-magnet input[type="email"]{ background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.20); color:#fff; }
+.lead-magnet input[type="email"]::placeholder{ color:rgba(255,255,255,0.50); }
+.lead-magnet label{ color:#fff !important; }
+.lead-magnet form span{ color:rgba(255,255,255,0.60) !important; }
 
 /* === M14 — TÉMOIGNAGES === */
 .testi-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:24px; }
@@ -320,11 +342,13 @@ table.brand-table{ width:100%; border-collapse:collapse; background:#fff; min-wi
 .compare-col.before li i{ color:#dc2626; }
 .compare-col.after li i{ color:var(--rausch); }
 
-/* === M18 — CTA INLINE === */
-.cta-inline{ background:var(--cream); border-radius:24px; padding:32px 40px; display:flex; flex-wrap:wrap; align-items:center; gap:24px; justify-content:space-between; }
-.cta-inline-text h3{ font-size:22px; font-weight:800; color:var(--ink); margin:0 0 6px; }
-.cta-inline-text p{ font-size:15px; color:var(--body); margin:0; }
-.cta-inline-actions{ display:flex; gap:12px; flex-wrap:wrap; }
+/* === M18 — CTA INLINE (dark) === */
+.cta-inline{ background:var(--night); color:#fff; border-radius:28px; padding:40px 48px; display:flex; flex-wrap:wrap; align-items:center; gap:32px; justify-content:space-between; position:relative; overflow:hidden; }
+.cta-inline::before{ content:''; position:absolute; top:50%; left:30%; transform:translateY(-50%); width:50%; height:200%; background:radial-gradient(ellipse, rgba(14,116,144,0.25) 0%, transparent 60%); filter:blur(50px); pointer-events:none; }
+.cta-inline > *{ position:relative; }
+.cta-inline-text h3{ font-size:26px; font-weight:800; color:#fff; margin:0 0 8px; letter-spacing:-0.3px; }
+.cta-inline-text p{ font-size:17px; color:rgba(255,255,255,0.78); margin:0; font-weight:500; }
+.cta-inline-actions{ display:flex; gap:14px; flex-wrap:wrap; }
 
 /* === M19 — GLOSSAIRE === */
 .glossary{ display:grid; grid-template-columns:1fr; gap:14px; }
@@ -333,17 +357,22 @@ table.brand-table{ width:100%; border-collapse:collapse; background:#fff; min-wi
 .gloss-item dt{ font-size:15px; font-weight:700; color:var(--ink); margin-bottom:4px; }
 .gloss-item dd{ font-size:14px; line-height:1.55; color:var(--body); margin:0; }
 
-/* === C04 — POURQUOI NOUS === */
-.why-section{ background:var(--cream); }
-.why-grid{ display:grid; grid-template-columns:1fr; gap:28px; align-items:center; }
-@media (min-width:900px){ .why-grid{ grid-template-columns:1fr 1.1fr; gap:56px; } }
-.why-img{ border-radius:24px; overflow:hidden; }
-.why-img .ss-img-placeholder{ min-height:380px; border-radius:24px; }
-.why-points{ list-style:none; padding:0; margin:24px 0 0; display:flex; flex-direction:column; gap:18px; }
-.why-points li{ display:flex; gap:14px; align-items:flex-start; }
-.why-points .ic{ width:44px; height:44px; border-radius:12px; background:#fff; color:var(--rausch); display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; box-shadow:0 4px 12px rgba(14,116,144,0.10); }
-.why-points h4{ font-size:17px; font-weight:700; color:var(--ink); margin:0 0 4px; }
-.why-points p{ font-size:15px; color:var(--body); line-height:1.55; margin:0; }
+/* === C04 — POURQUOI NOUS (dark) === */
+.why-section{ background:var(--night); color:#fff; }
+.why-section .mod-h2, .why-section h3, .why-section h4{ color:#fff; }
+.why-section .mod-prose p, .why-section .mod-prose p strong{ color:rgba(255,255,255,0.88); }
+.why-section .mod-prose p strong{ color:#fff; }
+.why-section .mod-tag{ background:rgba(14,116,144,0.20); color:#4ecde6; }
+.why-grid{ display:grid; grid-template-columns:1fr; gap:48px; align-items:stretch; }
+@media (min-width:900px){ .why-grid{ grid-template-columns:1fr 1.1fr; gap:72px; align-items:stretch; } }
+.why-img{ border-radius:24px; overflow:hidden; min-height:100%; }
+.why-img .ss-img-placeholder{ min-height:100%; height:100%; border-radius:24px; background:linear-gradient(135deg,#1f1812,#2d1f17); color:#4ecde6; }
+.why-img .ss-img-placeholder .ph-label, .why-img .ss-img-placeholder .ph-prompt{ color:rgba(78,205,230,0.85); }
+.why-points{ list-style:none; padding:0; margin:32px 0 0; display:flex; flex-direction:column; gap:24px; }
+.why-points li{ display:flex; gap:18px; align-items:flex-start; }
+.why-points .ic{ width:52px; height:52px; border-radius:14px; background:rgba(14,116,144,0.20); color:#4ecde6; display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; border:1px solid rgba(14,116,144,0.30); }
+.why-points h4{ font-size:20px; font-weight:700; color:#fff; margin:0 0 6px; }
+.why-points p{ font-size:17px; color:rgba(255,255,255,0.78); line-height:1.55; margin:0; font-weight:500; }
 
 /* === C05 — FAQ === */
 .faq-list{ display:flex; flex-direction:column; gap:0; max-width:880px; margin:0 auto; }
@@ -379,6 +408,28 @@ table.brand-table{ width:100%; border-collapse:collapse; background:#fff; min-wi
 .author-meta .a-links{ display:flex; flex-wrap:wrap; gap:16px; font-size:13px; }
 .author-meta .a-links a{ color:var(--rausch); font-weight:600; text-decoration:none; display:inline-flex; align-items:center; gap:4px; }
 .author-meta .a-links a:hover{ text-decoration:underline; }
+
+/* === M20 — ACCORDÉON FEATURE (port shadcn Feature197 adapté Santé Senior) === */
+.fa-wrap{ display:grid; grid-template-columns:1fr; gap:32px; align-items:stretch; }
+@media (min-width:900px){ .fa-wrap{ grid-template-columns:1fr 1fr; gap:64px; align-items:stretch; } }
+.fa-accordion{ display:flex; flex-direction:column; }
+.fa-item{ border-bottom:1px solid var(--hairline); }
+.fa-item:first-child{ border-top:1px solid var(--hairline); }
+.fa-item > summary{ list-style:none; cursor:pointer; padding:24px 0; display:flex; align-items:center; justify-content:space-between; gap:20px; transition:padding 200ms; }
+.fa-item > summary::-webkit-details-marker{ display:none; }
+.fa-item > summary h3{ font-size:22px; font-weight:600; line-height:1.3; color:var(--muted); margin:0; transition:color 200ms; text-wrap:balance; }
+.fa-item[open] > summary h3{ color:var(--ink); font-weight:700; }
+.fa-item > summary .fa-chev{ width:36px; height:36px; border-radius:9999px; background:var(--surface-soft); display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; transition:transform 200ms,background-color 200ms; color:var(--ink); }
+.fa-item[open] > summary .fa-chev{ transform:rotate(45deg); background:var(--rausch); color:#fff; }
+.fa-item .fa-content{ padding:0 0 28px; }
+.fa-item .fa-content p{ font-size:20px; line-height:1.55; color:var(--ink); font-weight:500; margin:0 0 16px; max-width:560px; }
+.fa-item .fa-img-mobile{ display:block; width:100%; aspect-ratio:4/3; border-radius:16px; overflow:hidden; margin-top:16px; }
+.fa-item .fa-img-mobile .ss-img-placeholder{ height:100%; min-height:0; border-radius:0; border:none; padding:14px; }
+@media (min-width:900px){ .fa-item .fa-img-mobile{ display:none; } }
+.fa-image{ display:none; position:relative; border-radius:24px; overflow:hidden; background:var(--surface-soft); min-height:480px; }
+.fa-image .fa-image-frame{ position:absolute; inset:0; }
+.fa-image .fa-image-frame .ss-img-placeholder{ height:100%; min-height:0; border-radius:0; border:none; transition:opacity 320ms ease; }
+@media (min-width:900px){ .fa-image{ display:block; position:sticky; top:96px; } }
 
 /* === Articles liés === */
 .related-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(260px,1fr)); gap:20px; }
@@ -483,11 +534,11 @@ table.brand-table{ width:100%; border-collapse:collapse; background:#fff; min-wi
         <i data-lucide="file-text" style="width:18px;height:18px"></i>
         Obtenir un devis gratuit
       </a>
-      <a href="#sommaire" class="ss-btn-ghost-light">
+      <a href="#sommaire" class="ss-btn-rausch-on-dark">
         <i data-lucide="list" style="width:18px;height:18px"></i>
         Voir le sommaire
       </a>
-      <a href="tel:0800300300" class="ss-btn-ghost-light">
+      <a href="tel:0800300300" class="ss-btn-rausch-on-dark">
         <i data-lucide="phone" style="width:18px;height:18px"></i>
         0 800 300 300
       </a>
@@ -510,7 +561,7 @@ table.brand-table{ width:100%; border-collapse:collapse; background:#fff; min-wi
 <div class="module-label">[C02] TOC SOMMAIRE — Déroulant ouvert par défaut desktop, ancres internes, 2 colonnes<small>Pattern Bonjour Senior. Active uniquement si > 6 sections. Schema BreadcrumbList déjà couvert en hero, donc TOC pas requis pour SEO mais critique pour UX desktop long-form.</small></div>
 
 <div class="toc-wrap" id="sommaire">
-  <details class="toc-details" open>
+  <details class="toc-details">
     <summary>
       <span class="title"><i data-lucide="list" style="width:18px;height:18px"></i>Sommaire de la page</span>
       <span class="chev"><i data-lucide="chevron-right" style="width:18px;height:18px"></i></span>
@@ -795,7 +846,7 @@ table.brand-table{ width:100%; border-collapse:collapse; background:#fff; min-wi
       </div>
       <div class="cta-inline-actions">
         <a href="#wizard-cta" class="ss-btn-rausch"><i data-lucide="file-text" style="width:18px;height:18px"></i>Recevoir mes devis</a>
-        <a href="tel:0800300300" class="ss-btn-outline"><i data-lucide="phone" style="width:18px;height:18px"></i>0 800 300 300</a>
+        <a href="tel:0800300300" class="ss-btn-rausch-on-dark"><i data-lucide="phone" style="width:18px;height:18px"></i>0 800 300 300</a>
       </div>
     </div>
   </div>
@@ -932,11 +983,104 @@ table.brand-table{ width:100%; border-collapse:collapse; background:#fff; min-wi
 </section>
 
 <!-- ============================================================
+     M20 — ACCORDÉON-FEATURE (port shadcn Feature197 vanilla, palette Santé Senior)
+============================================================ -->
+<div class="module-label">[M20] ACCORDÉON-FEATURE — 5 items accordion + image dynamique 50/50<small>Pour contenus éditoriaux denses. Un seul item ouvert à la fois (HTML5 `name` attribute). Image change au click. Mobile : image embarquée dans chaque content. Inspiré shadcn Feature197.</small></div>
+
+<section class="section" id="feature-accordion">
+  <div class="container">
+    <span class="mod-tag">En profondeur</span>
+    <h2 class="mod-h2">Tout savoir sur l'installation d'un monte-escalier</h2>
+    <p class="mod-lede">Cliquez sur un thème pour découvrir le détail, illustré par une scène d'installation réelle.</p>
+
+    <div class="fa-wrap" id="featureAccordion">
+      <div class="fa-accordion">
+        <details class="fa-item" name="fa-monte-escalier" data-img-src="images/services/monte-escalier/fa-installation.jpg" data-img-prompt="Technicien souriant installe un monte-escalier, famille en arrière-plan, lumière naturelle, atmosphère bienveillante" open>
+          <summary>
+            <h3>Installation : moins d'une journée chrono</h3>
+            <span class="fa-chev"><i data-lucide="plus" style="width:18px;height:18px"></i></span>
+          </summary>
+          <div class="fa-content">
+            <p>De la prise de mesures à la mise en service, l'installation d'un monte-escalier droit prend généralement une demi-journée à une journée complète. Aucun gros œuvre n'est nécessaire : le rail se visse directement sur les marches, jamais sur le mur. L'opération est entièrement réversible.</p>
+            <p>Pour un modèle tournant sur-mesure, comptez deux à trois jours d'installation, après quatre à huit semaines de fabrication du rail courbe.</p>
+            <div class="fa-img-mobile">
+              <div class="ss-img-placeholder" data-prompt="installation"><div class="ic"><i data-lucide="image" style="width:18px;height:18px;color:var(--rausch)"></i></div><div class="ph-label">Image à générer</div><div class="ph-prompt">fa-installation.jpg</div></div>
+            </div>
+          </div>
+        </details>
+
+        <details class="fa-item" name="fa-monte-escalier" data-img-src="images/services/monte-escalier/fa-securite.jpg" data-img-prompt="Senior souriante main sur télécommande monte-escalier, vue de profil, lumière naturelle, geste rassuré">
+          <summary>
+            <h3>Sécurité : 5 systèmes intégrés</h3>
+            <span class="fa-chev"><i data-lucide="plus" style="width:18px;height:18px"></i></span>
+          </summary>
+          <div class="fa-content">
+            <p>Tous les modèles vendus en France respectent la norme européenne EN 81-40 : ceinture rétractable, capteurs anti-obstacle, arrêt d'urgence accessible depuis le siège et deux télécommandes, batterie de secours pour 5 à 10 trajets en cas de coupure, verrouillage par clé.</p>
+            <p>Aucun monte-escalier conforme ne peut être livré sans ces cinq protections cumulées. Vérifiez le marquage CE et demandez à votre installateur de vous démontrer chaque système à la réception.</p>
+            <div class="fa-img-mobile">
+              <div class="ss-img-placeholder" data-prompt="securite"><div class="ic"><i data-lucide="image" style="width:18px;height:18px;color:var(--rausch)"></i></div><div class="ph-label">Image à générer</div><div class="ph-prompt">fa-securite.jpg</div></div>
+            </div>
+          </div>
+        </details>
+
+        <details class="fa-item" name="fa-monte-escalier" data-img-src="images/services/monte-escalier/fa-aides.jpg" data-img-prompt="Aidante et parent senior remplissent ensemble un dossier d'aide à la table de cuisine, sourires, lumière douce">
+          <summary>
+            <h3>Aides cumulables : reste à charge réel sous 2 000 €</h3>
+            <span class="fa-chev"><i data-lucide="plus" style="width:18px;height:18px"></i></span>
+          </summary>
+          <div class="fa-content">
+            <p>Sept dispositifs sont cumulables : MaPrimeAdapt' (jusqu'à 70 % via l'ANAH), crédit d'impôt de 25 %, TVA réduite à 5,5 %, APA, PCH, aides locales, paiement échelonné. Sur un modèle droit à 4 500 €, le reste à charge moyen après cumul descend entre 1 200 et 2 200 €.</p>
+            <p>Nos conseillers montent gratuitement chaque dossier avec vous. La règle d'or : ne signer aucun devis avant d'avoir cartographié les aides éligibles à votre situation.</p>
+            <div class="fa-img-mobile">
+              <div class="ss-img-placeholder" data-prompt="aides"><div class="ic"><i data-lucide="image" style="width:18px;height:18px;color:var(--rausch)"></i></div><div class="ph-label">Image à générer</div><div class="ph-prompt">fa-aides.jpg</div></div>
+            </div>
+          </div>
+        </details>
+
+        <details class="fa-item" name="fa-monte-escalier" data-img-src="images/services/monte-escalier/fa-entretien.jpg" data-img-prompt="Technicien souriant inspecte la mécanique d'un monte-escalier installé, propre, professionnel">
+          <summary>
+            <h3>Entretien : un contrat annuel suffit</h3>
+            <span class="fa-chev"><i data-lucide="plus" style="width:18px;height:18px"></i></span>
+          </summary>
+          <div class="fa-content">
+            <p>Un monte-escalier bien entretenu dure quinze à vingt ans. Le contrat annuel standard, entre 40 et 80 €, couvre la visite de contrôle, le graissage des pièces mobiles, la vérification de la batterie et le diagnostic électronique. La garantie pièces et main d'œuvre va de deux à dix ans selon les marques.</p>
+            <p>En cas de panne, exigez un délai d'intervention contractuel : les installateurs sérieux interviennent sous 24 à 72 h, week-end inclus pour les modèles couverts par un contrat premium.</p>
+            <div class="fa-img-mobile">
+              <div class="ss-img-placeholder" data-prompt="entretien"><div class="ic"><i data-lucide="image" style="width:18px;height:18px;color:var(--rausch)"></i></div><div class="ph-label">Image à générer</div><div class="ph-prompt">fa-entretien.jpg</div></div>
+            </div>
+          </div>
+        </details>
+
+        <details class="fa-item" name="fa-monte-escalier" data-img-src="images/services/monte-escalier/fa-cas-particuliers.jpg" data-img-prompt="Famille senior dans escalier étroit ancien français, technicien explique configuration, atmosphère chaleureuse">
+          <summary>
+            <h3>Cas particuliers : escaliers étroits, copropriété, location</h3>
+            <span class="fa-chev"><i data-lucide="plus" style="width:18px;height:18px"></i></span>
+          </summary>
+          <div class="fa-content">
+            <p>Un monte-escalier peut s'installer dans un escalier à partir de 65 cm de largeur. Pour un logement en copropriété, l'aval de l'assemblée générale n'est requis que si le rail empiète sur les parties communes. En location, l'accord écrit du propriétaire suffit puisque l'installation est réversible.</p>
+            <p>Pour les configurations atypiques (escalier en colimaçon serré, marches inégales, mezzanine), la visite technique à domicile permet de valider la faisabilité avant tout engagement financier.</p>
+            <div class="fa-img-mobile">
+              <div class="ss-img-placeholder" data-prompt="cas-particuliers"><div class="ic"><i data-lucide="image" style="width:18px;height:18px;color:var(--rausch)"></i></div><div class="ph-label">Image à générer</div><div class="ph-prompt">fa-cas-particuliers.jpg</div></div>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <div class="fa-image">
+        <div class="fa-image-frame" id="faImageFrame">
+          <div class="ss-img-placeholder" data-prompt="default"><div class="ic"><i data-lucide="image" style="width:22px;height:22px;color:var(--rausch)"></i></div><div class="ph-label">Image à générer</div><div class="ph-prompt" id="faImagePrompt">fa-installation.jpg<br>Technicien souriant installe un monte-escalier, famille en arrière-plan, lumière naturelle, atmosphère bienveillante</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
      M14 — TÉMOIGNAGES CARDS
 ============================================================ -->
 <div class="module-label">[M14] TÉMOIGNAGES — 3 cards avec étoiles + verbatim + auteur<small>Préférer 3 témoignages réels avec photo. Sourcer (initiales + ville + relation) pour authenticité.</small></div>
 
-<section class="section" id="temoignages" style="background:var(--cream);">
+<section class="section dark-section" id="temoignages">
   <div class="container">
     <span class="mod-tag">Ils ont franchi le pas</span>
     <h2 class="mod-h2">Témoignages de familles équipées</h2>
@@ -1247,8 +1391,8 @@ table.brand-table{ width:100%; border-collapse:collapse; background:#fff; min-wi
           </li>
         </ul>
 
-        <div style="margin-top:28px;">
-          <a href="#" class="ss-btn-outline"><i data-lucide="users" style="width:18px;height:18px"></i>Découvrir le comité</a>
+        <div style="margin-top:32px;">
+          <a href="#" class="ss-btn-rausch-on-dark"><i data-lucide="users" style="width:18px;height:18px"></i>Découvrir le comité</a>
         </div>
       </div>
     </div>
@@ -1328,7 +1472,7 @@ table.brand-table{ width:100%; border-collapse:collapse; background:#fff; min-wi
       <p>Répondez à 4 questions en 30 secondes, recevez 3 devis personnalisés d'installateurs locaux agréés, gratuitement et sans engagement.</p>
       <div class="cta-final-actions">
         <a href="#" class="ss-btn-rausch"><i data-lucide="compass" style="width:18px;height:18px"></i>Démarrer le diagnostic</a>
-        <a href="#guide-pdf" class="ss-btn-ghost-light"><i data-lucide="download" style="width:18px;height:18px"></i>Recevoir le guide PDF</a>
+        <a href="#guide-pdf" class="ss-btn-rausch-on-dark"><i data-lucide="download" style="width:18px;height:18px"></i>Recevoir le guide PDF</a>
       </div>
       <div class="cta-final-tel">Ou appelez-nous : <a href="tel:0800300300">0 800 300 300</a> · Gratuit, 8h–19h</div>
     </div>
@@ -1450,6 +1594,24 @@ table.brand-table{ width:100%; border-collapse:collapse; background:#fff; min-wi
 
 <script>
   if (window.lucide) lucide.createIcons();
+
+  /* M20 — accordion feature : swap image au toggle */
+  (function initFeatureAccordion(){
+    const wrap = document.getElementById('featureAccordion');
+    if (!wrap) return;
+    const promptEl = document.getElementById('faImagePrompt');
+    const items = wrap.querySelectorAll('.fa-item');
+    items.forEach(item => {
+      item.addEventListener('toggle', () => {
+        if (!item.open) return;
+        const src = item.dataset.imgSrc || '';
+        const prompt = item.dataset.imgPrompt || '';
+        if (promptEl) {
+          promptEl.innerHTML = (src.split('/').pop() || '') + '<br>' + prompt;
+        }
+      });
+    });
+  })();
 </script>
 </body>
 </html>
