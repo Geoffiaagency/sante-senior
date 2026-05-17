@@ -227,7 +227,7 @@ table.price-table{ width:100%; border-collapse:collapse; background:#fff; min-wi
 /* === M06 — CHECKLIST === */
 .check-list{ list-style:none; padding:0; margin:0; display:grid; grid-template-columns:1fr; gap:14px; }
 @media (min-width:900px){ .check-list.cols-2{ grid-template-columns:1fr 1fr; gap:14px 32px; } }
-.check-list li{ display:flex; gap:14px; align-items:flex-start; font-size:17px; line-height:1.55; color:var(--body); }
+.check-list li{ display:flex; gap:14px; align-items:flex-start; font-size:19px; line-height:1.55; color:var(--body); }
 .check-list .ic{ width:28px; height:28px; border-radius:9999px; background:var(--rausch-tint); color:var(--rausch); display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:2px; }
 .check-list strong{ color:var(--ink); font-weight:700; }
 
@@ -475,6 +475,42 @@ table.brand-table{ width:100%; border-collapse:collapse; background:#fff; min-wi
 .related-card h3, .related-card h4{ font-size:16px; font-weight:700; color:var(--ink); line-height:1.35; margin:0; }
 .related-card .r-meta{ font-size:12px; color:var(--muted); margin-top:auto; padding-top:8px; }
 
+/* === M21 — EXPERT BLOCKQUOTE (avis d'un membre du comité scientifique, prise de parole on-page) === */
+.expert-quote{ position:relative; background:#fff; border:1px solid var(--hairline); border-left:4px solid var(--rausch); border-radius:22px; padding:48px 52px 36px; margin:0; box-shadow:0 10px 32px rgba(14,116,144,0.07); }
+.expert-quote .eq-mark{ position:absolute; top:24px; right:28px; width:56px; height:56px; border-radius:9999px; background:var(--rausch-tint); color:var(--rausch); display:inline-flex; align-items:center; justify-content:center; }
+.expert-quote .eq-tag-top{ display:inline-block; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--rausch); background:var(--rausch-tint); padding:5px 12px; border-radius:9999px; margin-bottom:20px; }
+.expert-quote blockquote{ font-size:24px; line-height:1.5; color:var(--ink); font-weight:500; margin:0 0 32px; max-width:780px; quotes:"« " " »"; }
+.expert-quote blockquote::before{ content:open-quote; color:var(--rausch); font-weight:800; }
+.expert-quote blockquote::after{ content:close-quote; color:var(--rausch); font-weight:800; }
+.expert-quote blockquote em{ font-style:italic; color:var(--rausch-active); }
+.eq-author{ display:flex; gap:18px; align-items:center; padding-top:28px; border-top:1px solid var(--hairline-soft); }
+.eq-avatar{ width:64px; height:64px; border-radius:9999px; overflow:hidden; flex-shrink:0; background:linear-gradient(135deg, var(--rausch), #4ecde6); display:flex; align-items:center; justify-content:center; color:#fff; font-weight:700; font-size:22px; border:2px solid #fff; box-shadow:0 4px 14px rgba(14,116,144,0.20); }
+.eq-avatar .ss-img-placeholder{ height:100%; width:100%; min-height:0; border-radius:0; border:none; padding:6px; }
+.eq-avatar .ss-img-placeholder .ph-label, .eq-avatar .ss-img-placeholder .ph-prompt{ display:none; }
+.eq-meta{ flex:1; min-width:0; }
+.eq-name{ font-size:17px; font-weight:700; color:var(--ink); line-height:1.2; }
+.eq-role{ font-size:14px; color:var(--muted); margin-top:3px; line-height:1.4; }
+.eq-role a{ color:var(--rausch); font-weight:600; text-decoration:none; }
+.eq-role a:hover{ text-decoration:underline; }
+.eq-credentials{ display:inline-block; margin-top:6px; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:var(--rausch); }
+@media (max-width:743px){
+  .expert-quote{ padding:36px 24px 28px; border-radius:18px; }
+  .expert-quote .eq-mark{ width:44px; height:44px; top:16px; right:16px; }
+  .expert-quote blockquote{ font-size:19px; margin-bottom:24px; }
+  .eq-author{ padding-top:20px; }
+  .eq-avatar{ width:56px; height:56px; }
+}
+/* Variante dark (sur section --night) */
+.dark-section .expert-quote, .expert-quote.is-dark{ background:rgba(255,255,255,0.04); border-color:rgba(255,255,255,0.10); border-left-color:#4ecde6; box-shadow:none; }
+.dark-section .expert-quote blockquote, .expert-quote.is-dark blockquote{ color:#fff; }
+.dark-section .expert-quote blockquote::before, .expert-quote.is-dark blockquote::before,
+.dark-section .expert-quote blockquote::after, .expert-quote.is-dark blockquote::after{ color:#4ecde6; }
+.dark-section .expert-quote .eq-name, .expert-quote.is-dark .eq-name{ color:#fff; }
+.dark-section .expert-quote .eq-role, .expert-quote.is-dark .eq-role{ color:rgba(255,255,255,0.70); }
+.dark-section .expert-quote .eq-tag-top, .expert-quote.is-dark .eq-tag-top{ background:rgba(78,205,230,0.15); color:#4ecde6; }
+.dark-section .expert-quote .eq-mark, .expert-quote.is-dark .eq-mark{ background:rgba(78,205,230,0.15); color:#4ecde6; }
+.dark-section .expert-quote .eq-author, .expert-quote.is-dark .eq-author{ border-top-color:rgba(255,255,255,0.12); }
+
 @media (prefers-reduced-motion: reduce){
   *,*::before,*::after{ transition:none !important; animation:none !important; }
 }
@@ -694,8 +730,8 @@ table.brand-table{ width:100%; border-collapse:collapse; background:#fff; min-wi
       <div>
         <span class="mod-tag">Comment ça marche</span>
         <h2 class="mod-h2">Un siège motorisé qui suit le rail de votre escalier</h2>
-        <p class="mod-prose" style="font-size:17px;">Le principe est simple : un <strong>rail</strong> est fixé sur les marches (jamais sur le mur), un <strong>siège motorisé</strong> coulisse le long du rail à vitesse lente (environ 0,15 m/s, soit 6 m/min). L'utilisateur s'assoit, attache la ceinture, appuie sur un bouton, et se laisse porter.</p>
-        <p class="mod-prose" style="font-size:17px;">L'alimentation se fait par une simple <strong>prise secteur 220V</strong>. En cas de coupure de courant, des batteries de secours prennent le relais pendant plusieurs trajets. La sécurité est triplée : capteurs anti-obstacle, ceinture, arrêt d'urgence accessible depuis le siège <em>et</em> depuis une télécommande.</p>
+        <p class="mod-prose">Le principe est simple : un <strong>rail</strong> est fixé sur les marches (jamais sur le mur), un <strong>siège motorisé</strong> coulisse le long du rail à vitesse lente (environ 0,15 m/s, soit 6 m/min). L'utilisateur s'assoit, attache la ceinture, appuie sur un bouton, et se laisse porter.</p>
+        <p class="mod-prose">L'alimentation se fait par une simple <strong>prise secteur 220V</strong>. En cas de coupure de courant, des batteries de secours prennent le relais pendant plusieurs trajets. La sécurité est triplée : capteurs anti-obstacle, ceinture, arrêt d'urgence accessible depuis le siège <em>et</em> depuis une télécommande.</p>
         <ul class="check-list" style="margin-top:24px;">
           <li><span class="ic"><i data-lucide="check" style="width:14px;height:14px"></i></span><span>Installation <strong>en moins d'une journée</strong> pour la plupart des modèles droits</span></li>
           <li><span class="ic"><i data-lucide="check" style="width:14px;height:14px"></i></span><span>Aucun gros œuvre : le rail se visse sur les marches, <strong>réversible</strong></span></li>
@@ -787,6 +823,33 @@ table.brand-table{ width:100%; border-collapse:collapse; background:#fff; min-wi
 </section>
 
 <!-- ============================================================
+     M21 — EXPERT BLOCKQUOTE (prise de parole on-page d'un membre du comité)
+============================================================ -->
+<div class="module-label">[M21] EXPERT BLOCKQUOTE — Avis d'un expert du comité sur la page<small>Différent du M12 (citation source externe HAS/INSEE). Ici un membre du comité scientifique prend la parole DIRECTEMENT sur la page. Schema Quotation + Person. Réutilisable plusieurs fois (1 par sous-sujet). Variante .is-dark pour fond night. À placer après un module factuel (stats, prix, tableau) pour humaniser et renforcer E-E-A-T.</small></div>
+
+<section class="section" id="avis-expert-securite" style="padding-block:24px 48px;">
+  <div class="container" style="max-width:1040px;">
+    <figure class="expert-quote" itemscope itemtype="https://schema.org/Quotation">
+      <div class="eq-mark"><i data-lucide="quote" style="width:24px;height:24px"></i></div>
+      <span class="eq-tag-top">Avis du comité</span>
+      <blockquote itemprop="text">
+        En quinze ans de gériatrie hospitalière, j'ai vu trop de chutes graves dans les escaliers. Quand le test « monter sans s'appuyer » devient hésitant, ne tergiversez pas : un monte-escalier installé <em>à temps</em> évite la fracture du col du fémur, l'hospitalisation prolongée, parfois le passage anticipé en EHPAD. C'est rarement le confort qui motive la pose, c'est la prévention.
+      </blockquote>
+      <figcaption class="eq-author" itemscope itemtype="https://schema.org/Person" itemprop="creator">
+        <div class="eq-avatar">
+          <div class="ss-img-placeholder" data-prompt="dr-sophie-bernard"><div class="ic"><i data-lucide="user" style="width:16px;height:16px;color:#fff"></i></div><div class="ph-label">Avatar</div></div>
+        </div>
+        <div class="eq-meta">
+          <div class="eq-name" itemprop="name">Dr Sophie Bernard</div>
+          <div class="eq-role"><span itemprop="jobTitle">Gériatre</span> · <span itemprop="affiliation">CHU de Lyon</span> · <a href="#equipe" itemprop="url">Voir sa fiche</a></div>
+          <div class="eq-credentials">Membre du comité scientifique Santé Senior</div>
+        </div>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ============================================================
      M04 — TABLEAU PRIX
 ============================================================ -->
 <div class="module-label">[M04] TABLEAU PRIX — Table responsive scrollable mobile<small>Avec mention de la source / date des prix obligatoire. Schema.org Product/Offer possible si fourchette.</small></div>
@@ -870,7 +933,7 @@ table.brand-table{ width:100%; border-collapse:collapse; background:#fff; min-wi
 <div class="module-label">[M18] CTA INLINE — Banner cream avec bouton(s)<small>Pause respiration milieu de page. Pas trop visuel pour ne pas casser la lecture. Max 2 CTA.</small></div>
 
 <section style="padding:16px 0 48px;">
-  <div class="container" style="max-width:980px;">
+  <div class="container" style="max-width:1040px;">
     <div class="cta-inline">
       <div class="cta-inline-text">
         <h3>Besoin d'un chiffrage précis pour votre escalier ?</h3>
@@ -1001,7 +1064,7 @@ table.brand-table{ width:100%; border-collapse:collapse; background:#fff; min-wi
       <div>
         <span class="mod-tag">Sécurité</span>
         <h2 class="mod-h2">5 systèmes de sécurité intégrés sur chaque modèle</h2>
-        <p class="mod-prose" style="font-size:17px;">Les normes européennes <strong>EN 81-40</strong> imposent un niveau de sécurité élevé sur tous les monte-escaliers vendus en France. Voici ce que vous retrouverez systématiquement.</p>
+        <p class="mod-prose">Les normes européennes <strong>EN 81-40</strong> imposent un niveau de sécurité élevé sur tous les monte-escaliers vendus en France. Voici ce que vous retrouverez systématiquement.</p>
         <ul class="check-list">
           <li><span class="ic"><i data-lucide="shield-check" style="width:14px;height:14px"></i></span><span><strong>Ceinture de sécurité</strong> rétractable, similaire à celle d'une voiture.</span></li>
           <li><span class="ic"><i data-lucide="shield-check" style="width:14px;height:14px"></i></span><span><strong>Capteurs anti-obstacle</strong> sur la base : l'appareil s'arrête seul s'il rencontre un objet.</span></li>
@@ -1465,7 +1528,7 @@ table.brand-table{ width:100%; border-collapse:collapse; background:#fff; min-wi
 <div class="module-label">[C06] CTA FINAL — Section dark + glow + wizard diagnostic<small>Obligatoire en bas de page. 1 ou 2 CTA max + numéro vert. Ambiance teal glow rappelle la home.</small></div>
 
 <section class="section" id="wizard-cta" style="padding-block:32px 64px;">
-  <div class="container">
+  <div class="container" style="max-width:1040px;">
     <div class="cta-final">
       <span class="cta-final-tag">Démarrer un diagnostic</span>
       <h2>Quel monte-escalier pour <span class="ss-script">votre logement</span> ?</h2>
