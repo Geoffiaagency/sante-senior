@@ -389,10 +389,10 @@ details[open] .ss-chev{ transform:rotate(90deg); }
     <div class="ss-hero-text flex flex-col justify-center pt-14 lg:pt-20 pb-20 lg:pb-24">
       <div class="flex items-center gap-2 mb-4">
         <span class="inline-block w-2 h-2 rounded-full" style="background:#0e7490;"></span>
-        <span class="text-[15px] font-medium" style="color:rgba(255,255,255,0.85); letter-spacing:0.01em;">Bien vieillir chez soi, <span class="ss-script" style="color:#4ecde6;font-size:1.15em;line-height:1;">tout simplement.</span></span>
+        <span class="text-[15px] font-medium" style="color:#ffffff; letter-spacing:0.01em;">Bien vieillir chez soi, tout simplement.</span>
       </div>
-      <h1 class="font-bold text-white" style="font-size:clamp(30px,5vw,48px); line-height:1.1; letter-spacing:-0.5px; max-width:560px; text-wrap:balance;">
-        Le premier portail des seniors conçu par des <span class="ss-script" style="font-size:1.25em;color:#4ecde6;font-style:italic;line-height:inherit;">médecins</span>
+      <h1 class="font-bold text-white" style="font-size:clamp(30px,5vw,48px); line-height:1.15; letter-spacing:-0.5px; max-width:560px; text-wrap:balance;">
+        Le premier portail des seniors validé par des <span class="ss-script" style="font-size:1.15em;color:#4ecde6;font-style:italic;line-height:1;vertical-align:baseline;">médecins</span>
       </h1>
       <p class="mt-5 text-[18px] leading-[1.6]" style="color:rgba(255,255,255,0.72); max-width:480px;">
         Le portail qui réunit toutes les solutions habitat, santé, aides et services pour vos parents, validé par notre comité pluridisciplinaire de médecins.
@@ -872,8 +872,8 @@ details[open] .ss-chev{ transform:rotate(90deg); }
 <!-- Toast -->
 <div id="toast" class="toast" role="status"></div>
 
-<!-- Lucide chargé en fin de body : non render-blocking, version minifiée -->
-<script src="https://unpkg.com/lucide@0.453.0/dist/umd/lucide.min.js"></script>
+<!-- Lucide self-hosted (mêmes ressources que pages.dev) : non render-blocking + zéro connexion tierce -->
+<script src="assets/lucide.min.js"></script>
 <script>
 /* ============ DATA ============ */
 const PHONE = "0 800 300 300", PHONE_TEL = "tel:0800300300";
@@ -1068,25 +1068,35 @@ mobNav.innerHTML = SILOS.map(s => `
 document.getElementById("mobBtn").addEventListener("click", () => { document.getElementById("mobSheet").style.display = "block"; });
 document.getElementById("mobClose").addEventListener("click", () => { document.getElementById("mobSheet").style.display = "none"; });
 
-/* ============ HEADER SCROLL (rAF batched, cached innerWidth) ============ */
-const hdr = document.getElementById("hdr");
-let cachedInnerWidth = window.innerWidth;
-let hdrTicking = false;
-const onScroll = () => {
-  const y = window.scrollY;
-  const scrolled = y > 8;
-  hdr.classList.toggle("ss-header-shadow", scrolled);
-  hdr.classList.toggle("border-transparent", !scrolled);
-  hdr.classList.toggle("border-[#ebebeb]", scrolled);
-  const rail = document.getElementById("rail");
-  if (rail && !rail.dataset.closed) rail.style.display = (cachedInnerWidth >= 768 && y > 200) ? "block" : "none";
-  hdrTicking = false;
-};
-window.addEventListener("scroll", () => {
-  if (!hdrTicking) { requestAnimationFrame(onScroll); hdrTicking = true; }
-}, { passive: true });
-window.addEventListener("resize", () => { cachedInnerWidth = window.innerWidth; }, { passive: true });
-onScroll();
+/* ============ HEADER SCROLL (rAF batched, cached innerWidth, deferred init) ============ */
+/* Init différée en rAF post-layout pour éviter forced reflow au parse time (Lighthouse mobile) */
+(function() {
+  let cachedInnerWidth = 0;
+  let hdrTicking = false;
+  let hdr, railEl;
+  const onScroll = () => {
+    const y = window.scrollY;
+    const scrolled = y > 8;
+    hdr.classList.toggle("ss-header-shadow", scrolled);
+    hdr.classList.toggle("border-transparent", !scrolled);
+    hdr.classList.toggle("border-[#ebebeb]", scrolled);
+    if (railEl && !railEl.dataset.closed) railEl.style.display = (cachedInnerWidth >= 768 && y > 200) ? "block" : "none";
+    hdrTicking = false;
+  };
+  function init() {
+    hdr = document.getElementById("hdr");
+    railEl = document.getElementById("rail");
+    cachedInnerWidth = window.innerWidth;
+    window.addEventListener("scroll", () => {
+      if (!hdrTicking) { requestAnimationFrame(onScroll); hdrTicking = true; }
+    }, { passive: true });
+    window.addEventListener("resize", () => { cachedInnerWidth = window.innerWidth; }, { passive: true });
+    onScroll();
+  }
+  // Défère hors du chemin critique du LCP : après load + post-layout
+  if (document.readyState === 'complete') requestAnimationFrame(init);
+  else window.addEventListener('load', () => requestAnimationFrame(init));
+})();
 
 
 /* ============ TICKERS ============ */
