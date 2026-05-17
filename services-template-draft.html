@@ -1,0 +1,1455 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>DRAFT — Monte-escalier : prix, modèles et aides 2026 · Santé Senior</title>
+<meta name="description" content="Page draft template services L2 — 26 modules. Thématique pilote : Monte-escalier. Brouillon pour revue, non destiné à la production." />
+<meta name="robots" content="noindex, nofollow" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Caveat:wght@500;700&display=swap" rel="stylesheet" />
+<script src="https://unpkg.com/lucide@0.453.0/dist/umd/lucide.js"></script>
+<style>
+:root{
+  --canvas:#fff; --cream:#fdf6ee; --cream-deep:#f7ead8;
+  --surface-soft:#f7f7f7; --surface-strong:#f2f2f2;
+  --ink:#222; --night:#18100f; --body:#3f3f3f;
+  --muted:#6a6a6a; --muted-soft:#737373;
+  --hairline:#ddd; --hairline-soft:#ebebeb;
+  --rausch:#0e7490; --rausch-active:#0a5e73; --rausch-tint:#ecfeff;
+  --rausch-soft:#cceef4; --rausch-mark:#b3e4ed;
+  --success:#008a05; --error:#c13515;
+}
+*{box-sizing:border-box}
+html,body{ background:var(--canvas); color:var(--ink); font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif; overflow-x:clip; max-width:100vw; margin:0; padding:0; }
+html{ scroll-padding-top:96px; scroll-behavior:smooth; }
+body{ font-size:18px; line-height:1.6; color:var(--body); }
+img{ max-width:100%; display:block; }
+a{ color:inherit; }
+*:focus{ outline:none; }
+*:focus-visible{ outline:3px solid var(--rausch); outline-offset:2px; border-radius:4px; }
+
+.ss-h1{ font-size:48px; font-weight:800; line-height:1.1; letter-spacing:-1px; color:var(--ink); margin:0; }
+.ss-h2{ font-size:32px; font-weight:800; line-height:1.1; letter-spacing:-0.5px; color:var(--ink); margin:0; }
+.ss-h3{ font-size:22px; font-weight:600; line-height:1.3; color:var(--ink); margin:0; }
+.ss-h4{ font-size:18px; font-weight:600; line-height:1.35; color:var(--ink); margin:0; }
+.ss-body{ font-size:18px; line-height:1.65; color:var(--body); margin:0; }
+.ss-meta{ font-size:14px; font-weight:500; line-height:1.4; color:var(--muted); }
+.ss-tag{ font-size:11px; font-weight:700; letter-spacing:0.5px; text-transform:uppercase; }
+.ss-script{ font-family:'Caveat',cursive; font-weight:700; color:var(--rausch); font-size:1.15em; line-height:0.9; }
+.ss-mark{ position:relative; display:inline-block; }
+.ss-mark::after{ content:''; position:absolute; left:-2px; right:-2px; bottom:0.06em; height:0.32em; background:var(--rausch-mark); z-index:-1; border-radius:3px; }
+@media (max-width:743px){ .ss-h1{ font-size:32px; } .ss-h2{ font-size:24px; } .ss-h3{ font-size:20px; } body{ font-size:17px; } }
+@media (min-width:1128px){ .ss-h2{ font-size:40px; } }
+
+.container{ max-width:1200px; margin-inline:auto; padding-inline:24px; }
+.section{ padding-block:64px; }
+@media (min-width:1128px){ .section{ padding-block:88px; } }
+
+/* === BOUTONS === */
+.ss-btn-rausch{ background:var(--rausch); color:#fff; transition:background-color 150ms; display:inline-flex; align-items:center; justify-content:center; gap:8px; border-radius:9999px; padding:0 24px; height:56px; font-size:16px; font-weight:600; border:none; cursor:pointer; text-decoration:none; }
+.ss-btn-rausch:hover{ background:#0a6880; }
+.ss-btn-rausch:active{ background:var(--rausch-active); }
+.ss-btn-outline{ background:#fff; color:var(--ink); border:1.5px solid var(--ink); transition:background-color 150ms; display:inline-flex; align-items:center; justify-content:center; gap:8px; border-radius:9999px; padding:0 24px; height:56px; font-size:16px; font-weight:600; cursor:pointer; text-decoration:none; }
+.ss-btn-outline:hover{ background:var(--surface-strong); }
+.ss-btn-ghost-light{ background:rgba(255,255,255,0.10); color:#fff; border:1.5px solid rgba(255,255,255,0.40); backdrop-filter:blur(6px); display:inline-flex; align-items:center; justify-content:center; gap:8px; border-radius:9999px; padding:0 24px; height:56px; font-size:16px; font-weight:600; cursor:pointer; text-decoration:none; transition:background-color 150ms,border-color 150ms; }
+.ss-btn-ghost-light:hover{ background:rgba(255,255,255,0.18); border-color:rgba(255,255,255,0.70); }
+.ss-link{ color:var(--ink); text-decoration:underline; text-underline-offset:3px; }
+
+/* === HEADER === */
+.draft-banner{ background:#c13515; color:#fff; padding:8px 16px; font-size:13px; font-weight:600; text-align:center; letter-spacing:0.02em; }
+.draft-banner code{ background:rgba(255,255,255,0.18); padding:2px 6px; border-radius:4px; font-size:12px; }
+.hdr{ background:#fff; border-bottom:1px solid var(--hairline-soft); position:sticky; top:0; z-index:50; box-shadow:0 1px 0 rgba(0,0,0,0.04); }
+.hdr-inner{ max-width:1200px; margin:0 auto; padding:18px 24px; display:flex; align-items:center; justify-content:space-between; gap:24px; }
+.ss-logo{ font-size:22px; font-weight:700; letter-spacing:-0.4px; color:var(--ink); display:inline-flex; align-items:center; text-decoration:none; }
+.ss-logo .e-dot{ position:relative; }
+.ss-logo .e-dot::before{ content:''; position:absolute; top:-2px; left:50%; transform:translateX(-50%); width:6px; height:6px; border-radius:9999px; background:var(--rausch); }
+.hdr-nav{ display:none; gap:6px; align-items:center; }
+.hdr-nav a{ padding:10px 14px; border-radius:9999px; font-size:15px; font-weight:500; color:var(--ink); text-decoration:none; transition:background-color 120ms,color 120ms; }
+.hdr-nav a:hover{ background:var(--rausch-tint); color:var(--rausch); }
+.hdr-tel{ display:none; align-items:center; gap:10px; }
+.hdr-tel .ic{ width:40px; height:40px; border-radius:9999px; background:var(--rausch-tint); color:var(--rausch); display:inline-flex; align-items:center; justify-content:center; }
+.hdr-tel .num{ font-size:18px; font-weight:700; color:var(--ink); text-decoration:none; line-height:1; }
+.hdr-tel .lbl{ font-size:12px; color:var(--muted); }
+@media (min-width:1024px){ .hdr-nav{ display:inline-flex; } .hdr-tel{ display:inline-flex; } }
+
+/* === DRAFT LABELS (à retirer en prod) === */
+.module-label{ background:#fff7d6; border-left:4px solid #d97706; padding:10px 16px; font-size:13px; font-weight:700; color:#92400e; font-family:ui-monospace,SFMono-Regular,Menlo,monospace; letter-spacing:0.04em; text-transform:uppercase; }
+.module-label small{ display:block; font-size:11px; font-weight:500; color:#78350f; text-transform:none; letter-spacing:normal; margin-top:2px; }
+
+/* === IMAGE PLACEHOLDER (Nano Banana Pro à générer) === */
+.ss-img-placeholder{ background:linear-gradient(135deg, var(--cream) 0%, var(--cream-deep) 100%); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px; color:var(--rausch); border-radius:16px; padding:24px; min-height:200px; border:1.5px dashed rgba(14,116,144,0.45); position:relative; overflow:hidden; }
+.ss-img-placeholder::before{ content:''; position:absolute; inset:0; background:radial-gradient(circle at 30% 20%, rgba(14,116,144,0.06), transparent 60%); pointer-events:none; }
+.ss-img-placeholder .ic{ width:44px; height:44px; border-radius:9999px; background:#fff; display:inline-flex; align-items:center; justify-content:center; box-shadow:0 4px 12px rgba(14,116,144,0.10); }
+.ss-img-placeholder .ph-label{ font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:var(--rausch); }
+.ss-img-placeholder .ph-prompt{ font-size:13px; color:var(--ink); font-weight:500; text-align:center; max-width:360px; line-height:1.4; }
+.ss-img-placeholder.ratio-21-9{ aspect-ratio:21/9; min-height:380px; }
+.ss-img-placeholder.ratio-16-9{ aspect-ratio:16/9; }
+.ss-img-placeholder.ratio-4-3{ aspect-ratio:4/3; }
+.ss-img-placeholder.ratio-1-1{ aspect-ratio:1/1; }
+.ss-img-placeholder.ratio-3-4{ aspect-ratio:3/4; }
+.ss-img-placeholder.hero{ border-radius:0; min-height:520px; aspect-ratio:auto; }
+
+/* === HERO L2 (C01) === */
+.hero-l2{ position:relative; width:100%; min-height:560px; overflow:hidden; background:var(--night); color:#fff; }
+.hero-l2-bg{ position:absolute; inset:0; z-index:0; }
+.hero-l2-bg .ss-img-placeholder{ height:100%; min-height:560px; border-radius:0; border:none; }
+.hero-l2-bg::after{ content:''; position:absolute; inset:0; background:linear-gradient(180deg, rgba(24,16,15,0.30) 0%, rgba(24,16,15,0.55) 55%, rgba(24,16,15,0.78) 100%); z-index:1; }
+.hero-l2-inner{ position:relative; z-index:2; max-width:1100px; margin:0 auto; padding:80px 24px 64px; text-align:center; }
+.hero-l2-breadcrumb{ display:inline-flex; align-items:center; flex-wrap:wrap; gap:8px; font-size:13px; font-weight:500; color:rgba(255,255,255,0.78); margin-bottom:24px; }
+.hero-l2-breadcrumb a{ color:rgba(255,255,255,0.78); text-decoration:none; transition:color 120ms; }
+.hero-l2-breadcrumb a:hover{ color:#fff; text-decoration:underline; text-underline-offset:3px; }
+.hero-l2-breadcrumb .sep{ color:rgba(255,255,255,0.40); }
+.hero-l2-breadcrumb [aria-current]{ color:#fff; font-weight:600; }
+.hero-l2 h1{ font-size:clamp(34px, 5vw, 56px); font-weight:800; line-height:1.08; letter-spacing:-1px; color:#fff; max-width:880px; margin:0 auto 20px; text-wrap:balance; }
+.hero-l2 h1 .ss-script{ color:#4ecde6; font-size:1.15em; }
+.hero-l2-lede{ font-size:clamp(16px, 1.4vw, 19px); line-height:1.55; color:rgba(255,255,255,0.85); max-width:680px; margin:0 auto 36px; }
+.hero-l2-ctas{ display:flex; flex-wrap:wrap; gap:12px; justify-content:center; margin-bottom:36px; }
+.hero-l2-author{ display:inline-flex; align-items:center; gap:14px; background:rgba(255,255,255,0.08); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); border:1px solid rgba(255,255,255,0.16); border-radius:9999px; padding:10px 20px 10px 10px; max-width:100%; }
+.hero-l2-author-avatar{ width:48px; height:48px; border-radius:9999px; overflow:hidden; flex-shrink:0; background:linear-gradient(135deg,var(--rausch),#4ecde6); display:inline-flex; align-items:center; justify-content:center; color:#fff; font-weight:700; font-size:18px; border:2px solid rgba(255,255,255,0.30); }
+.hero-l2-author-meta{ text-align:left; font-size:13px; line-height:1.4; color:rgba(255,255,255,0.92); }
+.hero-l2-author-meta strong{ color:#fff; font-weight:700; font-size:14px; }
+.hero-l2-author-meta a{ color:#4ecde6; text-decoration:underline; text-underline-offset:2px; }
+.hero-l2-author-meta .dot{ display:inline-block; width:3px; height:3px; border-radius:9999px; background:rgba(255,255,255,0.50); margin:0 6px; vertical-align:middle; }
+@media (max-width:743px){
+  .hero-l2-inner{ padding:48px 20px 40px; }
+  .hero-l2-ctas{ flex-direction:column; }
+  .hero-l2-ctas .ss-btn-rausch, .hero-l2-ctas .ss-btn-outline, .hero-l2-ctas .ss-btn-ghost-light{ width:100%; }
+  .hero-l2-author{ flex-direction:column; padding:14px 18px; gap:8px; border-radius:18px; }
+  .hero-l2-author-meta{ text-align:center; }
+}
+
+/* === TOC C02 === */
+.toc-wrap{ background:var(--cream); border-bottom:1px solid var(--hairline-soft); }
+.toc-details{ max-width:1100px; margin:0 auto; padding:20px 24px; }
+.toc-details > summary{ list-style:none; cursor:pointer; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:14px 0; }
+.toc-details > summary::-webkit-details-marker{ display:none; }
+.toc-details summary .title{ font-size:16px; font-weight:700; color:var(--ink); display:inline-flex; align-items:center; gap:10px; }
+.toc-details summary .title i{ color:var(--rausch); }
+.toc-details summary .chev{ transition:transform 200ms ease; color:var(--ink); }
+.toc-details[open] summary .chev{ transform:rotate(90deg); }
+.toc-list{ list-style:none; margin:0; padding:8px 0 16px; columns:2; column-gap:32px; }
+.toc-list li{ margin:0; padding:0; break-inside:avoid; }
+.toc-list a{ display:flex; align-items:center; gap:8px; padding:8px 0; font-size:15px; color:var(--ink); text-decoration:none; border-bottom:1px solid rgba(0,0,0,0.06); transition:color 120ms,padding-left 150ms; }
+.toc-list a:hover{ color:var(--rausch); padding-left:6px; }
+.toc-list a .num{ font-size:12px; font-weight:700; color:var(--rausch); min-width:24px; }
+@media (max-width:743px){ .toc-list{ columns:1; } }
+
+/* === MODULES COMMUNS === */
+.mod-tag{ display:inline-block; font-size:11px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:var(--rausch); padding:6px 12px; background:var(--rausch-tint); border-radius:9999px; margin-bottom:16px; }
+.mod-h2{ font-size:clamp(26px,3vw,36px); font-weight:800; line-height:1.12; letter-spacing:-0.5px; color:var(--ink); margin:0 0 16px; text-wrap:balance; }
+.mod-lede{ font-size:18px; line-height:1.6; color:var(--body); max-width:720px; margin:0 0 32px; }
+.mod-prose p{ font-size:18px; line-height:1.7; color:var(--body); margin:0 0 18px; }
+.mod-prose p strong{ color:var(--ink); font-weight:700; }
+.mod-prose ul, .mod-prose ol{ font-size:18px; line-height:1.7; color:var(--body); padding-left:24px; margin:0 0 18px; }
+.mod-prose li{ margin-bottom:8px; }
+.mod-prose h3{ font-size:22px; font-weight:700; color:var(--ink); margin:32px 0 12px; }
+
+/* === FOOTER === */
+.ftr{ background:var(--night); color:#fff; padding:64px 0 32px; margin-top:80px; }
+.ftr-inner{ max-width:1200px; margin:0 auto; padding:0 24px; display:grid; grid-template-columns:1fr; gap:40px; }
+@media (min-width:768px){ .ftr-inner{ grid-template-columns:2fr 1fr 1fr 1fr; gap:48px; } }
+.ftr h4{ font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:rgba(255,255,255,0.70); margin:0 0 16px; }
+.ftr ul{ list-style:none; padding:0; margin:0; }
+.ftr li{ margin-bottom:10px; }
+.ftr a{ color:rgba(255,255,255,0.78); font-size:14px; text-decoration:none; transition:color 120ms; }
+.ftr a:hover{ color:#fff; text-decoration:underline; }
+.ftr-brand-logo{ font-size:24px; font-weight:700; color:#fff; margin-bottom:12px; display:inline-flex; }
+.ftr-brand-logo .e-dot::before{ background:var(--rausch); }
+.ftr-pitch{ font-size:14px; line-height:1.6; color:rgba(255,255,255,0.72); max-width:300px; margin-bottom:20px; }
+.ftr-trust{ display:flex; flex-wrap:wrap; gap:8px; }
+.ftr-trust span{ display:inline-flex; align-items:center; gap:6px; background:rgba(255,255,255,0.08); padding:6px 12px; border-radius:9999px; font-size:12px; font-weight:600; color:rgba(255,255,255,0.90); }
+.ftr-bottom{ max-width:1200px; margin:48px auto 0; padding:24px 24px 0; border-top:1px solid rgba(255,255,255,0.10); font-size:13px; color:rgba(255,255,255,0.55); }
+.ftr-bottom a{ color:rgba(255,255,255,0.75); }
+
+/* === C03 — DEFINITION CALLOUT === */
+.def-callout{ background:var(--cream); border-left:4px solid var(--rausch); border-radius:12px; padding:24px 28px; margin:32px 0; }
+.def-callout .def-label{ display:inline-block; font-size:11px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--rausch); margin-bottom:8px; }
+.def-callout .def-term{ font-size:22px; font-weight:700; color:var(--ink); margin:0 0 8px; }
+.def-callout p{ margin:0; font-size:17px; line-height:1.6; color:var(--body); }
+
+/* === M02 — IMAGE-TEXTE 50/50 === */
+.split{ display:grid; grid-template-columns:1fr; gap:32px; align-items:center; }
+@media (min-width:900px){ .split{ grid-template-columns:1fr 1fr; gap:64px; } .split.reverse > .split-img{ order:2; } }
+.split-img{ border-radius:20px; overflow:hidden; }
+.split-img .ss-img-placeholder{ min-height:340px; border-radius:20px; }
+
+/* === M03 — GRID VARIANTES === */
+.variants-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(240px,1fr)); gap:20px; }
+.variant-card{ position:relative; border-radius:20px; overflow:hidden; background:#fff; border:1px solid var(--hairline); transition:transform 200ms,box-shadow 200ms,border-color 200ms; text-decoration:none; color:inherit; display:flex; flex-direction:column; }
+.variant-card:hover{ transform:translateY(-4px); box-shadow:0 12px 30px rgba(14,116,144,0.12); border-color:rgba(14,116,144,0.40); }
+.variant-card .v-img{ aspect-ratio:4/3; overflow:hidden; }
+.variant-card .v-img .ss-img-placeholder{ height:100%; border-radius:0; border:none; min-height:0; }
+.variant-card .v-body{ padding:20px 22px; flex:1; display:flex; flex-direction:column; gap:8px; }
+.variant-card .v-title{ font-size:18px; font-weight:700; color:var(--ink); }
+.variant-card .v-desc{ font-size:14px; color:var(--muted); line-height:1.5; flex:1; }
+.variant-card .v-link{ display:inline-flex; align-items:center; gap:4px; font-size:14px; font-weight:600; color:var(--rausch); margin-top:8px; }
+
+/* === M04 — TABLEAU PRIX === */
+.price-table-wrap{ overflow-x:auto; border-radius:16px; border:1px solid var(--hairline); }
+table.price-table{ width:100%; border-collapse:collapse; background:#fff; min-width:560px; }
+.price-table thead th{ background:var(--cream); color:var(--ink); font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; padding:14px 18px; text-align:left; border-bottom:2px solid var(--cream-deep); }
+.price-table tbody td{ padding:16px 18px; font-size:15px; color:var(--body); border-bottom:1px solid var(--hairline-soft); }
+.price-table tbody tr:last-child td{ border-bottom:none; }
+.price-table tbody td:first-child{ font-weight:600; color:var(--ink); }
+.price-table .price-cell{ font-weight:700; color:var(--rausch); white-space:nowrap; }
+.price-table-source{ font-size:12px; color:var(--muted); margin-top:12px; }
+
+/* === M05 — FOURCHETTES ENCARTS === */
+.range-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:20px; }
+.range-card{ background:#fff; border:1px solid var(--hairline); border-radius:16px; padding:24px; }
+.range-card .r-label{ font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:var(--muted); margin-bottom:8px; }
+.range-card .r-value{ font-size:32px; font-weight:800; color:var(--rausch); line-height:1; margin-bottom:8px; letter-spacing:-0.5px; }
+.range-card .r-desc{ font-size:14px; color:var(--body); line-height:1.5; }
+
+/* === M06 — CHECKLIST === */
+.check-list{ list-style:none; padding:0; margin:0; display:grid; grid-template-columns:1fr; gap:14px; }
+@media (min-width:900px){ .check-list.cols-2{ grid-template-columns:1fr 1fr; gap:14px 32px; } }
+.check-list li{ display:flex; gap:14px; align-items:flex-start; font-size:17px; line-height:1.55; color:var(--body); }
+.check-list .ic{ width:28px; height:28px; border-radius:9999px; background:var(--rausch-tint); color:var(--rausch); display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:2px; }
+.check-list strong{ color:var(--ink); font-weight:700; }
+
+/* === M07 — GRID AIDES === */
+.aides-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(260px,1fr)); gap:20px; }
+.aide-card{ background:#fff; border:1px solid var(--hairline); border-radius:18px; padding:24px 22px; transition:transform 200ms,box-shadow 200ms,border-color 200ms; }
+.aide-card:hover{ transform:translateY(-3px); box-shadow:0 10px 24px rgba(14,116,144,0.10); border-color:rgba(14,116,144,0.30); }
+.aide-card .a-ic{ width:48px; height:48px; border-radius:14px; background:var(--cream); color:var(--rausch); display:inline-flex; align-items:center; justify-content:center; margin-bottom:14px; }
+.aide-card .a-tag{ display:inline-block; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:var(--rausch); background:var(--rausch-tint); padding:4px 10px; border-radius:9999px; margin-bottom:8px; }
+.aide-card h3{ font-size:18px; font-weight:700; color:var(--ink); margin:0 0 8px; }
+.aide-card .a-amount{ font-size:14px; font-weight:600; color:var(--ink); margin-bottom:10px; }
+.aide-card .a-amount strong{ color:var(--rausch); font-size:16px; }
+.aide-card p{ font-size:14px; color:var(--body); line-height:1.55; margin:0 0 14px; }
+.aide-card .a-link{ font-size:13px; font-weight:700; color:var(--rausch); text-decoration:none; display:inline-flex; align-items:center; gap:4px; }
+.aide-card .a-link:hover{ text-decoration:underline; }
+
+/* === M08 — COMPARATIF MARQUES === */
+.brand-table-wrap{ overflow-x:auto; border-radius:16px; border:1px solid var(--hairline); }
+table.brand-table{ width:100%; border-collapse:collapse; background:#fff; min-width:780px; }
+.brand-table thead th{ background:var(--ink); color:#fff; font-size:13px; font-weight:700; padding:14px 16px; text-align:left; }
+.brand-table tbody td{ padding:16px; font-size:14px; color:var(--body); border-bottom:1px solid var(--hairline-soft); vertical-align:top; }
+.brand-table tbody tr:last-child td{ border-bottom:none; }
+.brand-table tbody td:first-child{ font-weight:700; color:var(--ink); position:sticky; left:0; background:#fff; min-width:160px; }
+.brand-logo-ph{ display:inline-flex; align-items:center; justify-content:center; height:32px; padding:0 14px; background:var(--surface-soft); color:var(--ink); border-radius:6px; font-size:13px; font-weight:700; letter-spacing:0.04em; }
+
+/* === M09 — GALERIE === */
+.gallery{ display:grid; grid-template-columns:repeat(2,1fr); gap:12px; }
+@media (min-width:744px){ .gallery{ grid-template-columns:repeat(4,1fr); } }
+.gallery > div{ aspect-ratio:1/1; border-radius:14px; overflow:hidden; }
+.gallery > div .ss-img-placeholder{ height:100%; min-height:0; border-radius:0; border:none; padding:14px; }
+
+/* === M10 — VIDEO === */
+.video-wrap{ position:relative; aspect-ratio:16/9; border-radius:20px; overflow:hidden; background:var(--night); cursor:pointer; }
+.video-wrap .ss-img-placeholder{ height:100%; min-height:0; border-radius:0; border:none; }
+.video-wrap .play-btn{ position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:84px; height:84px; border-radius:9999px; background:#fff; display:inline-flex; align-items:center; justify-content:center; box-shadow:0 12px 30px rgba(0,0,0,0.30); transition:transform 200ms; z-index:2; }
+.video-wrap:hover .play-btn{ transform:translate(-50%,-50%) scale(1.08); }
+.video-wrap .play-btn i{ color:var(--rausch); margin-left:4px; }
+
+/* === M11 — STATS SOURCES === */
+.stats-block{ background:var(--cream); border-radius:24px; padding:40px 32px; }
+.stats-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(200px,1fr)); gap:24px; margin-bottom:24px; }
+.stat-item{ text-align:center; }
+.stat-item .s-value{ font-size:42px; font-weight:800; color:var(--rausch); line-height:1; letter-spacing:-1px; margin-bottom:8px; }
+.stat-item .s-label{ font-size:14px; color:var(--ink); font-weight:600; line-height:1.4; }
+.stats-sources{ font-size:13px; color:var(--muted); text-align:center; padding-top:20px; border-top:1px solid rgba(0,0,0,0.08); }
+.stats-sources strong{ color:var(--ink); }
+
+/* === M12 — ENCART SOURCE OFFICIELLE === */
+.source-callout{ background:#fff; border:1px solid var(--rausch-soft); border-left:4px solid var(--rausch); border-radius:14px; padding:24px 28px; display:flex; gap:18px; align-items:flex-start; }
+.source-callout .ic{ width:44px; height:44px; border-radius:12px; background:var(--rausch-tint); color:var(--rausch); display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; }
+.source-callout .body{ flex:1; }
+.source-callout .label{ font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--rausch); margin-bottom:6px; }
+.source-callout blockquote{ margin:0 0 10px; font-size:17px; line-height:1.55; color:var(--ink); font-style:italic; }
+.source-callout cite{ font-size:13px; color:var(--muted); font-style:normal; }
+.source-callout cite a{ color:var(--rausch); font-weight:600; text-decoration:none; }
+.source-callout cite a:hover{ text-decoration:underline; }
+
+/* === M13 — LEAD MAGNET PDF === */
+.lead-magnet{ background:linear-gradient(135deg, var(--cream) 0%, var(--cream-deep) 100%); border-radius:24px; padding:40px; display:grid; grid-template-columns:1fr; gap:32px; align-items:center; }
+@media (min-width:900px){ .lead-magnet{ grid-template-columns:auto 1fr auto; gap:40px; } }
+.lead-magnet-cover{ width:160px; aspect-ratio:3/4; border-radius:8px; overflow:hidden; box-shadow:0 12px 30px rgba(14,116,144,0.18); margin:0 auto; transform:rotate(-3deg); }
+.lead-magnet-cover .ss-img-placeholder{ height:100%; min-height:0; border-radius:0; border:none; padding:12px; }
+.lead-magnet h3{ font-size:24px; font-weight:800; color:var(--ink); margin:0 0 8px; line-height:1.2; }
+.lead-magnet p{ font-size:15px; color:var(--body); margin:0 0 16px; max-width:480px; }
+.lead-magnet .ls{ display:flex; flex-wrap:wrap; gap:14px; font-size:13px; color:var(--muted); }
+.lead-magnet .ls span{ display:inline-flex; align-items:center; gap:6px; }
+
+/* === M14 — TÉMOIGNAGES === */
+.testi-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:24px; }
+.testi-card{ background:#fff; border:1px solid var(--hairline); border-radius:20px; padding:28px; display:flex; flex-direction:column; gap:16px; }
+.testi-stars{ display:flex; gap:2px; color:#f59e0b; }
+.testi-quote{ font-size:16px; line-height:1.6; color:var(--ink); font-style:italic; margin:0; flex:1; }
+.testi-quote::before{ content:'« '; color:var(--rausch); font-weight:700; }
+.testi-quote::after{ content:' »'; color:var(--rausch); font-weight:700; }
+.testi-author{ display:flex; align-items:center; gap:12px; padding-top:14px; border-top:1px solid var(--hairline-soft); }
+.testi-author-img{ width:48px; height:48px; border-radius:9999px; overflow:hidden; flex-shrink:0; }
+.testi-author-img .ss-img-placeholder{ height:100%; min-height:0; border-radius:0; border:none; padding:6px; }
+.testi-author .ta-meta{ font-size:13px; line-height:1.4; }
+.testi-author .ta-name{ font-weight:700; color:var(--ink); display:block; }
+.testi-author .ta-role{ color:var(--muted); }
+
+/* === M15 — TIMELINE PROCESS === */
+.timeline{ display:grid; grid-template-columns:1fr; gap:32px; counter-reset:step; position:relative; }
+@media (min-width:744px){ .timeline.steps-3{ grid-template-columns:repeat(3,1fr); } .timeline.steps-4{ grid-template-columns:repeat(4,1fr); } .timeline.steps-5{ grid-template-columns:repeat(5,1fr); } }
+.timeline-step{ counter-increment:step; position:relative; padding-top:16px; }
+.timeline-step::before{ content:counter(step); position:absolute; top:0; left:0; width:48px; height:48px; border-radius:9999px; background:var(--rausch); color:#fff; font-weight:800; font-size:18px; display:inline-flex; align-items:center; justify-content:center; box-shadow:0 4px 12px rgba(14,116,144,0.30); }
+.timeline-step h4{ margin:64px 0 8px; font-size:18px; font-weight:700; color:var(--ink); }
+.timeline-step p{ font-size:15px; line-height:1.6; color:var(--body); margin:0; }
+
+/* === M16 — CALLOUT WARNING === */
+.warn-callout{ background:#fef3c7; border-left:4px solid #d97706; border-radius:12px; padding:20px 24px; display:flex; gap:16px; align-items:flex-start; }
+.warn-callout .ic{ width:36px; height:36px; border-radius:10px; background:#fde68a; color:#92400e; display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; }
+.warn-callout .body strong{ color:#78350f; font-weight:700; display:block; margin-bottom:4px; }
+.warn-callout .body{ font-size:15px; line-height:1.55; color:#78350f; }
+
+/* === M17 — TABLEAU COMPARATIF AVANT/APRÈS === */
+.compare-2{ display:grid; grid-template-columns:1fr; gap:24px; }
+@media (min-width:744px){ .compare-2{ grid-template-columns:1fr 1fr; gap:20px; } }
+.compare-col{ border-radius:20px; overflow:hidden; }
+.compare-col.before{ background:#fff5f5; border:1px solid #fecaca; }
+.compare-col.after{ background:#f0fdfa; border:1px solid #99f6e4; }
+.compare-col-header{ padding:14px 22px; display:flex; align-items:center; gap:10px; font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; }
+.compare-col.before .compare-col-header{ background:#fee2e2; color:#991b1b; }
+.compare-col.after .compare-col-header{ background:#ccfbf1; color:#0a5e73; }
+.compare-col-img{ aspect-ratio:16/10; overflow:hidden; }
+.compare-col-img .ss-img-placeholder{ height:100%; min-height:0; border-radius:0; border:none; padding:14px; }
+.compare-col-body{ padding:22px; }
+.compare-col-body ul{ list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:10px; }
+.compare-col-body li{ display:flex; gap:10px; align-items:flex-start; font-size:14px; line-height:1.5; color:var(--body); }
+.compare-col-body li i{ flex-shrink:0; margin-top:3px; }
+.compare-col.before li i{ color:#dc2626; }
+.compare-col.after li i{ color:var(--rausch); }
+
+/* === M18 — CTA INLINE === */
+.cta-inline{ background:var(--cream); border-radius:24px; padding:32px 40px; display:flex; flex-wrap:wrap; align-items:center; gap:24px; justify-content:space-between; }
+.cta-inline-text h3{ font-size:22px; font-weight:800; color:var(--ink); margin:0 0 6px; }
+.cta-inline-text p{ font-size:15px; color:var(--body); margin:0; }
+.cta-inline-actions{ display:flex; gap:12px; flex-wrap:wrap; }
+
+/* === M19 — GLOSSAIRE === */
+.glossary{ display:grid; grid-template-columns:1fr; gap:14px; }
+@media (min-width:744px){ .glossary{ grid-template-columns:1fr 1fr; gap:16px 32px; } }
+.gloss-item{ background:#fff; border:1px solid var(--hairline); border-radius:14px; padding:18px 22px; }
+.gloss-item dt{ font-size:15px; font-weight:700; color:var(--ink); margin-bottom:4px; }
+.gloss-item dd{ font-size:14px; line-height:1.55; color:var(--body); margin:0; }
+
+/* === C04 — POURQUOI NOUS === */
+.why-section{ background:var(--cream); }
+.why-grid{ display:grid; grid-template-columns:1fr; gap:28px; align-items:center; }
+@media (min-width:900px){ .why-grid{ grid-template-columns:1fr 1.1fr; gap:56px; } }
+.why-img{ border-radius:24px; overflow:hidden; }
+.why-img .ss-img-placeholder{ min-height:380px; border-radius:24px; }
+.why-points{ list-style:none; padding:0; margin:24px 0 0; display:flex; flex-direction:column; gap:18px; }
+.why-points li{ display:flex; gap:14px; align-items:flex-start; }
+.why-points .ic{ width:44px; height:44px; border-radius:12px; background:#fff; color:var(--rausch); display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; box-shadow:0 4px 12px rgba(14,116,144,0.10); }
+.why-points h4{ font-size:17px; font-weight:700; color:var(--ink); margin:0 0 4px; }
+.why-points p{ font-size:15px; color:var(--body); line-height:1.55; margin:0; }
+
+/* === C05 — FAQ === */
+.faq-list{ display:flex; flex-direction:column; gap:0; max-width:880px; margin:0 auto; }
+.faq-item{ border-bottom:1px solid var(--hairline); }
+.faq-item summary{ list-style:none; cursor:pointer; padding:22px 0; display:flex; align-items:center; justify-content:space-between; gap:24px; font-size:18px; font-weight:600; color:var(--ink); }
+.faq-item summary::-webkit-details-marker{ display:none; }
+.faq-item summary .chev{ width:32px; height:32px; border-radius:9999px; background:var(--surface-soft); display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; transition:transform 200ms,background-color 150ms; color:var(--ink); }
+.faq-item[open] summary .chev{ transform:rotate(45deg); background:var(--rausch); color:#fff; }
+.faq-item .faq-body{ padding:0 0 22px; font-size:16px; line-height:1.65; color:var(--body); }
+.faq-item .faq-body p{ margin:0 0 12px; }
+.faq-item .faq-body p:last-child{ margin-bottom:0; }
+
+/* === C06 — CTA FINAL === */
+.cta-final{ background:var(--night); color:#fff; border-radius:32px; padding:56px 40px; text-align:center; position:relative; overflow:hidden; }
+.cta-final::before{ content:''; position:absolute; top:-30%; left:50%; transform:translateX(-50%); width:80%; max-width:800px; height:400px; background:radial-gradient(ellipse, rgba(14,116,144,0.40) 0%, transparent 60%); filter:blur(60px); pointer-events:none; }
+.cta-final-tag{ position:relative; display:inline-block; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:#4ecde6; background:rgba(78,205,230,0.10); border:1px solid rgba(78,205,230,0.30); padding:6px 14px; border-radius:9999px; margin-bottom:20px; }
+.cta-final h2{ position:relative; font-size:clamp(28px,3.5vw,40px); font-weight:800; color:#fff; line-height:1.15; letter-spacing:-0.5px; margin:0 0 16px; max-width:720px; margin-left:auto; margin-right:auto; }
+.cta-final h2 .ss-script{ color:#4ecde6; }
+.cta-final p{ position:relative; font-size:17px; color:rgba(255,255,255,0.80); line-height:1.55; margin:0 0 32px; max-width:560px; margin-left:auto; margin-right:auto; }
+.cta-final-actions{ position:relative; display:flex; flex-wrap:wrap; gap:14px; justify-content:center; }
+.cta-final-tel{ position:relative; margin-top:24px; font-size:14px; color:rgba(255,255,255,0.70); }
+.cta-final-tel a{ color:#fff; font-weight:700; text-decoration:none; }
+
+/* === C07 — SIGNATURE AUTEUR === */
+.author-block{ background:#fff; border:1px solid var(--hairline); border-radius:24px; padding:32px; display:grid; grid-template-columns:1fr; gap:24px; align-items:center; }
+@media (min-width:744px){ .author-block{ grid-template-columns:auto 1fr; gap:32px; } }
+.author-photo{ width:120px; height:120px; border-radius:9999px; overflow:hidden; flex-shrink:0; margin:0 auto; box-shadow:0 8px 24px rgba(14,116,144,0.15); }
+.author-photo .ss-img-placeholder{ height:100%; min-height:0; border-radius:0; border:none; padding:10px; }
+.author-meta .a-tag{ display:inline-block; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--rausch); margin-bottom:8px; }
+.author-meta h3{ font-size:22px; font-weight:800; color:var(--ink); margin:0 0 4px; }
+.author-meta .a-role{ font-size:14px; color:var(--muted); margin:0 0 12px; }
+.author-meta p{ font-size:15px; line-height:1.6; color:var(--body); margin:0 0 14px; }
+.author-meta .a-links{ display:flex; flex-wrap:wrap; gap:16px; font-size:13px; }
+.author-meta .a-links a{ color:var(--rausch); font-weight:600; text-decoration:none; display:inline-flex; align-items:center; gap:4px; }
+.author-meta .a-links a:hover{ text-decoration:underline; }
+
+/* === Articles liés === */
+.related-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(260px,1fr)); gap:20px; }
+.related-card{ background:#fff; border:1px solid var(--hairline); border-radius:16px; overflow:hidden; text-decoration:none; color:inherit; display:flex; flex-direction:column; transition:transform 200ms,box-shadow 200ms; }
+.related-card:hover{ transform:translateY(-3px); box-shadow:0 10px 24px rgba(0,0,0,0.08); }
+.related-card .r-img{ aspect-ratio:16/9; }
+.related-card .r-img .ss-img-placeholder{ height:100%; min-height:0; border-radius:0; border:none; padding:14px; }
+.related-card .r-body{ padding:20px; flex:1; display:flex; flex-direction:column; gap:6px; }
+.related-card .r-cat{ font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:var(--rausch); }
+.related-card h4{ font-size:16px; font-weight:700; color:var(--ink); line-height:1.35; margin:0; }
+.related-card .r-meta{ font-size:12px; color:var(--muted); margin-top:auto; padding-top:8px; }
+
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{ transition:none !important; animation:none !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+  DRAFT TEMPLATE PAGES SERVICES L2 — Santé Senior
+  Version : 2026-05-17 v0.1
+  Thématique pilote : Monte-escalier (silo 1 Habitat & adaptation)
+  Statut : BROUILLON pour revue Geoffrey — non destiné à la prod en l'état
+  Contient : 26 modules (7 CORE + 19 BOOSTERS)
+  Chaque module est précédé d'une étiquette JAUNE [Cxx ou Mxx] à retirer en prod.
+
+  IMAGES À GÉNÉRER (Nano Banana Pro, palette cream/teal, sourires, documentaire) :
+    1. images/services/monte-escalier/hero-2400x1080.jpg — Senior français souriant assis sur monte-escalier moderne, salon lumineux cosy, lumière douce naturelle, ambiance chaleureuse
+    2. images/services/monte-escalier/fonctionnement-800x600.jpg — Aidant adulte et parent senior souriants montrent le mécanisme du monte-escalier, plan moyen, lumière naturelle
+    3. images/services/monte-escalier/variante-droit.jpg — Monte-escalier rail droit dans intérieur résidentiel français, senior en arrière-plan flou souriant
+    4. images/services/monte-escalier/variante-tournant.jpg — Monte-escalier à courbe dans escalier en colimaçon
+    5. images/services/monte-escalier/variante-exterieur.jpg — Monte-escalier extérieur, jardin français, lumière chaude
+    6. images/services/monte-escalier/variante-debout.jpg — Monte-escalier debout / siège perché compact
+    7. images/services/monte-escalier/installation-1.jpg, /-2.jpg, /-3.jpg, /-4.jpg — Galerie installations chez familles
+    8. images/services/monte-escalier/video-cover.jpg — Thumbnail vidéo : couple senior souriant utilise le monte-escalier
+    9. images/services/monte-escalier/temoin-marie.jpg, /-robert.jpg, /-claudine.jpg — Portraits témoins seniors souriants, lumière naturelle
+   10. images/services/monte-escalier/avant-apres-avant.jpg, /-apres.jpg — Escalier avant adaptation / après installation
+   11. images/services/monte-escalier/timeline.jpg — Technicien souriant installe monte-escalier avec famille
+   12. images/services/auteurs/dr-sophie-bernard.jpg — Portrait Dr Sophie Bernard, gériatre française, sourire bienveillant, blouse blanche, lumière naturelle
+  TONALITÉ : sourires francs, scènes intergénérationnelles, lumière naturelle douce, palette beige/teal, jamais de cliché "main de personne âgée seule"
+============================================================ -->
+
+<div class="draft-banner">
+  🟡 DRAFT TEMPLATE — Cette page est un brouillon de revue. Étiquettes <code>[Cxx]</code> / <code>[Mxx]</code> à retirer avant prod. Thématique pilote : Monte-escalier.
+</div>
+
+<!-- ====== HEADER (simplifié, à reprendre depuis dist/index.html en prod) ====== -->
+<header class="hdr">
+  <div class="hdr-inner">
+    <a href="/" class="ss-logo" aria-label="Santé Senior — accueil">Sant<span class="e-dot">é</span>&nbsp;Senior</a>
+    <nav class="hdr-nav" aria-label="Navigation principale">
+      <a href="#">Habitat</a>
+      <a href="#">Santé</a>
+      <a href="#">Aides</a>
+      <a href="#">EHPAD</a>
+      <a href="#">Guides</a>
+      <a href="#">Comité</a>
+    </nav>
+    <div class="hdr-tel">
+      <span class="ic"><i data-lucide="phone" style="width:18px;height:18px"></i></span>
+      <span>
+        <a href="tel:0800300300" class="num">0 800 300 300</a>
+        <div class="lbl">Gratuit · 8h–19h</div>
+      </span>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ============================================================
+     C01 — HERO L2 (image full-width + breadcrumb + H1 centré + 3 CTAs + signature auteur YMYL)
+============================================================ -->
+<div class="module-label">[C01] HERO L2 — Image full-width, breadcrumb, H1 centré, 3 CTA, signature auteur YMYL visible<small>Toujours présent. Image hero ratio ~21/9, hauteur min 560px desktop. Auteur médical = signal E-E-A-T critique YMYL.</small></div>
+
+<section class="hero-l2" aria-labelledby="h1-main">
+  <div class="hero-l2-bg">
+    <div class="ss-img-placeholder hero" data-prompt="monte-escalier hero">
+      <div class="ic"><i data-lucide="image" style="width:22px;height:22px;color:var(--rausch)"></i></div>
+      <div class="ph-label">Image hero à générer</div>
+      <div class="ph-prompt">images/services/monte-escalier/hero-2400x1080.jpg<br>Senior français souriant sur monte-escalier moderne, salon lumineux, lumière naturelle, documentaire éditorial</div>
+    </div>
+  </div>
+  <div class="hero-l2-inner">
+    <nav class="hero-l2-breadcrumb" aria-label="Fil d'Ariane">
+      <a href="/">Accueil</a>
+      <span class="sep" aria-hidden="true">›</span>
+      <a href="#">Habitat &amp; adaptation</a>
+      <span class="sep" aria-hidden="true">›</span>
+      <span aria-current="page">Monte-escalier</span>
+    </nav>
+    <h1 id="h1-main">
+      Monte-escalier : prix, modèles et aides
+      <span class="ss-script">en 2026</span>
+    </h1>
+    <p class="hero-l2-lede">
+      Comparez les modèles, comprenez les prix réels, identifiez les aides auxquelles vous avez droit. Un guide vérifié par notre comité de médecins gériatres, pour décider sereinement avec vos parents.
+    </p>
+    <div class="hero-l2-ctas">
+      <a href="#wizard-cta" class="ss-btn-rausch">
+        <i data-lucide="file-text" style="width:18px;height:18px"></i>
+        Obtenir un devis gratuit
+      </a>
+      <a href="#sommaire" class="ss-btn-ghost-light">
+        <i data-lucide="list" style="width:18px;height:18px"></i>
+        Voir le sommaire
+      </a>
+      <a href="tel:0800300300" class="ss-btn-ghost-light">
+        <i data-lucide="phone" style="width:18px;height:18px"></i>
+        0 800 300 300
+      </a>
+    </div>
+    <div class="hero-l2-author">
+      <div class="hero-l2-author-avatar" aria-hidden="true">SB</div>
+      <div class="hero-l2-author-meta">
+        <strong>Rédigé par Dr Sophie Bernard</strong><br>
+        Gériatre · Vérifié par notre <a href="#equipe">comité médical</a>
+        <span class="dot"></span>Mis à jour le 17 mai 2026
+        <span class="dot"></span>12 min de lecture
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     C02 — TOC SOMMAIRE DÉROULANT (style Bonjour Senior)
+============================================================ -->
+<div class="module-label">[C02] TOC SOMMAIRE — Déroulant ouvert par défaut desktop, ancres internes, 2 colonnes<small>Pattern Bonjour Senior. Active uniquement si > 6 sections. Schema BreadcrumbList déjà couvert en hero, donc TOC pas requis pour SEO mais critique pour UX desktop long-form.</small></div>
+
+<div class="toc-wrap" id="sommaire">
+  <details class="toc-details" open>
+    <summary>
+      <span class="title"><i data-lucide="list" style="width:18px;height:18px"></i>Sommaire de la page</span>
+      <span class="chev"><i data-lucide="chevron-right" style="width:18px;height:18px"></i></span>
+    </summary>
+    <ul class="toc-list">
+      <li><a href="#definition"><span class="num">01</span><span>Le monte-escalier en bref</span></a></li>
+      <li><a href="#fonctionnement"><span class="num">02</span><span>Comment ça fonctionne</span></a></li>
+      <li><a href="#variantes"><span class="num">03</span><span>Les 4 types de monte-escaliers</span></a></li>
+      <li><a href="#chiffres"><span class="num">04</span><span>Chiffres clés du marché</span></a></li>
+      <li><a href="#prix"><span class="num">05</span><span>Prix en 2026</span></a></li>
+      <li><a href="#fourchettes"><span class="num">06</span><span>Fourchettes de tarifs</span></a></li>
+      <li><a href="#criteres"><span class="num">07</span><span>Critères pour bien choisir</span></a></li>
+      <li><a href="#aides"><span class="num">08</span><span>Aides financières</span></a></li>
+      <li><a href="#marques"><span class="num">09</span><span>Comparatif des marques</span></a></li>
+      <li><a href="#temoignages"><span class="num">10</span><span>Témoignages</span></a></li>
+      <li><a href="#avant-apres"><span class="num">11</span><span>Avant / après l'installation</span></a></li>
+      <li><a href="#galerie"><span class="num">12</span><span>Galerie photos</span></a></li>
+      <li><a href="#video"><span class="num">13</span><span>Le monte-escalier en vidéo</span></a></li>
+      <li><a href="#guide-pdf"><span class="num">14</span><span>Recevoir notre guide PDF</span></a></li>
+      <li><a href="#process"><span class="num">15</span><span>Comment se déroule l'installation</span></a></li>
+      <li><a href="#source-officielle"><span class="num">16</span><span>Recommandations officielles</span></a></li>
+      <li><a href="#glossaire"><span class="num">17</span><span>Glossaire</span></a></li>
+      <li><a href="#equipe"><span class="num">18</span><span>Pourquoi nous faire confiance</span></a></li>
+      <li><a href="#faq"><span class="num">19</span><span>Questions fréquentes</span></a></li>
+    </ul>
+  </details>
+</div>
+
+<!-- ============================================================
+     C03 — LEAD + DÉFINITION
+============================================================ -->
+<div class="module-label">[C03] LEAD + DÉFINITION — Pavé intro + bloc définition schema.org DefinedTerm<small>Obligatoire. 100-200 mots définition, premier paragraphe inclut le mot-clé principal et l'intention de recherche.</small></div>
+
+<section class="section" id="definition">
+  <div class="container" style="max-width:880px;">
+    <p class="mod-lede" style="font-size:20px; color:var(--ink); font-weight:500;">
+      Vous cherchez à <strong>équiper votre logement d'un monte-escalier</strong> pour vous-même ou un proche ? Cette page passe en revue les modèles disponibles en 2026, les fourchettes de prix réelles constatées chez les installateurs français, et les <strong>7 aides financières</strong> qui peuvent couvrir jusqu'à 90 % du coût total.
+    </p>
+
+    <div class="def-callout" itemscope itemtype="https://schema.org/DefinedTerm">
+      <div class="def-label">Définition</div>
+      <h2 class="def-term" itemprop="name">Monte-escalier</h2>
+      <p itemprop="description">
+        Un <strong>monte-escalier</strong> est un équipement motorisé installé le long d'un escalier intérieur ou extérieur, permettant à une personne à mobilité réduite de monter ou descendre les étages en toute sécurité, assise sur un siège ou debout sur une plate-forme. Il se distingue de l'<em>ascenseur privatif</em> (cabine verticale) et de la <em>plate-forme élévatrice</em> (mouvement vertical, sans rail d'escalier). Reconnu comme aide technique par la HAS, il est éligible à plusieurs dispositifs d'aide financière en France.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     M16 — CALLOUT WARNING (médical / YMYL)
+============================================================ -->
+<div class="module-label">[M16] CALLOUT WARNING — Disclaimer YMYL santé<small>Placé tôt dans le flux. Obligatoire sur tous les contenus santé silo 2 + tous les contenus habitat qui touchent à la mobilité/perte d'autonomie.</small></div>
+
+<section style="padding:0 0 32px;">
+  <div class="container" style="max-width:880px;">
+    <div class="warn-callout">
+      <div class="ic"><i data-lucide="info" style="width:18px;height:18px"></i></div>
+      <div class="body">
+        <strong>Information générale, pas un avis médical</strong>
+        Cet article fournit des informations vérifiées par notre comité de gériatres. Il ne remplace pas l'évaluation d'un ergothérapeute ou d'un médecin, qui reste indispensable pour valider la pertinence d'un monte-escalier dans votre situation spécifique (mobilité, configuration du logement, projet de vie).
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     M01 — PAVÉ ÉDITORIAL (intro contextuelle)
+============================================================ -->
+<div class="module-label">[M01] PAVÉ ÉDITORIAL — Texte long balisé h2 + paragraphes<small>Réutilisable en N exemplaires dans la page. Sert à développer un H2 entier en flux narratif (sans encart, sans grille).</small></div>
+
+<section class="section" style="padding-block:32px 48px;">
+  <div class="container" style="max-width:780px;">
+    <h2 class="mod-h2">Pourquoi de plus en plus de familles s'équipent</h2>
+    <div class="mod-prose">
+      <p>L'envie de <strong>rester chez soi le plus longtemps possible</strong> est partagée par 9 Français sur 10 après 65 ans. Pourtant, l'escalier reste l'un des premiers obstacles à ce maintien à domicile : c'est aussi le lieu d'<strong>une chute sur trois</strong> chez les seniors selon Santé publique France. Installer un monte-escalier permet souvent de repousser de plusieurs années une décision difficile, comme un déménagement en résidence services ou un placement en EHPAD.</p>
+      <p>Au-delà de l'aspect technique, c'est surtout une question de <strong>tranquillité d'esprit pour toute la famille</strong>. Les enfants aidants nous le disent : voir leur parent monter et descendre les étages sans craindre la chute, c'est retrouver un quotidien serein. Et pour le senior lui-même, c'est la liberté de continuer à profiter de l'ensemble de son logement.</p>
+      <p>L'installation est devenue beaucoup plus simple qu'on ne l'imagine : la plupart des modèles se posent en <strong>moins d'une journée</strong>, sans gros travaux, sans modifier la structure de l'escalier. Et grâce aux aides cumulables (MaPrimeAdapt', crédit d'impôt, TVA réduite, APA, PCH), le reste à charge réel peut descendre sous les 2 000 € pour une installation standard.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     M02 — IMAGE-TEXTE 50/50 (Comment ça fonctionne)
+============================================================ -->
+<div class="module-label">[M02] IMAGE-TEXTE 50/50 — Concept à illustrer<small>Alternance gauche/droite possible (.split.reverse). Idéal pour expliquer un mécanisme, montrer un usage, illustrer un bénéfice. Réutilisable plusieurs fois dans la page.</small></div>
+
+<section class="section" id="fonctionnement" style="padding-block:48px;">
+  <div class="container">
+    <div class="split">
+      <div class="split-img">
+        <div class="ss-img-placeholder ratio-4-3" data-prompt="fonctionnement">
+          <div class="ic"><i data-lucide="image" style="width:22px;height:22px;color:var(--rausch)"></i></div>
+          <div class="ph-label">Image à générer</div>
+          <div class="ph-prompt">images/services/monte-escalier/fonctionnement-800x600.jpg<br>Aidant adulte et parent senior souriants montrent le mécanisme du monte-escalier, plan moyen, lumière naturelle</div>
+        </div>
+      </div>
+      <div>
+        <span class="mod-tag">Comment ça marche</span>
+        <h2 class="mod-h2">Un siège motorisé qui suit le rail de votre escalier</h2>
+        <p class="mod-prose" style="font-size:17px;">Le principe est simple : un <strong>rail</strong> est fixé sur les marches (jamais sur le mur), un <strong>siège motorisé</strong> coulisse le long du rail à vitesse lente (environ 0,15 m/s, soit 6 m/min). L'utilisateur s'assoit, attache la ceinture, appuie sur un bouton, et se laisse porter.</p>
+        <p class="mod-prose" style="font-size:17px;">L'alimentation se fait par une simple <strong>prise secteur 220V</strong>. En cas de coupure de courant, des batteries de secours prennent le relais pendant plusieurs trajets. La sécurité est triplée : capteurs anti-obstacle, ceinture, arrêt d'urgence accessible depuis le siège <em>et</em> depuis une télécommande.</p>
+        <ul class="check-list" style="margin-top:24px;">
+          <li><span class="ic"><i data-lucide="check" style="width:14px;height:14px"></i></span><span>Installation <strong>en moins d'une journée</strong> pour la plupart des modèles droits</span></li>
+          <li><span class="ic"><i data-lucide="check" style="width:14px;height:14px"></i></span><span>Aucun gros œuvre : le rail se visse sur les marches, <strong>réversible</strong></span></li>
+          <li><span class="ic"><i data-lucide="check" style="width:14px;height:14px"></i></span><span>Compatible avec la plupart des configurations, <strong>même les escaliers étroits</strong> (à partir de 65 cm de large)</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ============================================================
+     M03 — GRID VARIANTES (4 types)
+============================================================ -->
+<div class="module-label">[M03] GRID VARIANTES — 3 à 6 cards image+titre+lien L3<small>Renvoie vers les pages L3 (filles). Maillage interne critique pour SEO. Aspect ratio 4/3 image, hover lift + glow teal.</small></div>
+
+<section class="section" id="variantes" style="padding-block:48px;">
+  <div class="container">
+    <span class="mod-tag">Les 4 grandes familles</span>
+    <h2 class="mod-h2">Quel type de monte-escalier choisir ?</h2>
+    <p class="mod-lede">Le bon modèle dépend avant tout de la <strong>forme de votre escalier</strong> et de l'usage prévu. Voici les 4 types installés en France, du plus simple au plus spécifique.</p>
+
+    <div class="variants-grid">
+      <a href="#" class="variant-card">
+        <div class="v-img"><div class="ss-img-placeholder" data-prompt="droit"><div class="ic"><i data-lucide="image" style="width:18px;height:18px;color:var(--rausch)"></i></div><div class="ph-label">Image à générer</div><div class="ph-prompt">variante-droit.jpg<br>Monte-escalier rail droit, intérieur résidentiel français, senior souriant en arrière-plan</div></div></div>
+        <div class="v-body">
+          <div class="v-title">Monte-escalier droit</div>
+          <div class="v-desc">Pour un escalier d'un seul tenant, sans virage. Le modèle le plus simple, le plus rapide à installer, et de loin le plus abordable.</div>
+          <span class="v-link">En savoir plus <i data-lucide="arrow-right" style="width:14px;height:14px"></i></span>
+        </div>
+      </a>
+      <a href="#" class="variant-card">
+        <div class="v-img"><div class="ss-img-placeholder" data-prompt="tournant"><div class="ic"><i data-lucide="image" style="width:18px;height:18px;color:var(--rausch)"></i></div><div class="ph-label">Image à générer</div><div class="ph-prompt">variante-tournant.jpg<br>Monte-escalier à courbe dans escalier en colimaçon, intérieur cosy</div></div></div>
+        <div class="v-body">
+          <div class="v-title">Monte-escalier tournant</div>
+          <div class="v-desc">Pour un escalier avec virages, palier intermédiaire ou colimaçon. Rail sur-mesure, plus complexe à fabriquer, donc plus coûteux.</div>
+          <span class="v-link">En savoir plus <i data-lucide="arrow-right" style="width:14px;height:14px"></i></span>
+        </div>
+      </a>
+      <a href="#" class="variant-card">
+        <div class="v-img"><div class="ss-img-placeholder" data-prompt="exterieur"><div class="ic"><i data-lucide="image" style="width:18px;height:18px;color:var(--rausch)"></i></div><div class="ph-label">Image à générer</div><div class="ph-prompt">variante-exterieur.jpg<br>Monte-escalier extérieur, jardin français, lumière dorée</div></div></div>
+        <div class="v-body">
+          <div class="v-title">Monte-escalier extérieur</div>
+          <div class="v-desc">Pour franchir un escalier de jardin, perron ou accès terrasse. Matériaux résistants intempéries, gaine de protection sur le siège.</div>
+          <span class="v-link">En savoir plus <i data-lucide="arrow-right" style="width:14px;height:14px"></i></span>
+        </div>
+      </a>
+      <a href="#" class="variant-card">
+        <div class="v-img"><div class="ss-img-placeholder" data-prompt="debout"><div class="ic"><i data-lucide="image" style="width:18px;height:18px;color:var(--rausch)"></i></div><div class="ph-label">Image à générer</div><div class="ph-prompt">variante-debout.jpg<br>Monte-escalier debout / siège perché compact en intérieur</div></div></div>
+        <div class="v-body">
+          <div class="v-title">Monte-escalier debout</div>
+          <div class="v-desc">Pour les personnes qui ne peuvent pas plier les genoux. Plate-forme étroite ou siège perché, gain de place maximal.</div>
+          <span class="v-link">En savoir plus <i data-lucide="arrow-right" style="width:14px;height:14px"></i></span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     M11 — STATS SOURCES (crédibilité YMYL)
+============================================================ -->
+<div class="module-label">[M11] STATS SOURCES — 3 à 4 chiffres clés sourcés<small>Critique YMYL : chaque chiffre doit citer sa source officielle (DREES, INSEE, HAS, Santé publique France). Renforce E-E-A-T.</small></div>
+
+<section class="section" id="chiffres" style="padding-block:48px;">
+  <div class="container" style="max-width:1000px;">
+    <div class="stats-block">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="s-value">1/3</div>
+          <div class="s-label">Des chutes à domicile chez les + 65 ans ont lieu dans les escaliers</div>
+        </div>
+        <div class="stat-item">
+          <div class="s-value">85 %</div>
+          <div class="s-label">Des seniors souhaitent rester à domicile le plus longtemps possible</div>
+        </div>
+        <div class="stat-item">
+          <div class="s-value">1 j</div>
+          <div class="s-label">Durée d'installation moyenne d'un monte-escalier droit</div>
+        </div>
+        <div class="stat-item">
+          <div class="s-value">≈ 70 %</div>
+          <div class="s-label">Du coût pris en charge par les aides cumulables en 2026</div>
+        </div>
+      </div>
+      <div class="stats-sources">
+        <strong>Sources :</strong> Santé publique France (Bulletin épidémiologique, 2024), DREES (Conditions de vie des personnes âgées, 2023), retours installateurs partenaires (panel 2025-2026).
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     M04 — TABLEAU PRIX
+============================================================ -->
+<div class="module-label">[M04] TABLEAU PRIX — Table responsive scrollable mobile<small>Avec mention de la source / date des prix obligatoire. Schema.org Product/Offer possible si fourchette.</small></div>
+
+<section class="section" id="prix" style="padding-block:48px;">
+  <div class="container">
+    <span class="mod-tag">Prix constatés 2026</span>
+    <h2 class="mod-h2">Combien coûte un monte-escalier en France ?</h2>
+    <p class="mod-lede">Voici les fourchettes de prix réelles, observées chez nos installateurs partenaires en France en 2026. Ces tarifs incluent <strong>matériel, installation et garantie 2 ans</strong>.</p>
+
+    <div class="price-table-wrap">
+      <table class="price-table">
+        <thead>
+          <tr><th>Type de modèle</th><th>Prix d'entrée</th><th>Milieu de gamme</th><th>Haut de gamme</th><th>Délai d'installation</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Monte-escalier droit</td><td class="price-cell">2 800 €</td><td class="price-cell">4 500 €</td><td class="price-cell">6 500 €</td><td>1 jour</td></tr>
+          <tr><td>Monte-escalier tournant</td><td class="price-cell">5 500 €</td><td class="price-cell">8 500 €</td><td class="price-cell">14 000 €</td><td>2 à 3 jours</td></tr>
+          <tr><td>Monte-escalier extérieur</td><td class="price-cell">4 200 €</td><td class="price-cell">6 800 €</td><td class="price-cell">11 000 €</td><td>1 à 2 jours</td></tr>
+          <tr><td>Monte-escalier debout</td><td class="price-cell">3 800 €</td><td class="price-cell">5 200 €</td><td class="price-cell">7 500 €</td><td>1 jour</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="price-table-source">Tarifs TTC, pose comprise, hors aides financières. Sources : panel d'installateurs partenaires Santé Senior, relevés mars 2026.</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     M05 — FOURCHETTES ENCARTS
+============================================================ -->
+<div class="module-label">[M05] FOURCHETTES ENCARTS — 3 à 4 mini-cards statistiques<small>Variante plus visuelle qu'un tableau, idéale au-dessus de la ligne de flottaison ou en complément d'un tableau plus dense.</small></div>
+
+<section class="section" id="fourchettes" style="padding-block:48px;">
+  <div class="container">
+    <h3 class="ss-h3" style="margin-bottom:20px;">Reste à charge moyen après aides cumulées</h3>
+    <div class="range-grid">
+      <div class="range-card">
+        <div class="r-label">Modèle droit</div>
+        <div class="r-value">1 200 à 2 200 €</div>
+        <div class="r-desc">Reste à charge constaté après MaPrimeAdapt' + crédit d'impôt + APA.</div>
+      </div>
+      <div class="range-card">
+        <div class="r-label">Modèle tournant</div>
+        <div class="r-value">2 800 à 4 500 €</div>
+        <div class="r-desc">Sur-mesure plus coûteux, mais éligibilité aux mêmes aides.</div>
+      </div>
+      <div class="range-card">
+        <div class="r-label">Modèle extérieur</div>
+        <div class="r-value">2 200 à 3 800 €</div>
+        <div class="r-desc">Pris en charge si l'escalier est sur la voie d'accès au logement.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     M06 — CHECKLIST CRITÈRES
+============================================================ -->
+<div class="module-label">[M06] CHECKLIST CRITÈRES — Liste cochable 4-8 items<small>Format actionnable. Inclut strong sur le critère, paragraphe d'explication. 2 colonnes desktop si > 4 items.</small></div>
+
+<section class="section" id="criteres" style="padding-block:48px;">
+  <div class="container" style="max-width:980px;">
+    <span class="mod-tag">Critères à vérifier</span>
+    <h2 class="mod-h2">Les 6 critères qui font vraiment la différence</h2>
+    <p class="mod-lede">Avant de signer un devis, prenez 10 minutes pour vérifier ces points. Ce sont eux qui distinguent un bon installateur d'un autre.</p>
+
+    <ul class="check-list cols-2">
+      <li><span class="ic"><i data-lucide="check" style="width:14px;height:14px"></i></span><span><strong>La pose sur les marches, jamais sur le mur</strong> : gage de réversibilité et de solidité.</span></li>
+      <li><span class="ic"><i data-lucide="check" style="width:14px;height:14px"></i></span><span><strong>Une visite technique à domicile gratuite</strong> : devis sérieux = mesure réelle, pas estimation.</span></li>
+      <li><span class="ic"><i data-lucide="check" style="width:14px;height:14px"></i></span><span><strong>Une garantie pièces &amp; main d'œuvre 2 ans minimum</strong> : certaines marques étendent à 10 ans le rail.</span></li>
+      <li><span class="ic"><i data-lucide="check" style="width:14px;height:14px"></i></span><span><strong>Un service après-vente francophone joignable</strong> : vital en cas de panne, surtout pour un usage quotidien.</span></li>
+      <li><span class="ic"><i data-lucide="check" style="width:14px;height:14px"></i></span><span><strong>Un installateur agréé MaPrimeAdapt'</strong> : sinon, l'aide ne vous sera pas versée.</span></li>
+      <li><span class="ic"><i data-lucide="check" style="width:14px;height:14px"></i></span><span><strong>Une démonstration sur un modèle similaire</strong> : testez le confort d'assise avant signature.</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============================================================
+     M18 — CTA INLINE (rappel mi-page)
+============================================================ -->
+<div class="module-label">[M18] CTA INLINE — Banner cream avec bouton(s)<small>Pause respiration milieu de page. Pas trop visuel pour ne pas casser la lecture. Max 2 CTA.</small></div>
+
+<section style="padding:16px 0 48px;">
+  <div class="container" style="max-width:980px;">
+    <div class="cta-inline">
+      <div class="cta-inline-text">
+        <h3>Besoin d'un chiffrage précis pour votre escalier ?</h3>
+        <p>Recevez 3 devis gratuits d'installateurs locaux agréés en 24h. Sans engagement.</p>
+      </div>
+      <div class="cta-inline-actions">
+        <a href="#wizard-cta" class="ss-btn-rausch"><i data-lucide="file-text" style="width:18px;height:18px"></i>Recevoir mes devis</a>
+        <a href="tel:0800300300" class="ss-btn-outline"><i data-lucide="phone" style="width:18px;height:18px"></i>0 800 300 300</a>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ============================================================
+     M07 — GRID AIDES FINANCIÈRES
+============================================================ -->
+<div class="module-label">[M07] GRID AIDES — Cards icône + tag + montant + pitch + lien<small>Critique sur silo 3 (Aides financières) et toute page service éligible aux aides. Chaque aide = card autonome avec source officielle dans la page L3 liée.</small></div>
+
+<section class="section" id="aides">
+  <div class="container">
+    <span class="mod-tag">Financement 2026</span>
+    <h2 class="mod-h2">7 aides cumulables pour financer votre monte-escalier</h2>
+    <p class="mod-lede">En combinant les bons dispositifs, le reste à charge peut tomber sous les 2 000 € pour un modèle droit. Voici les aides à connaître, classées par montant.</p>
+
+    <div class="aides-grid">
+      <article class="aide-card">
+        <div class="a-ic"><i data-lucide="home" style="width:22px;height:22px"></i></div>
+        <span class="a-tag">ANAH</span>
+        <h3>MaPrimeAdapt'</h3>
+        <div class="a-amount">Jusqu'à <strong>70 %</strong> du devis</div>
+        <p>Aide phare de l'ANAH pour adapter le logement à la perte d'autonomie. Plafond 22 000 € HT de travaux.</p>
+        <a href="#" class="a-link">Conditions complètes <i data-lucide="arrow-right" style="width:12px;height:12px"></i></a>
+      </article>
+      <article class="aide-card">
+        <div class="a-ic"><i data-lucide="receipt" style="width:22px;height:22px"></i></div>
+        <span class="a-tag">Fiscal</span>
+        <h3>Crédit d'impôt autonomie</h3>
+        <div class="a-amount">Jusqu'à <strong>25 %</strong> du montant TTC</div>
+        <p>Crédit d'impôt sur le matériel pour les personnes en perte d'autonomie ou handicap. Plafond 5 000 € (personne seule) / 10 000 € (couple).</p>
+        <a href="#" class="a-link">Voir les conditions <i data-lucide="arrow-right" style="width:12px;height:12px"></i></a>
+      </article>
+      <article class="aide-card">
+        <div class="a-ic"><i data-lucide="percent" style="width:22px;height:22px"></i></div>
+        <span class="a-tag">TVA</span>
+        <h3>TVA réduite à 5,5 %</h3>
+        <div class="a-amount">Économie d'environ <strong>14 %</strong> sur le total</div>
+        <p>Pour les travaux d'accessibilité et d'adaptation au handicap, dans un logement de plus de 2 ans.</p>
+        <a href="#" class="a-link">En savoir plus <i data-lucide="arrow-right" style="width:12px;height:12px"></i></a>
+      </article>
+      <article class="aide-card">
+        <div class="a-ic"><i data-lucide="hand-helping" style="width:22px;height:22px"></i></div>
+        <span class="a-tag">Conseil départemental</span>
+        <h3>APA : Allocation personnalisée d'autonomie</h3>
+        <div class="a-amount">Jusqu'à <strong>1 944 €/mois</strong> selon GIR</div>
+        <p>Peut financer l'achat d'aides techniques pour les personnes en GIR 1 à 4. Aide à domicile incluse.</p>
+        <a href="#" class="a-link">Simuler son APA <i data-lucide="arrow-right" style="width:12px;height:12px"></i></a>
+      </article>
+      <article class="aide-card">
+        <div class="a-ic"><i data-lucide="accessibility" style="width:22px;height:22px"></i></div>
+        <span class="a-tag">MDPH</span>
+        <h3>PCH : Prestation de compensation du handicap</h3>
+        <div class="a-amount">Selon plan personnalisé</div>
+        <p>Pour les moins de 60 ans, ou les plus de 60 ans dont le handicap a été reconnu avant 60 ans. Cumulable avec MaPrimeAdapt'.</p>
+        <a href="#" class="a-link">Vérifier mon éligibilité <i data-lucide="arrow-right" style="width:12px;height:12px"></i></a>
+      </article>
+      <article class="aide-card">
+        <div class="a-ic"><i data-lucide="landmark" style="width:22px;height:22px"></i></div>
+        <span class="a-tag">Mairie / CCAS</span>
+        <h3>Aides des collectivités territoriales</h3>
+        <div class="a-amount">Variable, <strong>jusqu'à 3 000 €</strong></div>
+        <p>Certaines régions, départements et communes proposent des aides complémentaires. À demander en mairie ou CCAS.</p>
+        <a href="#" class="a-link">Trouver mes aides locales <i data-lucide="arrow-right" style="width:12px;height:12px"></i></a>
+      </article>
+      <article class="aide-card">
+        <div class="a-ic"><i data-lucide="credit-card" style="width:22px;height:22px"></i></div>
+        <span class="a-tag">Financement</span>
+        <h3>Paiement en plusieurs fois</h3>
+        <div class="a-amount">3 à 60 mois <strong>sans frais</strong> souvent</div>
+        <p>La plupart des installateurs proposent un échelonnement, parfois sans intérêt sur 3 à 12 mois. Comparez les taux.</p>
+        <a href="#" class="a-link">Voir les offres <i data-lucide="arrow-right" style="width:12px;height:12px"></i></a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     M08 — COMPARATIF MARQUES
+============================================================ -->
+<div class="module-label">[M08] COMPARATIF MARQUES — Tableau scrollable, 1ère col sticky<small>Logos en placeholder texte tant que pas d'accord commercial. Pas de classement subjectif — uniquement caractéristiques objectives.</small></div>
+
+<section class="section" id="marques" style="padding-block:48px;">
+  <div class="container">
+    <span class="mod-tag">Tour d'horizon des marques</span>
+    <h2 class="mod-h2">Les 5 marques les plus installées en France</h2>
+    <p class="mod-lede">Comparaison objective des caractéristiques techniques principales. Pour un comparatif détaillé, consultez nos pages dédiées à chaque marque.</p>
+
+    <div class="brand-table-wrap">
+      <table class="brand-table">
+        <thead>
+          <tr><th>Marque</th><th>Type couvert</th><th>Garantie</th><th>Présence FR</th><th>Particularité</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><span class="brand-logo-ph">Marque A</span></td><td>Droit + tournant</td><td>2 ans (10 ans rail)</td><td>Nationale</td><td>Réseau d'installateurs dense, prix milieu de gamme.</td></tr>
+          <tr><td><span class="brand-logo-ph">Marque B</span></td><td>Tous types</td><td>5 ans</td><td>Nationale</td><td>Pionnier français, SAV reconnu.</td></tr>
+          <tr><td><span class="brand-logo-ph">Marque C</span></td><td>Droit principalement</td><td>2 ans</td><td>Nationale</td><td>Entrée de gamme bon rapport qualité/prix.</td></tr>
+          <tr><td><span class="brand-logo-ph">Marque D</span></td><td>Tournant + extérieur</td><td>2 ans + extension</td><td>Sud / Île-de-France</td><td>Modèles haut de gamme, design soigné.</td></tr>
+          <tr><td><span class="brand-logo-ph">Marque E</span></td><td>Tous types</td><td>3 ans</td><td>Nord / Grand Est</td><td>Délais courts (devis sous 48h).</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     M02 bis — IMAGE-TEXTE 50/50 reversed (Sécurité)
+============================================================ -->
+<div class="module-label">[M02 bis] IMAGE-TEXTE 50/50 reversed — Variante orientation inverse<small>Permet alternance visuelle quand le module M02 est utilisé plusieurs fois dans la page.</small></div>
+
+<section class="section" style="padding-block:48px;">
+  <div class="container">
+    <div class="split reverse">
+      <div class="split-img">
+        <div class="ss-img-placeholder ratio-4-3" data-prompt="securite">
+          <div class="ic"><i data-lucide="image" style="width:22px;height:22px;color:var(--rausch)"></i></div>
+          <div class="ph-label">Image à générer</div>
+          <div class="ph-prompt">securite-800x600.jpg<br>Senior souriante, main posée sur l'accoudoir du monte-escalier, geste rassuré, lumière naturelle</div>
+        </div>
+      </div>
+      <div>
+        <span class="mod-tag">Sécurité</span>
+        <h2 class="mod-h2">5 systèmes de sécurité intégrés sur chaque modèle</h2>
+        <p class="mod-prose" style="font-size:17px;">Les normes européennes <strong>EN 81-40</strong> imposent un niveau de sécurité élevé sur tous les monte-escaliers vendus en France. Voici ce que vous retrouverez systématiquement.</p>
+        <ul class="check-list">
+          <li><span class="ic"><i data-lucide="shield-check" style="width:14px;height:14px"></i></span><span><strong>Ceinture de sécurité</strong> rétractable, similaire à celle d'une voiture.</span></li>
+          <li><span class="ic"><i data-lucide="shield-check" style="width:14px;height:14px"></i></span><span><strong>Capteurs anti-obstacle</strong> sur la base : l'appareil s'arrête seul s'il rencontre un objet.</span></li>
+          <li><span class="ic"><i data-lucide="shield-check" style="width:14px;height:14px"></i></span><span><strong>Arrêt d'urgence</strong> accessible depuis le siège et depuis 2 télécommandes (haut + bas).</span></li>
+          <li><span class="ic"><i data-lucide="shield-check" style="width:14px;height:14px"></i></span><span><strong>Batterie de secours</strong> en cas de coupure : 5 à 10 trajets garantis.</span></li>
+          <li><span class="ic"><i data-lucide="shield-check" style="width:14px;height:14px"></i></span><span><strong>Verrouillage par clé</strong> empêche l'utilisation par un enfant.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     M14 — TÉMOIGNAGES CARDS
+============================================================ -->
+<div class="module-label">[M14] TÉMOIGNAGES — 3 cards avec étoiles + verbatim + auteur<small>Préférer 3 témoignages réels avec photo. Sourcer (initiales + ville + relation) pour authenticité.</small></div>
+
+<section class="section" id="temoignages" style="background:var(--cream);">
+  <div class="container">
+    <span class="mod-tag">Ils ont franchi le pas</span>
+    <h2 class="mod-h2">Témoignages de familles équipées</h2>
+    <p class="mod-lede">Trois retours d'expérience de familles que nous avons accompagnées en 2025-2026.</p>
+
+    <div class="testi-grid">
+      <article class="testi-card">
+        <div class="testi-stars" aria-label="5 sur 5 étoiles">
+          <i data-lucide="star" style="width:16px;height:16px;fill:currentColor"></i><i data-lucide="star" style="width:16px;height:16px;fill:currentColor"></i><i data-lucide="star" style="width:16px;height:16px;fill:currentColor"></i><i data-lucide="star" style="width:16px;height:16px;fill:currentColor"></i><i data-lucide="star" style="width:16px;height:16px;fill:currentColor"></i>
+        </div>
+        <p class="testi-quote">Ma mère de 84 ans avait peur de descendre toute seule. Depuis l'installation, elle retrouve l'autonomie et nous on dort enfin tranquilles. L'installateur a tout fait en une matinée, propre.</p>
+        <div class="testi-author">
+          <div class="testi-author-img">
+            <div class="ss-img-placeholder" data-prompt="marie"><div class="ic"><i data-lucide="user" style="width:16px;height:16px;color:var(--rausch)"></i></div></div>
+          </div>
+          <div class="ta-meta">
+            <span class="ta-name">Marie L., 56 ans</span>
+            <span class="ta-role">Aidante, Bordeaux · Installation mars 2026</span>
+          </div>
+        </div>
+      </article>
+      <article class="testi-card">
+        <div class="testi-stars" aria-label="5 sur 5 étoiles">
+          <i data-lucide="star" style="width:16px;height:16px;fill:currentColor"></i><i data-lucide="star" style="width:16px;height:16px;fill:currentColor"></i><i data-lucide="star" style="width:16px;height:16px;fill:currentColor"></i><i data-lucide="star" style="width:16px;height:16px;fill:currentColor"></i><i data-lucide="star" style="width:16px;height:16px;fill:currentColor"></i>
+        </div>
+        <p class="testi-quote">J'ai 78 ans, je voulais rester dans ma maison où j'ai vécu 40 ans. Le monte-escalier m'a changé la vie. Et avec les aides, ça m'a coûté beaucoup moins cher que ce que je redoutais.</p>
+        <div class="testi-author">
+          <div class="testi-author-img">
+            <div class="ss-img-placeholder" data-prompt="robert"><div class="ic"><i data-lucide="user" style="width:16px;height:16px;color:var(--rausch)"></i></div></div>
+          </div>
+          <div class="ta-meta">
+            <span class="ta-name">Robert M., 78 ans</span>
+            <span class="ta-role">Utilisateur, Lyon · Installation janvier 2026</span>
+          </div>
+        </div>
+      </article>
+      <article class="testi-card">
+        <div class="testi-stars" aria-label="4 sur 5 étoiles">
+          <i data-lucide="star" style="width:16px;height:16px;fill:currentColor"></i><i data-lucide="star" style="width:16px;height:16px;fill:currentColor"></i><i data-lucide="star" style="width:16px;height:16px;fill:currentColor"></i><i data-lucide="star" style="width:16px;height:16px;fill:currentColor"></i><i data-lucide="star" style="width:16px;height:16px;color:var(--hairline)"></i>
+        </div>
+        <p class="testi-quote">L'accompagnement par Santé Senior a été précieux : on nous a expliqué chaque aide, monté le dossier MaPrimeAdapt'. Petit bémol sur le délai (3 mois), mais ça en valait la peine.</p>
+        <div class="testi-author">
+          <div class="testi-author-img">
+            <div class="ss-img-placeholder" data-prompt="claudine"><div class="ic"><i data-lucide="user" style="width:16px;height:16px;color:var(--rausch)"></i></div></div>
+          </div>
+          <div class="ta-meta">
+            <span class="ta-name">Claudine et son fils</span>
+            <span class="ta-role">Famille accompagnée, Nantes · Installation février 2026</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     M17 — TABLEAU AVANT / APRÈS
+============================================================ -->
+<div class="module-label">[M17] AVANT / APRÈS — 2 colonnes contrastées rouge / teal<small>Idéal pour visualiser bénéfice. Pas obligatoire : à utiliser uniquement si le contraste est marqué.</small></div>
+
+<section class="section" id="avant-apres" style="padding-block:48px;">
+  <div class="container" style="max-width:1080px;">
+    <span class="mod-tag">Ce que ça change concrètement</span>
+    <h2 class="mod-h2">Avant et après l'installation</h2>
+    <div class="compare-2">
+      <div class="compare-col before">
+        <div class="compare-col-header"><i data-lucide="x-circle" style="width:16px;height:16px"></i>Avant</div>
+        <div class="compare-col-img"><div class="ss-img-placeholder" data-prompt="avant"><div class="ic"><i data-lucide="image" style="width:18px;height:18px;color:var(--rausch)"></i></div><div class="ph-label">Image à générer</div><div class="ph-prompt">avant.jpg<br>Senior peine à monter un escalier, expression d'inquiétude, lumière neutre</div></div></div>
+        <div class="compare-col-body">
+          <ul>
+            <li><i data-lucide="alert-circle" style="width:16px;height:16px"></i>Fatigue à chaque montée, douleurs aux genoux</li>
+            <li><i data-lucide="alert-circle" style="width:16px;height:16px"></i>Risque de chute permanent, surtout en descente</li>
+            <li><i data-lucide="alert-circle" style="width:16px;height:16px"></i>Renoncement progressif à l'étage : chambre transférée au RDC</li>
+            <li><i data-lucide="alert-circle" style="width:16px;height:16px"></i>Anxiété de la famille, appels quotidiens pour vérifier</li>
+          </ul>
+        </div>
+      </div>
+      <div class="compare-col after">
+        <div class="compare-col-header"><i data-lucide="check-circle" style="width:16px;height:16px"></i>Après</div>
+        <div class="compare-col-img"><div class="ss-img-placeholder" data-prompt="apres"><div class="ic"><i data-lucide="image" style="width:18px;height:18px;color:var(--rausch)"></i></div><div class="ph-label">Image à générer</div><div class="ph-prompt">apres.jpg<br>Senior souriant assise sur monte-escalier, sereine, lumière chaude</div></div></div>
+        <div class="compare-col-body">
+          <ul>
+            <li><i data-lucide="check" style="width:16px;height:16px"></i>Montée et descente sans effort en 30 secondes</li>
+            <li><i data-lucide="check" style="width:16px;height:16px"></i>Risque de chute dans l'escalier supprimé</li>
+            <li><i data-lucide="check" style="width:16px;height:16px"></i>Récupération de l'usage complet du logement</li>
+            <li><i data-lucide="check" style="width:16px;height:16px"></i>Sérénité retrouvée pour le senior et ses proches</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ============================================================
+     M09 — GALERIE PHOTO
+============================================================ -->
+<div class="module-label">[M09] GALERIE PHOTO — Grid 2 cols mobile / 4 cols desktop<small>Preuves visuelles d'installations réelles. Alt text descriptif fonctionnel obligatoire pour SEO + accessibilité.</small></div>
+
+<section class="section" id="galerie" style="padding-block:48px;">
+  <div class="container">
+    <span class="mod-tag">Réalisations chez nos clients</span>
+    <h2 class="mod-h2">Galerie d'installations</h2>
+    <p class="mod-lede">Quelques exemples d'installations récentes chez les familles que nous avons accompagnées.</p>
+    <div class="gallery">
+      <div><div class="ss-img-placeholder" data-prompt="install-1"><div class="ic"><i data-lucide="image" style="width:18px;height:18px;color:var(--rausch)"></i></div><div class="ph-label">À générer</div><div class="ph-prompt">installation-1.jpg<br>Monte-escalier droit dans escalier blanc, intérieur lumineux</div></div></div>
+      <div><div class="ss-img-placeholder" data-prompt="install-2"><div class="ic"><i data-lucide="image" style="width:18px;height:18px;color:var(--rausch)"></i></div><div class="ph-label">À générer</div><div class="ph-prompt">installation-2.jpg<br>Monte-escalier tournant chêne dans maison de campagne</div></div></div>
+      <div><div class="ss-img-placeholder" data-prompt="install-3"><div class="ic"><i data-lucide="image" style="width:18px;height:18px;color:var(--rausch)"></i></div><div class="ph-label">À générer</div><div class="ph-prompt">installation-3.jpg<br>Famille intergénérationnelle pose à côté du monte-escalier, sourires</div></div></div>
+      <div><div class="ss-img-placeholder" data-prompt="install-4"><div class="ic"><i data-lucide="image" style="width:18px;height:18px;color:var(--rausch)"></i></div><div class="ph-label">À générer</div><div class="ph-prompt">installation-4.jpg<br>Monte-escalier extérieur, jardin fleuri, lumière chaude</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     M10 — VIDÉO EMBED
+============================================================ -->
+<div class="module-label">[M10] VIDÉO EMBED — Thumbnail + play button overlay<small>Lazy-load iframe YouTube/Vimeo au click pour performance. Mention "durée 2 min" pour set expectations.</small></div>
+
+<section class="section" id="video" style="padding-block:48px;">
+  <div class="container" style="max-width:980px;">
+    <span class="mod-tag">En 2 minutes</span>
+    <h2 class="mod-h2">Le monte-escalier en vidéo</h2>
+    <p class="mod-lede">Une démonstration filmée chez une famille en région parisienne, avec le retour direct des utilisateurs.</p>
+    <div class="video-wrap" role="button" tabindex="0" aria-label="Lancer la vidéo">
+      <div class="ss-img-placeholder" data-prompt="video"><div class="ic"><i data-lucide="image" style="width:22px;height:22px;color:var(--rausch)"></i></div><div class="ph-label">Thumbnail à générer</div><div class="ph-prompt">video-cover.jpg<br>Couple senior souriant utilise le monte-escalier ensemble, lumière chaude</div></div>
+      <div class="play-btn"><i data-lucide="play" style="width:32px;height:32px;fill:currentColor"></i></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     M13 — LEAD MAGNET PDF
+============================================================ -->
+<div class="module-label">[M13] LEAD MAGNET PDF — Card cream avec cover + form email<small>Booster acquisition newsletter. Mention RGPD + double opt-in obligatoire. À placer aux 2/3 de la page.</small></div>
+
+<section class="section" id="guide-pdf" style="padding-block:48px;">
+  <div class="container" style="max-width:1040px;">
+    <div class="lead-magnet">
+      <div class="lead-magnet-cover">
+        <div class="ss-img-placeholder" data-prompt="cover-guide"><div class="ic"><i data-lucide="book-open" style="width:18px;height:18px;color:var(--rausch)"></i></div><div class="ph-label">Couverture PDF</div></div>
+      </div>
+      <div>
+        <h3>Recevez notre guide PDF gratuit</h3>
+        <p>22 pages rédigées par notre comité médical : critères techniques, fourchettes de prix actualisées, démarches pour chaque aide financière, modèle de devis à demander.</p>
+        <div class="ls">
+          <span><i data-lucide="file-text" style="width:14px;height:14px;color:var(--rausch)"></i>22 pages</span>
+          <span><i data-lucide="stethoscope" style="width:14px;height:14px;color:var(--rausch)"></i>Validé par notre comité</span>
+          <span><i data-lucide="shield-check" style="width:14px;height:14px;color:var(--rausch)"></i>RGPD-compliant</span>
+        </div>
+      </div>
+      <div>
+        <form style="display:flex;flex-direction:column;gap:10px;min-width:260px;">
+          <label for="lm-email" style="font-size:13px;font-weight:600;color:var(--ink);">Votre email</label>
+          <input id="lm-email" type="email" required placeholder="prenom@email.fr" autocomplete="email" style="height:48px;padding:0 16px;border:1px solid var(--hairline);border-radius:9999px;font-size:15px;font-family:inherit;" />
+          <button type="submit" class="ss-btn-rausch" style="height:48px;"><i data-lucide="download" style="width:16px;height:16px"></i>Recevoir le guide</button>
+          <span style="font-size:11px;color:var(--muted);line-height:1.4;">En soumettant, vous acceptez de recevoir nos guides hebdomadaires. Désabonnement en 1 clic. Données hébergées HDS en France.</span>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     M15 — TIMELINE PROCESS
+============================================================ -->
+<div class="module-label">[M15] TIMELINE PROCESS — 3 à 5 étapes numérotées<small>Pour expliquer "comment ça se passe", "les étapes d'une démarche". Compteur CSS automatique. Mobile = stack vertical.</small></div>
+
+<section class="section" id="process" style="padding-block:48px;">
+  <div class="container">
+    <span class="mod-tag">Les étapes</span>
+    <h2 class="mod-h2">Comment se déroule l'installation</h2>
+    <p class="mod-lede">De la première prise de contact à la mise en service, voici les 4 étapes que vous traverserez avec votre installateur.</p>
+
+    <div class="timeline steps-4">
+      <div class="timeline-step">
+        <h4>Visite technique à domicile</h4>
+        <p>Un conseiller mesure votre escalier, identifie les contraintes (radiateur, prise, palier) et vous propose les modèles compatibles. Gratuit, sans engagement.</p>
+      </div>
+      <div class="timeline-step">
+        <h4>Devis &amp; dossier d'aides</h4>
+        <p>Vous recevez un devis détaillé. Nous vous accompagnons pour monter les dossiers MaPrimeAdapt', APA, crédit d'impôt, etc.</p>
+      </div>
+      <div class="timeline-step">
+        <h4>Fabrication &amp; livraison</h4>
+        <p>Pour un modèle droit : 2 à 4 semaines. Pour un tournant sur-mesure : 4 à 8 semaines. Livraison par technicien spécialisé.</p>
+      </div>
+      <div class="timeline-step">
+        <h4>Pose &amp; mise en service</h4>
+        <p>Installation en 1 jour (droit) à 3 jours (tournant). Formation à l'utilisation et démonstration des sécurités avec vous et vos proches.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     M01 bis — PAVÉ ÉDITORIAL (long-form milieu/fin)
+============================================================ -->
+<div class="module-label">[M01 bis] PAVÉ ÉDITORIAL — Variante long-form, h2 + h3 imbriqués<small>Pour aborder un sujet adjacent qui mérite 200-400 mots sans nécessiter de grille visuelle (entretien, location, alternatives).</small></div>
+
+<section class="section" style="padding-block:48px;">
+  <div class="container" style="max-width:780px;">
+    <h2 class="mod-h2">Acheter ou louer son monte-escalier ?</h2>
+    <div class="mod-prose">
+      <p>La question revient souvent en première visite. La <strong>location</strong> est tentante quand le besoin est temporaire (convalescence post-opératoire, séjour de longue durée chez un proche). Comptez environ <strong>120 à 180 € par mois</strong> pour un modèle droit, avec un engagement minimum de 6 à 12 mois.</p>
+      <h3>Quand la location a du sens</h3>
+      <p>Pour un usage de moins de 18 mois, la location reste financièrement intéressante. Elle inclut généralement l'installation, le démontage et la maintenance. C'est aussi une solution si la personne hésite encore à s'engager : on essaie d'abord, puis on décide.</p>
+      <h3>Quand l'achat reprend le dessus</h3>
+      <p>Au-delà de 18 à 24 mois, l'achat devient plus rentable. Surtout que les <strong>aides financières (MaPrimeAdapt', crédit d'impôt)</strong> ne s'appliquent qu'à l'achat, jamais à la location. Pour un projet long terme de maintien à domicile, l'achat reste l'option la plus efficace économiquement.</p>
+      <h3>L'occasion : prudence</h3>
+      <p>Le marché de l'occasion existe mais reste à manier avec précaution. Le rail est <strong>spécifique à chaque escalier</strong>, ce qui rend la réutilisation complexe. Mieux vaut passer par un revendeur agréé qui propose une garantie de remise à neuf et adapte le rail à votre configuration.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     M12 — ENCART SOURCE OFFICIELLE
+============================================================ -->
+<div class="module-label">[M12] ENCART SOURCE OFFICIELLE — Citation HAS / INSEE / ANSM / Service Public<small>Renforce E-E-A-T. Citation littérale + lien vers source. À placer près d'une affirmation médicale ou statistique forte.</small></div>
+
+<section class="section" id="source-officielle" style="padding-block:32px 48px;">
+  <div class="container" style="max-width:880px;">
+    <div class="source-callout">
+      <div class="ic"><i data-lucide="badge-check" style="width:22px;height:22px"></i></div>
+      <div class="body">
+        <div class="label">Recommandation officielle</div>
+        <blockquote>L'adaptation du logement, et notamment la sécurisation des escaliers par un dispositif motorisé, fait partie des interventions de premier rang recommandées pour prévenir les chutes graves chez les personnes âgées à mobilité réduite.</blockquote>
+        <cite>Source : <a href="https://www.has-sante.fr" target="_blank" rel="noopener">Haute Autorité de Santé</a>, Recommandations de bonne pratique, prévention des chutes chez les personnes âgées, mise à jour 2024.</cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     M19 — GLOSSAIRE MINI
+============================================================ -->
+<div class="module-label">[M19] GLOSSAIRE MINI — 3 à 6 termes techniques définis<small>Permet de définir le jargon sans casser le flux. Bonus SEO : Google adore les définitions inline (Featured snippets).</small></div>
+
+<section class="section" id="glossaire" style="padding-block:48px;">
+  <div class="container" style="max-width:980px;">
+    <span class="mod-tag">Mini glossaire</span>
+    <h2 class="mod-h2">Les termes à connaître</h2>
+    <dl class="glossary">
+      <div class="gloss-item">
+        <dt>GIR (Groupe Iso-Ressources)</dt>
+        <dd>Échelle de 1 à 6 qui mesure le degré de perte d'autonomie. Le GIR 1 correspond à la dépendance la plus lourde, le GIR 6 à l'autonomie complète. L'APA est attribuée pour les GIR 1 à 4.</dd>
+      </div>
+      <div class="gloss-item">
+        <dt>Norme EN 81-40</dt>
+        <dd>Norme européenne qui encadre la sécurité des monte-escaliers : capteurs, vitesse, charge, freinage, batterie. Tout monte-escalier vendu en France doit la respecter.</dd>
+      </div>
+      <div class="gloss-item">
+        <dt>Rail (ou chemin de roulement)</dt>
+        <dd>Profilé métallique fixé sur les marches, le long duquel se déplace le siège motorisé. Droit, courbe ou sur-mesure selon la configuration de l'escalier.</dd>
+      </div>
+      <div class="gloss-item">
+        <dt>Plate-forme élévatrice</dt>
+        <dd>À ne pas confondre avec le monte-escalier : la plate-forme se déplace verticalement (comme un mini-ascenseur), sans suivre l'escalier. Solution pour les escaliers très complexes ou en cas de fauteuil roulant.</dd>
+      </div>
+    </dl>
+  </div>
+</section>
+<!-- ============================================================
+     C04 — POURQUOI NOUS (trust YMYL + comité)
+============================================================ -->
+<div class="module-label">[C04] POURQUOI NOUS — Trust YMYL + signature comité médical<small>Obligatoire. Renforce E-E-A-T. Photo collective comité ou portrait emblématique. 4 points trust max.</small></div>
+
+<section class="section why-section" id="equipe">
+  <div class="container">
+    <div class="why-grid">
+      <div class="why-img">
+        <div class="ss-img-placeholder ratio-4-3" data-prompt="comite">
+          <div class="ic"><i data-lucide="image" style="width:22px;height:22px;color:var(--rausch)"></i></div>
+          <div class="ph-label">Image à générer</div>
+          <div class="ph-prompt">comite-medical.jpg<br>3 médecins gériatres français, sourires, blouses blanches, fond clinique lumineux, plan moyen, atmosphère bienveillante</div>
+        </div>
+      </div>
+      <div>
+        <span class="mod-tag">Pourquoi nous faire confiance</span>
+        <h2 class="mod-h2">Un portail validé par un comité de médecins gériatres français</h2>
+        <p class="mod-prose" style="font-size:17px;">Santé Senior n'est pas un site éditorial parmi d'autres : <strong>chaque page est relue et signée par un membre de notre comité scientifique</strong>, composé de gériatres, ergothérapeutes et médecins spécialistes de la perte d'autonomie. C'est notre garantie pour vous : pas d'informations imprécises, pas de promesses commerciales déguisées.</p>
+
+        <ul class="why-points">
+          <li>
+            <span class="ic"><i data-lucide="stethoscope" style="width:22px;height:22px"></i></span>
+            <div>
+              <h4>Validation médicale systématique</h4>
+              <p>Chaque article est relu, corrigé et signé par un gériatre du comité avant publication.</p>
+            </div>
+          </li>
+          <li>
+            <span class="ic"><i data-lucide="heart-handshake" style="width:22px;height:22px"></i></span>
+            <div>
+              <h4>Conseil 100 % gratuit, jamais de pression</h4>
+              <p>Nos conseillers ne sont pas commissionnés : leur rôle est de vous aider à décider, pas de vous vendre.</p>
+            </div>
+          </li>
+          <li>
+            <span class="ic"><i data-lucide="map-pin" style="width:22px;height:22px"></i></span>
+            <div>
+              <h4>Artisans locaux dans toute la France</h4>
+              <p>Nous travaillons avec un réseau d'installateurs agréés, sélectionnés sur la qualité de leur service après-vente.</p>
+            </div>
+          </li>
+          <li>
+            <span class="ic"><i data-lucide="shield-check" style="width:22px;height:22px"></i></span>
+            <div>
+              <h4>Vos données hébergées en France (HDS)</h4>
+              <p>Aucune donnée transmise à un tiers sans votre accord explicite. Conformité RGPD et hébergement santé certifié.</p>
+            </div>
+          </li>
+        </ul>
+
+        <div style="margin-top:28px;">
+          <a href="#" class="ss-btn-outline"><i data-lucide="users" style="width:18px;height:18px"></i>Découvrir le comité</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     C05 — FAQ (accordéons schema FAQPage)
+============================================================ -->
+<div class="module-label">[C05] FAQ — Accordéons avec schema.org FAQPage<small>Obligatoire. 5-10 questions réelles. Schema JSON-LD à ajouter en bas de page pour Featured Snippets.</small></div>
+
+<section class="section" id="faq">
+  <div class="container">
+    <div style="text-align:center; margin-bottom:48px;">
+      <span class="mod-tag">Vos questions</span>
+      <h2 class="mod-h2" style="margin-left:auto;margin-right:auto;">Les questions les plus posées</h2>
+      <p class="mod-lede" style="margin-left:auto;margin-right:auto;">Si vous ne trouvez pas votre réponse, appelez-nous au <a href="tel:0800300300" style="color:var(--rausch);font-weight:700;">0 800 300 300</a> (gratuit, 8h–19h).</p>
+    </div>
+
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary><span>Combien coûte vraiment un monte-escalier en 2026, aides comprises ?</span><span class="chev"><i data-lucide="plus" style="width:18px;height:18px"></i></span></summary>
+        <div class="faq-body">
+          <p>Pour un <strong>modèle droit</strong>, comptez 2 800 à 6 500 € TTC pose comprise. Après cumul MaPrimeAdapt' + crédit d'impôt + APA, le reste à charge moyen tombe à <strong>1 200 à 2 200 €</strong>. Pour un modèle tournant sur-mesure, le total avant aides peut atteindre 14 000 €, avec un reste à charge de 2 800 à 4 500 €.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary><span>L'installation nécessite-t-elle des travaux dans l'escalier ?</span><span class="chev"><i data-lucide="plus" style="width:18px;height:18px"></i></span></summary>
+        <div class="faq-body">
+          <p>Non. Le rail se visse directement sur les marches (jamais sur le mur), sans modifier la structure de l'escalier. L'installation prend une journée pour un modèle droit, deux à trois jours pour un tournant. C'est entièrement <strong>réversible</strong> : on peut tout démonter sans laisser de trace.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary><span>Quelles aides sont cumulables et comment monter les dossiers ?</span><span class="chev"><i data-lucide="plus" style="width:18px;height:18px"></i></span></summary>
+        <div class="faq-body">
+          <p>MaPrimeAdapt' (jusqu'à 70 % via l'ANAH), crédit d'impôt de 25 %, TVA réduite à 5,5 %, APA pour les GIR 1-4, PCH pour les moins de 60 ans, aides locales (CCAS, conseil départemental) : <strong>toutes cumulables</strong> dans la limite du coût total. Nos conseillers vous accompagnent pour monter chaque dossier, gratuitement.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary><span>Peut-on installer un monte-escalier en location ?</span><span class="chev"><i data-lucide="plus" style="width:18px;height:18px"></i></span></summary>
+        <div class="faq-body">
+          <p>Oui, mais avec l'<strong>accord écrit du propriétaire</strong>. Comme l'installation est réversible, la plupart des propriétaires acceptent. Si vous êtes en copropriété, l'aval de l'assemblée générale n'est pas nécessaire tant que l'installation reste dans votre logement (pas dans les parties communes).</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary><span>Quelle est la durée de vie d'un monte-escalier ?</span><span class="chev"><i data-lucide="plus" style="width:18px;height:18px"></i></span></summary>
+        <div class="faq-body">
+          <p>Comptez <strong>10 à 15 ans en utilisation quotidienne intensive</strong>, jusqu'à 20 ans pour un usage modéré. La maintenance annuelle (40 à 80 €/an selon les marques) prolonge significativement la durée de vie. Le rail lui-même est souvent garanti 10 ans.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary><span>Que se passe-t-il en cas de panne ou coupure de courant ?</span><span class="chev"><i data-lucide="plus" style="width:18px;height:18px"></i></span></summary>
+        <div class="faq-body">
+          <p>Tous les modèles ont une <strong>batterie de secours</strong> qui assure 5 à 10 trajets en cas de coupure. Pour une panne mécanique, comptez 24 à 72h d'intervention chez les installateurs sérieux (vérifiez l'engagement SAV au devis). En attendant, l'utilisateur peut emprunter l'escalier normalement.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary><span>Le monte-escalier peut-il être adapté à un fauteuil roulant ?</span><span class="chev"><i data-lucide="plus" style="width:18px;height:18px"></i></span></summary>
+        <div class="faq-body">
+          <p>Non. Pour un usage avec fauteuil roulant, c'est une <strong>plate-forme élévatrice verticale</strong> qu'il faut envisager, parfois en complément d'un monte-escalier classique pour le conjoint valide. Notre équipe peut vous orienter vers le bon équipement après évaluation à domicile.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     C06 — CTA FINAL (dark wizard diagnostic)
+============================================================ -->
+<div class="module-label">[C06] CTA FINAL — Section dark + glow + wizard diagnostic<small>Obligatoire en bas de page. 1 ou 2 CTA max + numéro vert. Ambiance teal glow rappelle la home.</small></div>
+
+<section class="section" id="wizard-cta" style="padding-block:32px 64px;">
+  <div class="container">
+    <div class="cta-final">
+      <span class="cta-final-tag">Démarrer un diagnostic</span>
+      <h2>Quel monte-escalier pour <span class="ss-script">votre logement</span> ?</h2>
+      <p>Répondez à 4 questions en 30 secondes, recevez 3 devis personnalisés d'installateurs locaux agréés, gratuitement et sans engagement.</p>
+      <div class="cta-final-actions">
+        <a href="#" class="ss-btn-rausch"><i data-lucide="compass" style="width:18px;height:18px"></i>Démarrer le diagnostic</a>
+        <a href="#guide-pdf" class="ss-btn-ghost-light"><i data-lucide="download" style="width:18px;height:18px"></i>Recevoir le guide PDF</a>
+      </div>
+      <div class="cta-final-tel">Ou appelez-nous : <a href="tel:0800300300">0 800 300 300</a> · Gratuit, 8h–19h</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     C07 — SIGNATURE AUTEUR + ARTICLES LIÉS
+============================================================ -->
+<div class="module-label">[C07] SIGNATURE AUTEUR + ARTICLES LIÉS — Auteur YMYL complet + 3 cards maillage interne<small>Obligatoire. Schema.org Person + lien vers page auteur. Date de mise à jour + relecture annuelle.</small></div>
+
+<section class="section" id="auteur" style="padding-block:48px 64px;">
+  <div class="container" style="max-width:980px;">
+    <div class="author-block" itemscope itemtype="https://schema.org/Person">
+      <div class="author-photo">
+        <div class="ss-img-placeholder" data-prompt="auteur"><div class="ic"><i data-lucide="user" style="width:22px;height:22px;color:var(--rausch)"></i></div><div class="ph-label">Photo auteur</div></div>
+      </div>
+      <div class="author-meta">
+        <span class="a-tag">Article rédigé par</span>
+        <h3 itemprop="name">Dr Sophie Bernard</h3>
+        <div class="a-role" itemprop="jobTitle">Gériatre, membre du comité scientifique Santé Senior</div>
+        <p itemprop="description">Médecin gériatre depuis 18 ans, ancienne praticien hospitalier en service de soins de longue durée. Spécialisée dans la prévention de la perte d'autonomie et l'adaptation du logement des seniors à domicile. <a href="#" itemprop="url" class="ss-link">Voir son profil complet et ses publications</a>.</p>
+        <div class="a-links">
+          <a href="#"><i data-lucide="linkedin" style="width:14px;height:14px"></i>LinkedIn</a>
+          <a href="#"><i data-lucide="file-text" style="width:14px;height:14px"></i>Publications</a>
+          <a href="#"><i data-lucide="mail" style="width:14px;height:14px"></i>Contact</a>
+        </div>
+        <div style="margin-top:14px;font-size:13px;color:var(--muted);">
+          <i data-lucide="calendar" style="width:13px;height:13px;display:inline;vertical-align:middle"></i>
+          <span itemprop="datePublished" content="2026-03-12">Publié le 12 mars 2026</span> ·
+          <i data-lucide="refresh-cw" style="width:13px;height:13px;display:inline;vertical-align:middle"></i>
+          <span>Mis à jour le 17 mai 2026</span> ·
+          <i data-lucide="check-circle" style="width:13px;height:13px;display:inline;vertical-align:middle"></i>
+          <span>Prochaine relecture programmée : avril 2027</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="related" style="padding-block:32px 80px;">
+  <div class="container">
+    <h2 class="mod-h2" style="text-align:center;margin-bottom:36px;">À lire aussi sur le sujet</h2>
+    <div class="related-grid">
+      <a href="#" class="related-card">
+        <div class="r-img"><div class="ss-img-placeholder" data-prompt="related-1"><div class="ic"><i data-lucide="image" style="width:18px;height:18px;color:var(--rausch)"></i></div><div class="ph-label">Image</div></div></div>
+        <div class="r-body">
+          <span class="r-cat">Aides financières</span>
+          <h4>MaPrimeAdapt' 2026 : conditions, montants et démarches</h4>
+          <span class="r-meta">8 min · Dr Sophie Bernard</span>
+        </div>
+      </a>
+      <a href="#" class="related-card">
+        <div class="r-img"><div class="ss-img-placeholder" data-prompt="related-2"><div class="ic"><i data-lucide="image" style="width:18px;height:18px;color:var(--rausch)"></i></div><div class="ph-label">Image</div></div></div>
+        <div class="r-body">
+          <span class="r-cat">Habitat</span>
+          <h4>Adapter une salle de bain pour senior : les 6 priorités</h4>
+          <span class="r-meta">10 min · Dr Marc Lefèvre</span>
+        </div>
+      </a>
+      <a href="#" class="related-card">
+        <div class="r-img"><div class="ss-img-placeholder" data-prompt="related-3"><div class="ic"><i data-lucide="image" style="width:18px;height:18px;color:var(--rausch)"></i></div><div class="ph-label">Image</div></div></div>
+        <div class="r-body">
+          <span class="r-cat">Prévention</span>
+          <h4>Prévenir les chutes à domicile : checklist pièce par pièce</h4>
+          <span class="r-meta">12 min · Dr Claire Dupuis</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+</main>
+
+<!-- ====== FOOTER (simplifié, à reprendre depuis dist/index.html en prod) ====== -->
+<footer class="ftr">
+  <div class="ftr-inner">
+    <div>
+      <div class="ftr-brand-logo">Sant<span class="e-dot">é</span>&nbsp;Senior</div>
+      <p class="ftr-pitch">Le portail français qui réunit toutes les solutions pour bien vieillir, validé par notre comité de gériatres.</p>
+      <div class="ftr-trust">
+        <span><i data-lucide="check" style="width:12px;height:12px"></i>Hébergement HDS</span>
+        <span><i data-lucide="check" style="width:12px;height:12px"></i>RGAA AA</span>
+      </div>
+    </div>
+    <div>
+      <h4>Solutions</h4>
+      <ul>
+        <li><a href="#">Habitat &amp; adaptation</a></li>
+        <li><a href="#">Santé &amp; prévention</a></li>
+        <li><a href="#">Aides financières</a></li>
+        <li><a href="#">EHPAD &amp; résidences</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Le portail</h4>
+      <ul>
+        <li><a href="#">Comité médical</a></li>
+        <li><a href="#">Qui sommes-nous</a></li>
+        <li><a href="#">Nos partenaires</a></li>
+        <li><a href="#">Presse</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Pratique</h4>
+      <ul>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">Mentions légales</a></li>
+        <li><a href="#">RGPD</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="ftr-bottom">
+    © 2026 Santé Senior · SIRET 902 345 678 · Hébergement HDS Claranet · Numéro vert <a href="tel:0800300300">0 800 300 300</a> (gratuit, 8h–19h)
+  </div>
+</footer>
+
+<script>
+  if (window.lucide) lucide.createIcons();
+</script>
+</body>
+</html>
