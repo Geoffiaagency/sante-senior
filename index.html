@@ -67,6 +67,9 @@ body{ font-size:18px; line-height:1.6; color:var(--body); padding-bottom:88px; }
 .ss-card-hover:hover{ box-shadow:0 0 0 1px rgba(0,0,0,0.02),0 2px 6px rgba(0,0,0,0.04),0 4px 8px rgba(0,0,0,0.10); border-color:#c1c1c1; }
 .ss-rail-shadow{ box-shadow:0 4px 16px rgba(0,0,0,0.08); }
 .ss-header-shadow{ box-shadow:0 1px 0 rgba(0,0,0,0.06); }
+/* Nav desktop : injecté côté JS, breakpoint en CSS pur (indépendant Tailwind compilé) */
+#navWrap{ display:none; }
+@media (min-width:1024px){ #navWrap{ display:flex !important; } }
 
 .ss-btn-rausch{ background:var(--rausch); color:#fff; transition:background-color 150ms; display:inline-flex; align-items:center; justify-content:center; gap:8px; border-radius:9999px; padding:0 24px; height:56px; font-size:16px; font-weight:600; }
 .ss-btn-rausch:hover{ background:#0a6880; }
@@ -341,11 +344,11 @@ details[open] .ss-chev{ transform:rotate(90deg); }
 
 <!-- ====== HEADER ====== -->
 <header id="hdr" class="relative border-b border-transparent transition-shadow">
-  <div class="h-[64px] md:h-[80px] flex items-center justify-between gap-6 relative z-10" style="max-width:1480px; margin:0 auto; padding-left:24px; padding-right:24px;">
+  <div class="h-[64px] md:h-[80px] flex items-center justify-between gap-6 relative z-10" style="padding-left:clamp(20px,6vw,120px); padding-right:clamp(20px,6vw,120px);">
     <a href="#main" class="ss-logo shrink-0" aria-label="Santé Senior, accueil">
       Sant<span class="e-dot">é</span>&nbsp;Senior
     </a>
-    <nav aria-label="Navigation principale" class="hidden lg:flex items-center gap-1 relative" id="navWrap">
+    <nav aria-label="Navigation principale" class="items-center gap-1 relative" id="navWrap">
       <!-- nav items injected -->
     </nav>
     <div class="hidden md:flex items-center gap-3 shrink-0">
