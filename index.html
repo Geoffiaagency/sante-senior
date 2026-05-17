@@ -341,17 +341,17 @@ details[open] .ss-chev{ transform:rotate(90deg); }
 
 <!-- ====== HEADER ====== -->
 <header id="hdr" class="relative border-b border-transparent transition-shadow">
-  <div class="container h-[64px] md:h-[80px] flex items-center justify-between gap-4 relative z-10">
+  <div class="h-[64px] md:h-[80px] flex items-center justify-between gap-6 relative z-10" style="max-width:1480px; margin:0 auto; padding-left:24px; padding-right:24px;">
     <a href="#main" class="ss-logo shrink-0" aria-label="Santé Senior, accueil">
       Sant<span class="e-dot">é</span>&nbsp;Senior
     </a>
-    <nav aria-label="Navigation principale" class="hidden xl:flex items-center gap-1 relative" id="navWrap">
+    <nav aria-label="Navigation principale" class="hidden lg:flex items-center gap-1 relative" id="navWrap">
       <!-- nav items injected -->
     </nav>
     <div class="hidden md:flex items-center gap-3 shrink-0">
       <a href="tel:0800300300" class="hidden lg:inline-flex items-center gap-2" style="color:#0e7490;">
-        <i data-lucide="phone" class="w-[18px] h-[18px]"></i>
-        <span class="text-[16px] font-semibold">0 800 300 300</span>
+        <i data-lucide="phone" class="w-[20px] h-[20px]"></i>
+        <span class="text-[18px] font-semibold">0 800 300 300</span>
       </a>
       <button class="ss-btn-rausch" data-cta>Demander un devis gratuit</button>
     </div>
@@ -1036,7 +1036,7 @@ megaEl.addEventListener("mouseleave", () => { megaTimer = setTimeout(closeMega, 
 SILOS.forEach(s => {
   const wrap = document.createElement("div");
   const label = s.name.includes(" & ") ? s.name.split(" & ")[0] : s.name;
-  wrap.innerHTML = `<a href="#hub-${s.id}" class="px-3 py-2 text-[14px] font-medium text-[#222] hover:text-[#0e7490] whitespace-nowrap relative z-10 transition-colors duration-200">${esc(label)}</a>`;
+  wrap.innerHTML = `<a href="#hub-${s.id}" class="px-4 py-2 text-[17px] font-medium text-[#222] hover:text-[#0e7490] whitespace-nowrap relative z-10 transition-colors duration-200">${esc(label)}</a>`;
   wrap.addEventListener("mouseenter", () => {
     clearTimeout(megaTimer);
     clearTimeout(megaCloseTimer);
@@ -1065,17 +1065,25 @@ mobNav.innerHTML = SILOS.map(s => `
 document.getElementById("mobBtn").addEventListener("click", () => { document.getElementById("mobSheet").style.display = "block"; });
 document.getElementById("mobClose").addEventListener("click", () => { document.getElementById("mobSheet").style.display = "none"; });
 
-/* ============ HEADER SCROLL ============ */
+/* ============ HEADER SCROLL (rAF batched, cached innerWidth) ============ */
 const hdr = document.getElementById("hdr");
+let cachedInnerWidth = window.innerWidth;
+let hdrTicking = false;
 const onScroll = () => {
-  const scrolled = window.scrollY > 8;
+  const y = window.scrollY;
+  const scrolled = y > 8;
   hdr.classList.toggle("ss-header-shadow", scrolled);
   hdr.classList.toggle("border-transparent", !scrolled);
   hdr.classList.toggle("border-[#ebebeb]", scrolled);
   const rail = document.getElementById("rail");
-  if (rail && !rail.dataset.closed) rail.style.display = (window.innerWidth >= 768 && window.scrollY > 200) ? "block" : "none";
+  if (rail && !rail.dataset.closed) rail.style.display = (cachedInnerWidth >= 768 && y > 200) ? "block" : "none";
+  hdrTicking = false;
 };
-window.addEventListener("scroll", onScroll, { passive: true }); onScroll();
+window.addEventListener("scroll", () => {
+  if (!hdrTicking) { requestAnimationFrame(onScroll); hdrTicking = true; }
+}, { passive: true });
+window.addEventListener("resize", () => { cachedInnerWidth = window.innerWidth; }, { passive: true });
+onScroll();
 
 
 /* ============ TICKERS ============ */
@@ -1507,15 +1515,18 @@ document.addEventListener("click", e => { const b = e.target.closest("[data-cta]
 })();
 
 /* ============ STICKY MOBILE CTA — APPARITION À 10 % DE SCROLL ============ */
+/* scrollHeight + innerHeight cachés au load et resize uniquement (jamais sur scroll : évite forced layout reflow) */
 (function() {
   const bar = document.getElementById('mobStickyCta');
   if (!bar) return;
   let shown = false;
-  function update() {
+  let maxScroll = 1; // cache du max scroll (doc.scrollHeight - innerHeight)
+  function recompute() {
     const doc = document.documentElement;
-    const scrolled = window.scrollY || doc.scrollTop || 0;
-    const max = (doc.scrollHeight - window.innerHeight) || 1;
-    const ratio = scrolled / max;
+    maxScroll = (doc.scrollHeight - window.innerHeight) || 1;
+  }
+  function update() {
+    const ratio = window.scrollY / maxScroll;
     const shouldShow = ratio >= 0.10;
     if (shouldShow && !shown) {
       bar.style.visibility = 'visible';
@@ -1524,7 +1535,6 @@ document.addEventListener("click", e => { const b = e.target.closest("[data-cta]
     } else if (!shouldShow && shown) {
       bar.style.transform = 'translateY(100%)';
       shown = false;
-      // visibility reset after transition pour éviter qu'elle bloque les taps invisibles
       setTimeout(() => { if (!shown) bar.style.visibility = 'hidden'; }, 260);
     }
   }
@@ -1535,8 +1545,10 @@ document.addEventListener("click", e => { const b = e.target.closest("[data-cta]
       ticking = true;
     }
   }, { passive: true });
-  window.addEventListener('resize', update, { passive: true });
-  update();
+  window.addEventListener('resize', () => { recompute(); update(); }, { passive: true });
+  // Premier compute après que le layout soit stabilisé (images lazy, fonts swap)
+  if (document.readyState === 'complete') { recompute(); update(); }
+  else window.addEventListener('load', () => { recompute(); update(); });
 })();
 
 /* ============ LUCIDE INIT ============ */
