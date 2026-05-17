@@ -121,33 +121,34 @@ a{ color:inherit; }
   .hero-l2-author-meta{ text-align:center; }
 }
 
-/* === TOC C02 (dark, fermé par défaut) === */
-.toc-wrap{ background:var(--night); color:#fff; border-bottom:1px solid rgba(255,255,255,0.06); }
+/* === TOC C02 (fond teal, fermé par défaut) === */
+.toc-wrap{ background:var(--rausch); color:#fff; border-bottom:1px solid rgba(255,255,255,0.10); }
 .toc-details{ max-width:1440px; margin:0 auto; padding:24px 32px; }
 @media (max-width:743px){ .toc-details{ padding:20px; } }
 .toc-details > summary{ list-style:none; cursor:pointer; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:16px 0; }
 .toc-details > summary::-webkit-details-marker{ display:none; }
 .toc-details summary .title{ font-size:18px; font-weight:700; color:#fff; display:inline-flex; align-items:center; gap:12px; }
-.toc-details summary .title i{ color:#4ecde6; }
-.toc-details summary .chev{ transition:transform 200ms ease; color:#fff; width:36px; height:36px; border-radius:9999px; background:rgba(255,255,255,0.08); display:inline-flex; align-items:center; justify-content:center; }
-.toc-details[open] summary .chev{ transform:rotate(90deg); background:var(--rausch); }
+.toc-details summary .title i{ color:#fff; }
+.toc-details summary .chev{ transition:transform 200ms ease; color:#fff; width:36px; height:36px; border-radius:9999px; background:rgba(255,255,255,0.12); display:inline-flex; align-items:center; justify-content:center; }
+.toc-details[open] summary .chev{ transform:rotate(90deg); background:#fff; color:var(--rausch); }
 .toc-list{ list-style:none; margin:0; padding:12px 0 20px; columns:3; column-gap:40px; }
 @media (max-width:1024px){ .toc-list{ columns:2; } }
 @media (max-width:743px){ .toc-list{ columns:1; } }
 .toc-list li{ margin:0; padding:0; break-inside:avoid; }
-.toc-list a{ display:flex; align-items:center; gap:10px; padding:10px 0; font-size:16px; color:rgba(255,255,255,0.85); text-decoration:none; border-bottom:1px solid rgba(255,255,255,0.08); transition:color 120ms,padding-left 150ms; font-weight:500; }
-.toc-list a:hover{ color:#4ecde6; padding-left:6px; }
-.toc-list a .num{ font-size:13px; font-weight:700; color:#4ecde6; min-width:28px; }
+.toc-list a{ display:flex; align-items:center; gap:10px; padding:10px 0; font-size:16px; color:rgba(255,255,255,0.92); text-decoration:none; border-bottom:1px solid rgba(255,255,255,0.15); transition:color 120ms,padding-left 150ms; font-weight:500; }
+.toc-list a:hover{ color:#fff; padding-left:6px; }
+.toc-list a .num{ font-size:13px; font-weight:700; color:rgba(255,255,255,0.65); min-width:28px; }
 
 /* === MODULES COMMUNS === */
 .mod-tag{ display:inline-block; font-size:12px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--rausch); padding:7px 14px; background:var(--rausch-tint); border-radius:9999px; margin-bottom:20px; }
 .mod-h2{ font-size:clamp(28px,3.4vw,44px); font-weight:800; line-height:1.1; letter-spacing:-0.8px; color:var(--ink); margin:0 0 20px; text-wrap:balance; }
-.mod-lede{ font-size:20px; line-height:1.55; color:var(--ink); font-weight:500; max-width:880px; margin:0 0 40px; }
-.mod-prose p{ font-size:20px; line-height:1.55; color:var(--ink); font-weight:500; margin:0 0 22px; }
+/* mod-lede : déclaration en aval pour width 1080px (consolidé) */
+.mod-prose p{ font-size:20px; line-height:1.55; color:var(--ink); font-weight:500; margin:0 0 22px; max-width:920px; }
 .mod-prose p strong{ color:var(--ink); font-weight:700; }
-.mod-prose ul, .mod-prose ol{ font-size:20px; line-height:1.55; color:var(--ink); font-weight:500; padding-left:24px; margin:0 0 22px; }
+.mod-prose ul, .mod-prose ol{ font-size:20px; line-height:1.55; color:var(--ink); font-weight:500; padding-left:24px; margin:0 0 22px; max-width:920px; }
 .mod-prose li{ margin-bottom:10px; }
 .mod-prose h3{ font-size:24px; font-weight:700; color:var(--ink); margin:36px 0 14px; }
+.mod-lede{ font-size:22px; line-height:1.5; color:var(--ink); font-weight:500; max-width:1080px; margin:0 0 40px; }
 
 /* === DARK SECTIONS (remplacement des zones cream — alignement avec home actuelle) === */
 .dark-section{ background:var(--night); color:#fff; }
@@ -296,19 +297,42 @@ table.brand-table{ width:100%; border-collapse:collapse; background:#fff; min-wi
 .lead-magnet label{ color:#fff !important; }
 .lead-magnet form span{ color:rgba(255,255,255,0.60) !important; }
 
-/* === M14 — TÉMOIGNAGES === */
-.testi-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:24px; }
-.testi-card{ background:#fff; border:1px solid var(--hairline); border-radius:20px; padding:28px; display:flex; flex-direction:column; gap:16px; }
-.testi-stars{ display:flex; gap:2px; color:#f59e0b; }
-.testi-quote{ font-size:16px; line-height:1.6; color:var(--ink); font-style:italic; margin:0; flex:1; }
-.testi-quote::before{ content:'« '; color:var(--rausch); font-weight:700; }
-.testi-quote::after{ content:' »'; color:var(--rausch); font-weight:700; }
-.testi-author{ display:flex; align-items:center; gap:12px; padding-top:14px; border-top:1px solid var(--hairline-soft); }
-.testi-author-img{ width:48px; height:48px; border-radius:9999px; overflow:hidden; flex-shrink:0; }
-.testi-author-img .ss-img-placeholder{ height:100%; min-height:0; border-radius:0; border:none; padding:6px; }
-.testi-author .ta-meta{ font-size:13px; line-height:1.4; }
-.testi-author .ta-name{ font-weight:700; color:var(--ink); display:block; }
-.testi-author .ta-role{ color:var(--muted); }
+/* === M14 — TÉMOIGNAGES (port exact HP — 3 cols infinite scroll) === */
+@keyframes testiScroll { from { transform: translateY(0); } to { transform: translateY(-50%); } }
+.testi-section-hp{ position:relative; overflow:hidden; background:#15110d; padding-block:80px; }
+@media (min-width:1128px){ .testi-section-hp{ padding-block:112px; } }
+.testi-glow{ position:absolute; left:50%; top:38%; transform:translate(-50%,0); width:90%; max-width:1100px; height:560px; background:radial-gradient(ellipse at center, rgba(14,116,144,0.32) 0%, rgba(14,116,144,0.10) 38%, transparent 70%); filter:blur(50px); z-index:0; pointer-events:none; }
+.testi-section-hp .container{ position:relative; z-index:1; }
+.testi-header-hp{ display:flex; flex-direction:column; align-items:center; justify-content:center; max-width:680px; margin:0 auto; text-align:center; }
+.testi-badge-hp{ display:inline-flex; align-items:center; gap:8px; padding:6px 16px; border:1px solid rgba(255,255,255,0.18); background:rgba(255,255,255,0.06); border-radius:9999px; }
+.testi-badge-hp .dot{ width:6px; height:6px; border-radius:9999px; background:#4ecde6; }
+.testi-badge-hp .lbl{ font-size:11px; font-weight:700; letter-spacing:0.5px; text-transform:uppercase; color:#fff; }
+.testi-h2-hp{ font-size:clamp(28px,3.4vw,44px); font-weight:800; line-height:1.1; letter-spacing:-0.8px; color:#fff; margin:20px 0 0; text-wrap:balance; }
+.testi-h2-hp .ss-script{ color:#4ecde6; font-size:1.2em; }
+.testi-lede-hp{ font-size:18px; line-height:1.6; max-width:540px; margin:16px 0 0; color:rgba(255,255,255,0.74); }
+.testi-rating-hp{ margin-top:20px; display:inline-flex; align-items:center; gap:8px; font-size:15px; color:rgba(255,255,255,0.78); }
+.testi-rating-hp .stars{ display:inline-flex; gap:2px; color:var(--rausch); }
+.testi-rating-hp strong{ color:#fff; font-weight:600; }
+.testi-mask-hp{ -webkit-mask-image: linear-gradient(to bottom, transparent, #000 18%, #000 82%, transparent); mask-image: linear-gradient(to bottom, transparent, #000 18%, #000 82%, transparent); display:flex; justify-content:center; gap:24px; margin-top:48px; max-height:720px; overflow:hidden; }
+.testi-col-hp{ display:flex; flex-direction:column; gap:24px; padding-bottom:24px; will-change:transform; }
+.testi-col-hp.c1{ animation:testiScroll 22s linear infinite; }
+.testi-col-hp.c2{ animation:testiScroll 28s linear infinite; }
+.testi-col-hp.c3{ animation:testiScroll 25s linear infinite; }
+.testi-col-hp:hover{ animation-play-state:paused; }
+.testi-col-wrap.lg-only{ display:none; }
+.testi-col-wrap.md-only{ display:none; }
+@media (min-width:744px){ .testi-col-wrap.md-only{ display:block; } }
+@media (min-width:1024px){ .testi-col-wrap.lg-only{ display:block; } }
+.testi-card-hp{ background:#fff; border:1px solid var(--hairline); border-radius:20px; padding:28px; max-width:320px; width:100%; box-shadow:0 4px 18px rgba(14,116,144,0.06); }
+.testi-card-hp .stars{ display:flex; gap:2px; margin-bottom:16px; color:var(--rausch); }
+.testi-card-hp .stars i{ width:14px; height:14px; fill:currentColor; }
+.testi-card-hp .quote{ font-size:15px; line-height:1.55; color:var(--ink); margin:0; }
+.testi-card-hp .meta{ display:flex; align-items:center; gap:12px; margin-top:24px; padding-top:20px; border-top:1px solid var(--hairline-soft); }
+.testi-card-hp .meta-text{ display:flex; flex-direction:column; min-width:0; }
+.testi-card-hp .meta-name{ font-size:14px; font-weight:600; color:var(--ink); line-height:1.25; }
+.testi-card-hp .meta-detail{ font-size:13px; line-height:1.25; color:var(--muted); margin-top:2px; }
+.ss-avatar-initial{ display:inline-flex; align-items:center; justify-content:center; background:linear-gradient(135deg, var(--rausch) 0%, #4ecde6 100%); color:#fff; font-family:Inter,sans-serif; font-weight:600; line-height:1; flex-shrink:0; border-radius:9999px; user-select:none; }
+@media (prefers-reduced-motion: reduce){ .testi-col-hp{ animation:none !important; } }
 
 /* === M15 — TIMELINE PROCESS === */
 .timeline{ display:grid; grid-template-columns:1fr; gap:32px; counter-reset:step; position:relative; }
@@ -342,13 +366,13 @@ table.brand-table{ width:100%; border-collapse:collapse; background:#fff; min-wi
 .compare-col.before li i{ color:#dc2626; }
 .compare-col.after li i{ color:var(--rausch); }
 
-/* === M18 — CTA INLINE (dark) === */
-.cta-inline{ background:var(--night); color:#fff; border-radius:28px; padding:40px 48px; display:flex; flex-wrap:wrap; align-items:center; gap:32px; justify-content:space-between; position:relative; overflow:hidden; }
-.cta-inline::before{ content:''; position:absolute; top:50%; left:30%; transform:translateY(-50%); width:50%; height:200%; background:radial-gradient(ellipse, rgba(14,116,144,0.25) 0%, transparent 60%); filter:blur(50px); pointer-events:none; }
+/* === M18 — CTA INLINE (dark, contenu centré) === */
+.cta-inline{ background:var(--night); color:#fff; border-radius:28px; padding:56px 48px; display:flex; flex-direction:column; align-items:center; gap:24px; text-align:center; position:relative; overflow:hidden; }
+.cta-inline::before{ content:''; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:70%; height:200%; background:radial-gradient(ellipse, rgba(14,116,144,0.28) 0%, transparent 60%); filter:blur(50px); pointer-events:none; }
 .cta-inline > *{ position:relative; }
-.cta-inline-text h3{ font-size:26px; font-weight:800; color:#fff; margin:0 0 8px; letter-spacing:-0.3px; }
-.cta-inline-text p{ font-size:17px; color:rgba(255,255,255,0.78); margin:0; font-weight:500; }
-.cta-inline-actions{ display:flex; gap:14px; flex-wrap:wrap; }
+.cta-inline-text h3{ font-size:28px; font-weight:800; color:#fff; margin:0 0 10px; letter-spacing:-0.3px; }
+.cta-inline-text p{ font-size:18px; color:rgba(255,255,255,0.80); margin:0; font-weight:500; max-width:560px; }
+.cta-inline-actions{ display:flex; gap:14px; flex-wrap:wrap; justify-content:center; }
 
 /* === M19 — GLOSSAIRE === */
 .glossary{ display:grid; grid-template-columns:1fr; gap:14px; }
@@ -523,8 +547,7 @@ table.brand-table{ width:100%; border-collapse:collapse; background:#fff; min-wi
       <span aria-current="page">Monte-escalier</span>
     </nav>
     <h1 id="h1-main">
-      Monte-escalier : prix, modèles et aides
-      <span class="ss-script">en 2026</span>
+      <span class="ss-script" style="color:#4ecde6;font-size:1.1em;">Monte-escalier</span> : prix, modèles et aides 2026
     </h1>
     <p class="hero-l2-lede">
       Comparez les modèles, comprenez les prix réels, identifiez les aides auxquelles vous avez droit. Un guide vérifié par notre comité de médecins gériatres, pour décider sereinement avec vos parents.
@@ -634,7 +657,7 @@ table.brand-table{ width:100%; border-collapse:collapse; background:#fff; min-wi
 <div class="module-label">[M01] PAVÉ ÉDITORIAL — Texte long balisé h2 + paragraphes<small>Réutilisable en N exemplaires dans la page. Sert à développer un H2 entier en flux narratif (sans encart, sans grille).</small></div>
 
 <section class="section" style="padding-block:32px 48px;">
-  <div class="container" style="max-width:780px;">
+  <div class="container">
     <h2 class="mod-h2">Pourquoi de plus en plus de familles s'équipent</h2>
     <div class="mod-prose">
       <p>L'envie de <strong>rester chez soi le plus longtemps possible</strong> est partagée par 9 Français sur 10 après 65 ans. Pourtant, l'escalier reste l'un des premiers obstacles à ce maintien à domicile : c'est aussi le lieu d'<strong>une chute sur trois</strong> chez les seniors selon Santé publique France. Installer un monte-escalier permet souvent de repousser de plusieurs années une décision difficile, comme un déménagement en résidence services ou un placement en EHPAD.</p>
@@ -816,7 +839,7 @@ table.brand-table{ width:100%; border-collapse:collapse; background:#fff; min-wi
 <div class="module-label">[M06] CHECKLIST CRITÈRES — Liste cochable 4-8 items<small>Format actionnable. Inclut strong sur le critère, paragraphe d'explication. 2 colonnes desktop si > 4 items.</small></div>
 
 <section class="section" id="criteres" style="padding-block:48px;">
-  <div class="container" style="max-width:980px;">
+  <div class="container">
     <span class="mod-tag">Critères à vérifier</span>
     <h2 class="mod-h2">Les 6 critères qui font vraiment la différence</h2>
     <p class="mod-lede">Avant de signer un devis, prenez 10 minutes pour vérifier ces points. Ce sont eux qui distinguent un bon installateur d'un autre.</p>
@@ -1080,58 +1103,26 @@ table.brand-table{ width:100%; border-collapse:collapse; background:#fff; min-wi
 ============================================================ -->
 <div class="module-label">[M14] TÉMOIGNAGES — 3 cards avec étoiles + verbatim + auteur<small>Préférer 3 témoignages réels avec photo. Sourcer (initiales + ville + relation) pour authenticité.</small></div>
 
-<section class="section dark-section" id="temoignages">
+<section class="testi-section-hp" id="temoignages" aria-labelledby="testiHeadingHP">
+  <div class="testi-glow" aria-hidden="true"></div>
   <div class="container">
-    <span class="mod-tag">Ils ont franchi le pas</span>
-    <h2 class="mod-h2">Témoignages de familles équipées</h2>
-    <p class="mod-lede">Trois retours d'expérience de familles que nous avons accompagnées en 2025-2026.</p>
+    <div class="testi-header-hp">
+      <div class="testi-badge-hp">
+        <span class="dot"></span>
+        <span class="lbl">Témoignages</span>
+      </div>
+      <h2 class="testi-h2-hp" id="testiHeadingHP">Ce que nous disent <span class="ss-script">les familles</span> qui ont franchi le pas</h2>
+      <p class="testi-lede-hp">Des récits authentiques, recueillis après chaque installation, vérifiés par Trustpilot.</p>
+      <div class="testi-rating-hp">
+        <span class="stars" id="testiStarsHP" aria-hidden="true"></span>
+        <span><strong>4,7/5</strong> · <strong>1 240 avis</strong> Trustpilot vérifiés</span>
+      </div>
+    </div>
 
-    <div class="testi-grid">
-      <article class="testi-card">
-        <div class="testi-stars" aria-label="5 sur 5 étoiles">
-          <i data-lucide="star" style="width:16px;height:16px;fill:currentColor"></i><i data-lucide="star" style="width:16px;height:16px;fill:currentColor"></i><i data-lucide="star" style="width:16px;height:16px;fill:currentColor"></i><i data-lucide="star" style="width:16px;height:16px;fill:currentColor"></i><i data-lucide="star" style="width:16px;height:16px;fill:currentColor"></i>
-        </div>
-        <p class="testi-quote">Ma mère de 84 ans avait peur de descendre toute seule. Depuis l'installation, elle retrouve l'autonomie et nous on dort enfin tranquilles. L'installateur a tout fait en une matinée, propre.</p>
-        <div class="testi-author">
-          <div class="testi-author-img">
-            <div class="ss-img-placeholder" data-prompt="marie"><div class="ic"><i data-lucide="user" style="width:16px;height:16px;color:var(--rausch)"></i></div></div>
-          </div>
-          <div class="ta-meta">
-            <span class="ta-name">Marie L., 56 ans</span>
-            <span class="ta-role">Aidante, Bordeaux · Installation mars 2026</span>
-          </div>
-        </div>
-      </article>
-      <article class="testi-card">
-        <div class="testi-stars" aria-label="5 sur 5 étoiles">
-          <i data-lucide="star" style="width:16px;height:16px;fill:currentColor"></i><i data-lucide="star" style="width:16px;height:16px;fill:currentColor"></i><i data-lucide="star" style="width:16px;height:16px;fill:currentColor"></i><i data-lucide="star" style="width:16px;height:16px;fill:currentColor"></i><i data-lucide="star" style="width:16px;height:16px;fill:currentColor"></i>
-        </div>
-        <p class="testi-quote">J'ai 78 ans, je voulais rester dans ma maison où j'ai vécu 40 ans. Le monte-escalier m'a changé la vie. Et avec les aides, ça m'a coûté beaucoup moins cher que ce que je redoutais.</p>
-        <div class="testi-author">
-          <div class="testi-author-img">
-            <div class="ss-img-placeholder" data-prompt="robert"><div class="ic"><i data-lucide="user" style="width:16px;height:16px;color:var(--rausch)"></i></div></div>
-          </div>
-          <div class="ta-meta">
-            <span class="ta-name">Robert M., 78 ans</span>
-            <span class="ta-role">Utilisateur, Lyon · Installation janvier 2026</span>
-          </div>
-        </div>
-      </article>
-      <article class="testi-card">
-        <div class="testi-stars" aria-label="4 sur 5 étoiles">
-          <i data-lucide="star" style="width:16px;height:16px;fill:currentColor"></i><i data-lucide="star" style="width:16px;height:16px;fill:currentColor"></i><i data-lucide="star" style="width:16px;height:16px;fill:currentColor"></i><i data-lucide="star" style="width:16px;height:16px;fill:currentColor"></i><i data-lucide="star" style="width:16px;height:16px;color:var(--hairline)"></i>
-        </div>
-        <p class="testi-quote">L'accompagnement par Santé Senior a été précieux : on nous a expliqué chaque aide, monté le dossier MaPrimeAdapt'. Petit bémol sur le délai (3 mois), mais ça en valait la peine.</p>
-        <div class="testi-author">
-          <div class="testi-author-img">
-            <div class="ss-img-placeholder" data-prompt="claudine"><div class="ic"><i data-lucide="user" style="width:16px;height:16px;color:var(--rausch)"></i></div></div>
-          </div>
-          <div class="ta-meta">
-            <span class="ta-name">Claudine et son fils</span>
-            <span class="ta-role">Famille accompagnée, Nantes · Installation février 2026</span>
-          </div>
-        </div>
-      </article>
+    <div class="testi-mask-hp">
+      <div class="testi-col-wrap"><div class="testi-col-hp c1" id="testiC1HP"></div></div>
+      <div class="testi-col-wrap md-only"><div class="testi-col-hp c2" id="testiC2HP"></div></div>
+      <div class="testi-col-wrap lg-only"><div class="testi-col-hp c3" id="testiC3HP"></div></div>
     </div>
   </div>
 </section>
@@ -1198,7 +1189,7 @@ table.brand-table{ width:100%; border-collapse:collapse; background:#fff; min-wi
 <div class="module-label">[M10] VIDÉO EMBED — Thumbnail + play button overlay<small>Lazy-load iframe YouTube/Vimeo au click pour performance. Mention "durée 2 min" pour set expectations.</small></div>
 
 <section class="section" id="video" style="padding-block:48px;">
-  <div class="container" style="max-width:980px;">
+  <div class="container">
     <span class="mod-tag">En 2 minutes</span>
     <h2 class="mod-h2">Le monte-escalier en vidéo</h2>
     <p class="mod-lede">Une démonstration filmée chez une famille en région parisienne, avec le retour direct des utilisateurs.</p>
@@ -1279,7 +1270,7 @@ table.brand-table{ width:100%; border-collapse:collapse; background:#fff; min-wi
 <div class="module-label">[M01 bis] PAVÉ ÉDITORIAL — Variante long-form, h2 + h3 imbriqués<small>Pour aborder un sujet adjacent qui mérite 200-400 mots sans nécessiter de grille visuelle (entretien, location, alternatives).</small></div>
 
 <section class="section" style="padding-block:48px;">
-  <div class="container" style="max-width:780px;">
+  <div class="container">
     <h2 class="mod-h2">Acheter ou louer son monte-escalier ?</h2>
     <div class="mod-prose">
       <p>La question revient souvent en première visite. La <strong>location</strong> est tentante quand le besoin est temporaire (convalescence post-opératoire, séjour de longue durée chez un proche). Comptez environ <strong>120 à 180 € par mois</strong> pour un modèle droit, avec un engagement minimum de 6 à 12 mois.</p>
@@ -1593,6 +1584,33 @@ table.brand-table{ width:100%; border-collapse:collapse; background:#fff; min-wi
 </footer>
 
 <script>
+  /* M14 témoignages — render 9 cards in 3 cols (port HP infinite scroll) */
+  (function initTestimoniesHP(){
+    const TESTI_M14 = [
+      { q:"Mon père a 84 ans, l'escalier était devenu son cauchemar. Trois devis en quarante-huit heures, MaPrimeAdapt' a couvert plus de la moitié. Il remonte à l'étage tout seul depuis trois mois.", n:"Marie", a:58, c:"Lyon", r:"pour son père (84 ans)", i:"M" },
+      { q:"À soixante-onze ans, je voulais rester chez moi. Le conseiller a pris le temps, j'ai compris chaque aide, signé en confiance. Installation un samedi matin, opérationnel à midi.", n:"Jean-Pierre", a:71, c:"Bordeaux", r:"pour lui-même", i:"JP" },
+      { q:"Maman ne descendait plus le matin. Le diagnostic en quatre questions m'a orientée vers le bon modèle, tournant pour son escalier en colimaçon. Elle est sereine, nous aussi.", n:"Sophie", a:54, c:"Nantes", r:"pour sa mère (82 ans)", i:"S" },
+      { q:"J'avais peur de tomber dans l'escalier depuis ma chute en juin. Avec le monte-escalier, j'ai retrouvé l'usage complet de ma maison. Les caractères du site sont gros, j'ai pu tout faire seule.", n:"Paulette", a:79, c:"Strasbourg", r:"pour elle-même", i:"P" },
+      { q:"Mes parents hésitaient depuis deux ans. L'accompagnement Santé Senior a tout débloqué : visite technique, devis comparés, dossier APA monté. Installation en une journée.", n:"Thomas", a:62, c:"Toulouse", r:"pour ses parents", i:"T" },
+      { q:"Le conseiller m'a rappelée un dimanche soir, c'était urgent. Devis lundi matin, installation deux semaines plus tard. Maman peut enfin remonter dans sa chambre.", n:"Catherine", a:49, c:"Rennes", r:"pour sa mère (86 ans)", i:"C" },
+      { q:"J'ai mis MaPrimeAdapt' et l'APA bout à bout, ça m'a coûté moins de mille cinq cents euros au final. Je traverse les deux étages dix fois par jour, sans appréhension.", n:"Roger", a:76, c:"Marseille", r:"pour lui-même", i:"R" },
+      { q:"On nous a évité une erreur d'orientation : pas besoin d'EHPAD, juste un monte-escalier et un peu d'aide à domicile. Maman a gagné des années dans sa maison.", n:"Émilie", a:51, c:"Lille", r:"pour sa mère (78 ans)", i:"E" },
+      { q:"Mon père a quatre-vingt-neuf ans, c'était devenu vital. Trois jours après la première visite, c'était installé. Il l'utilise dix fois par jour sans une seule plainte.", n:"Vincent", a:64, c:"Dijon", r:"pour son père (89 ans)", i:"V" }
+    ];
+    const esc = s => String(s).replace(/[&<>"']/g, m => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[m]));
+    const stars5 = '<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279L12 18.896l-7.416 4.517 1.48-8.279L0 9.306l8.332-1.151z"/></svg>';
+    const card = t => `<article class="testi-card-hp"><div class="stars">${stars5.repeat(5)}</div><p class="quote">« ${esc(t.q)} »</p><div class="meta"><span class="ss-avatar-initial" style="width:40px;height:40px;font-size:14px;">${esc(t.i)}</span><div class="meta-text"><span class="meta-name">${esc(t.n)}, ${t.a} ans</span><span class="meta-detail">${esc(t.c)} · ${esc(t.r)}</span></div></div></article>`;
+    const render = (id, list) => {
+      const el = document.getElementById(id);
+      if (el) el.innerHTML = [...list, ...list].map(card).join('');
+    };
+    render('testiC1HP', TESTI_M14.slice(0, 3));
+    render('testiC2HP', TESTI_M14.slice(3, 6));
+    render('testiC3HP', TESTI_M14.slice(6, 9));
+    const ratingStars = document.getElementById('testiStarsHP');
+    if (ratingStars) ratingStars.innerHTML = stars5.repeat(5);
+  })();
+
   if (window.lucide) lucide.createIcons();
 
   /* M20 — accordion feature : swap image au toggle */
